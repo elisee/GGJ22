@@ -17,4 +17,4 @@ func _ready():
 
 
 func _on_Player_progress(newProgress):
-	$ProgressBar.value = newProgress
+	$Root/ProgressBar.value = newProgress
