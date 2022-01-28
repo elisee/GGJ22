@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Models/Table_01.glb" type="PackedScene" id=2]
+[ext_resource path="res://Models/Chair_01.glb" type="PackedScene" id=3]
 
 [node name="Spatial" type="Spatial"]
 
@@ -10,22 +12,65 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0 )
 [node name="LivingRoom" type="Node" parent="."]
 
 [node name="CSGBox" type="CSGBox" parent="LivingRoom"]
+transform = Transform( 4.12859, -0.00293751, -0.00105604, 0.0121244, 0.999995, -0.000820127, 0.00424431, 0.000793541, 1.02959, 0, 0, 0 )
 use_collision = true
 width = 20.0
-depth = 20.0
+depth = 77.5763
+
+[node name="CSGBox6" type="CSGBox" parent="LivingRoom"]
+transform = Transform( 4.29149, -0.00305341, -0.00109771, 0.0121206, 0.999681, -0.00081987, 0.00466757, 0.000872676, 1.13226, 0, 42.4715, 0 )
+use_collision = true
+width = 20.0
+depth = 77.5763
 
 [node name="CSGBox2" type="CSGBox" parent="LivingRoom"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 9 )
+transform = Transform( 4.12859, -0.00293751, -0.00105604, 0.00424431, 0.000793591, 1.02959, -0.0121244, -0.999995, 0.00082016, 0, 21.2822, -41 )
 use_collision = true
-width = 10.0
-depth = 10.0
+width = 20.0
+depth = 42.1125
 
 [node name="CSGBox3" type="CSGBox" parent="LivingRoom"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 18 )
+transform = Transform( 4.12859, -0.00293751, -0.00105604, 0.00424431, 0.000793591, 1.02959, -0.0121244, -0.999995, 0.00082016, -13.8009, 21.2822, 40.326 )
 use_collision = true
-width = 10.0
-depth = 10.0
+width = 20.0
+depth = 42.1125
+
+[node name="CSGBox4" type="CSGBox" parent="LivingRoom"]
+transform = Transform( 0.0121243, 0.999995, -0.00082016, 0.00424431, 0.000793591, 1.02959, 4.12859, -0.00293746, -0.00105604, -41.922, 21.2822, 0.903841 )
+use_collision = true
+width = 20.0
+depth = 42.1125
+
+[node name="CSGBox5" type="CSGBox" parent="LivingRoom"]
+transform = Transform( 0.0121243, 0.999995, -0.00082016, 0.00424431, 0.000793591, 1.02959, 4.12859, -0.00293746, -0.00105604, 41.0375, 21.2822, 0.903841 )
+use_collision = true
+width = 20.0
+depth = 42.1125
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
-transform = Transform( 1, 0, 0, 0, -0.5, 0.866025, 0, -0.866025, -0.5, 0, 18, -4 )
+transform = Transform( 1, 0, 0, 0, -0.5, 0.866025, 0, -0.866025, -0.5, -19.438, 16.1941, -4 )
 shadow_enabled = true
+
+[node name="DirectionalLight2" type="DirectionalLight" parent="."]
+transform = Transform( -0.770313, 0.552235, 0.318833, 0, -0.5, 0.866025, 0.637666, 0.667111, 0.385157, 0, 18, -4 )
+shadow_enabled = true
+
+[node name="OmniLight" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.9862, 16.4363, 2 )
+light_energy = 1.398
+omni_range = 16.3416
+
+[node name="BakedLightmap" type="BakedLightmap" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18, -4 )
+extents = Vector3( 55, 39, 45 )
+
+[node name="Table_01" parent="." instance=ExtResource( 2 )]
+transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, -13.0816, 1, 1.83187 )
+
+[node name="Table_02" parent="." instance=ExtResource( 2 )]
+transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 31.4209, 1, 1.83187 )
+
+[node name="Chair_01" parent="." instance=ExtResource( 3 )]
+transform = Transform( -1.35491, 0, 9.90779, 0, 10, 0, -9.90779, 0, -1.35491, -14.3729, 1, -6.92319 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
