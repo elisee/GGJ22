@@ -8,8 +8,8 @@ var max_terminal_velocity : float = 54
 var jump_power : float = 20
 
 var mouse_sensitivity = 0.3
-var min_pitch : float = -90
-var max_pitch : float = 90
+var min_pitch : float = -70
+var max_pitch : float = 70
 
 var velocity : Vector3
 var y_velocity : float
@@ -36,7 +36,20 @@ func _process(delta):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func _physics_process(delta):
+	handle_look(delta)
 	handle_movement(delta)
+
+func handle_look(delta):
+	if Input.is_action_pressed("look_up"):
+		camera_pivot.rotation_degrees.x -= delta * 200
+	if Input.is_action_pressed("look_down"):
+		camera_pivot.rotation_degrees.x += delta * 200
+	camera_pivot.rotation_degrees.x = clamp(camera_pivot.rotation_degrees.x, min_pitch, max_pitch)
+
+	if Input.is_action_pressed("look_left"):
+		rotation_degrees.y += delta * 200
+	if Input.is_action_pressed("look_right"):
+		rotation_degrees.y -= delta * 200
 
 func handle_movement(delta):
 	var direction = Vector3()
