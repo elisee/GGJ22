@@ -42,7 +42,6 @@ func _process(delta):
 	if (Input.is_action_just_pressed("jump")):
 		progress = clamp(progress + 10, 0, 100)
 		emit_signal("progress", progress)
-	
 
 func _physics_process(delta):
 	handle_look(delta)
