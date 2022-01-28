@@ -5,7 +5,7 @@ var acceleration : float = 15
 var air_acceleration : float = 5
 var gravity : float = 0.98
 var max_terminal_velocity : float = 54
-var jump_power : float = 20
+var jump_power : float = 25
 
 var mouse_sensitivity = 0.3
 var look_speed = 200
