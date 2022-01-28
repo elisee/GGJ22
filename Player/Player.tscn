@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
+[ext_resource path="res://HUD/HUD.tscn" type="PackedScene" id=2]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.7
@@ -32,3 +33,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0 )
 spring_length = 10.0
 
 [node name="Camera" type="Camera" parent="CameraPivot/CameraBoom"]
+
+[node name="HUD" parent="." instance=ExtResource( 2 )]
+
+[connection signal="progress" from="." to="HUD" method="_on_Player_progress"]

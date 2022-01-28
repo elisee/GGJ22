@@ -15,6 +15,9 @@ var max_pitch : float = 70
 var velocity : Vector3
 var y_velocity : float
 
+var progress = 0;
+signal progress(newProgress)
+
 onready var camera_pivot = $CameraPivot
 onready var camera = $CameraPivot/CameraBoom/Camera
 
@@ -35,6 +38,11 @@ func _input(event):
 func _process(delta):
 	if Input.is_action_just_pressed("ui_cancel"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	
+	if (Input.is_action_just_pressed("jump")):
+		progress = clamp(progress + 10, 0, 100)
+		emit_signal("progress", progress)
+	
 
 func _physics_process(delta):
 	handle_look(delta)
