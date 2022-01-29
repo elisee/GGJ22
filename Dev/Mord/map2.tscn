@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Props/Couch.tscn" type="PackedScene" id=2]
@@ -16,6 +16,8 @@
 [ext_resource path="res://Props/Bed.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Props/Chair_01.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Props/Bin.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Props/CoffeeTable.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Props/Can.tscn" type="PackedScene" id=18]
 
 [sub_resource type="SpatialMaterial" id=3]
 albedo_color = Color( 0.25098, 0.129412, 0.129412, 1 )
@@ -111,16 +113,22 @@ transform = Transform( 0.566679, 0, -0.569267, 0, 1, 0, 0.823938, 0, 0.391524, -
 [node name="Bin" parent="Furnitures/Desk Corner" instance=ExtResource( 16 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.400534, 8.58307e-06, -7.56631 )
 
+[node name="Can" parent="Furnitures/Desk Corner" instance=ExtResource( 18 )]
+transform = Transform( 1.39557, 0, 0, 0, 1.74552, 0, 0, 0, 1.58004, -2.87884, 8.82109, -7.01908 )
+
 [node name="TV Corner" type="Node" parent="Furnitures"]
 
 [node name="Televisionv04" parent="Furnitures/TV Corner" instance=ExtResource( 9 )]
-transform = Transform( -0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, -0.965926, 20.1297, 5.38982, 29.1968 )
+transform = Transform( -0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, -0.965926, 20.0592, 7.93211, 29.1804 )
 
 [node name="TVFurniture" parent="Furnitures/TV Corner" instance=ExtResource( 3 )]
-transform = Transform( 9.99985, 0.0511194, -0.0174359, -0.0511912, 9.99978, -0.04138, 0.017224, 0.0414686, 9.9999, 19.5656, -0.0850025, 28.6244 )
+transform = Transform( 17.7922, 0.0909539, -0.0310227, -0.0838471, 16.3788, -0.0677771, 0.017224, 0.0414686, 9.9999, 19.5656, -0.0850025, 28.6244 )
 
 [node name="Couch" parent="Furnitures/TV Corner" instance=ExtResource( 2 )]
 transform = Transform( 1.75706, -1.53607e-07, 0, 7.92838e-08, 0.906901, 0, 0, 0, 1, 9.45487, 7.37303, -1.07922 )
+
+[node name="CoffeeTable" parent="Furnitures/TV Corner" instance=ExtResource( 17 )]
+transform = Transform( 0.0619785, 0, -1.09215, 0, 1.47237, 0, 1.09215, 0, 0.0619785, 16.9417, -0.0614958, 11.4098 )
 
 [node name="Bed Corner" type="Node" parent="Furnitures"]
 
@@ -400,9 +408,6 @@ height = 6.0
 depth = 24.0
 material = SubResource( 15 )
 
-[node name="Vacuum" parent="." instance=ExtResource( 11 )]
-transform = Transform( -1, 0, 0, 0, -1, 0, 0, 0, 1, -20.9133, 1.40776, 24.4417 )
-
 [node name="Structures" type="Node" parent="."]
 
 [node name="Walls" parent="Structures" instance=ExtResource( 7 )]
@@ -491,3 +496,6 @@ light_bake_mode = 2
 shadow_enabled = true
 omni_range = 14.9391
 omni_attenuation = 2.0
+
+[node name="Vacuum" parent="WorldEnvironment2" instance=ExtResource( 11 )]
+transform = Transform( -1, 0, 0, 0, -1, 0, 0, 0, 1, 5.76841, 1.40776, 12.2529 )
