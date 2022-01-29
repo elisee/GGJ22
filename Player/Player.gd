@@ -23,7 +23,7 @@ var progress = 0;
 signal progress(newProgress)
 
 onready var camera_pivot = $CameraPivot
-onready var camera = $CameraPivot/CameraBoom/Camera
+onready var camera = $CameraPivot/Camera
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
