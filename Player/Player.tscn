@@ -42,19 +42,19 @@ process_mode = 1
 
 [node name="HUD" parent="." instance=ExtResource( 2 )]
 
-[node name="soundPlayer_rat_idle" type="AudioStreamPlayer3D" parent="."]
+[node name="SoundPlayerIdle" type="AudioStreamPlayer3D" parent="."]
 
-[node name="soundPlayer_rat_land" type="AudioStreamPlayer" parent="."]
+[node name="SoundPlayerLand" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
 volume_db = 1.0
 mix_target = 2
 
-[node name="soundPlayer_rat_walk" type="AudioStreamPlayer" parent="."]
+[node name="SoundPlayerWalk" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
 volume_db = 1.0
 mix_target = 2
 
-[node name="soundPlayer_rat_jump" parent="." instance=ExtResource( 14 )]
+[node name="SoundPlayerJump" parent="." instance=ExtResource( 14 )]
 volume_db = -9.756
 mix_target = 2
 audio_files = [ ExtResource( 6 ), ExtResource( 9 ), ExtResource( 12 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 7 ), ExtResource( 13 ), ExtResource( 8 ), ExtResource( 15 ), ExtResource( 15 ), ExtResource( 15 ), ExtResource( 15 ), ExtResource( 15 ) ]

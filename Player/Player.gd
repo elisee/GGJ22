@@ -105,8 +105,8 @@ func handle_movement(delta):
 	
 	if Input.is_action_just_pressed("jump"):
 		wantsToJumpTimer = 0.0
-		$soundPlayer_rat_walk.stop()
-		$soundPlayer_rat_jump.play_random()
+		$SoundPlayerWalk.stop()
+		$SoundPlayerJump.play_random()
 	else:
 		wantsToJumpTimer += delta
 		
@@ -123,11 +123,11 @@ func handle_movement(delta):
 		if fallingTimer == 0:
 			if direction.length() == 0:
 				animPlayer.play("Idle")
-				$soundPlayer_rat_walk.stop()
+				$SoundPlayerWalk.stop()
 			else:
 				animPlayer.play("Run", -1, 1.6)
-				if not $soundPlayer_rat_walk.is_playing():	
-					$soundPlayer_rat_walk.play()
+				if not $SoundPlayerWalk.is_playing():	
+					$SoundPlayerWalk.play()
 		elif fallingTimer > 0.5:
 			var instance = landParticlesScene.instance()
 			get_tree().get_current_scene().add_child(instance)
