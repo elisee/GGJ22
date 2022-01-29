@@ -4,20 +4,21 @@ var point_index = 0
 var speed = 3
 var active = false
 
-onready var vacuum_path = get_node("/root/Spatial/VacuumPath") as Path
+onready var player = get_tree().get_nodes_in_group("player")[0]
+onready var vacuum_path = get_tree().get_nodes_in_group("vacuum_path")[0] as Path
 
 func can_interact():
-	return get_node("/root/Spatial/Player").get_item() == "Battery"
+	return player.get_item() == "Battery"
 
 func interact():
 	.interact()
 	
-	var light = $Vacuum_Light as MeshInstance
+	var light = $Vacuum_Light
 	var mat = light.get_active_material(1) as SpatialMaterial
 	mat.set_albedo(Color(0, 1, 0))
 	
-	get_node("Battery").visible = true
-	get_node("/root/Spatial/Player").increment_progress()
+	$Battery.visible = true
+	player.increment_progress()
 	self.active = true
 
 func _physics_process(delta):

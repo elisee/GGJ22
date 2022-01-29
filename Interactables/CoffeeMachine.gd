@@ -1,6 +1,8 @@
 extends BaseInteractable
 
+onready var player = get_tree().get_nodes_in_group("player")[0]
+
 func interact():
 	.interact()
 	$Particles.emitting = true
-	get_node("/root/Spatial/Player").increment_progress()
+	player.increment_progress()

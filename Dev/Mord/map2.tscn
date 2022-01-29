@@ -108,7 +108,7 @@ transform = Transform( -0.788741, -5.3741e-08, 0.614726, 0, 1, 8.74228e-08, -0.6
 [node name="Vacuum" parent="." instance=ExtResource( 11 )]
 transform = Transform( -1, 0, 0, 0, 1, 8.74228e-08, 0, 8.74228e-08, -1, -20, 0, 25 )
 
-[node name="VacuumPath" type="Path" parent="."]
+[node name="VacuumPath" type="Path" parent="." groups=["vacuum_path"]]
 curve = SubResource( 20 )
 
 [node name="Furnitures" type="Node" parent="."]
