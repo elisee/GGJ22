@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Props/Television.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Props/Televisionv02.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Props/TVWindowBlinder.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Props/Vacuum.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Props/Box.tscn" type="PackedScene" id=12]
 
 [sub_resource type="Environment" id=1]
 background_energy = 0.0
@@ -144,3 +145,6 @@ omni_attenuation = 1.93187
 
 [node name="Vacuum" parent="." instance=ExtResource( 11 )]
 transform = Transform( -1, 0, 0, 0, -1, 0, 0, 0, 1, 23.0867, 1.60776, 18.4417 )
+
+[node name="Box" parent="." instance=ExtResource( 12 )]
+transform = Transform( 0.996021, 0, 0.0891203, 0, 1, 0, -0.0891203, 0, 0.996021, 27.1608, -0.0818107, 29.4225 )
