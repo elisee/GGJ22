@@ -1,4 +1,4 @@
-extends Node
+extends Spatial
 class_name BaseInteractable
 
 export var label = "LABEL"
