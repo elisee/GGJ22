@@ -40,4 +40,4 @@ transform = Transform( 0.300955, 0, -0.953638, 0, 1, 0, 0.953638, 0, 0.300955, -
 transform = Transform( -0.56586, 0, 0.824502, 0, 1, 0, -0.824502, 0, -0.56586, -11.8449, 10.3141, -0.481254 )
 
 [node name="Televisionv04" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.93851, 1, -4.18483 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.93851, 1, -9.86994 )
