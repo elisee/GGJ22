@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Props/Couch.tscn" type="PackedScene" id=2]
@@ -20,6 +20,8 @@
 [ext_resource path="res://Props/Can.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Props/Remote.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Props/Blind_Switch.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Props/CurtainRod.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Props/CoffeeMachine.tscn" type="PackedScene" id=22]
 
 [sub_resource type="SpatialMaterial" id=3]
 albedo_color = Color( 0.25098, 0.129412, 0.129412, 1 )
@@ -91,7 +93,7 @@ normal_bias = 0.0
 [node name="Spatial" type="Spatial"]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -31.9158, 7.17111, 42.0822 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -47.082, 18.3946, 42.0822 )
 
 [node name="Furnitures" type="Node" parent="."]
 
@@ -136,7 +138,7 @@ transform = Transform( 0.0619785, 0, -1.09215, 0, 1.47237, 0, 1.09215, 0, 0.0619
 transform = Transform( 0.347738, 0, -0.937592, 0, 1, 0, 0.937592, 0, 0.347738, 20.3998, 4.35562, 11.4049 )
 
 [node name="Blind_Switch" parent="Furnitures/TV Corner" instance=ExtResource( 20 )]
-transform = Transform( -8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, 30.6793, 12.3269, -5.49633 )
+transform = Transform( -8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, 30.6793, 10.5216, -6.30543 )
 
 [node name="Shelf 1" type="CSGBox" parent="Furnitures/TV Corner"]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 29.4512, 9.11769, 0.0967503 )
@@ -146,16 +148,31 @@ height = 0.2
 depth = 18.0
 
 [node name="Book_01" parent="Furnitures/TV Corner/Shelf 1" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0.6 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0.819206 )
+
+[node name="Book_07" parent="Furnitures/TV Corner/Shelf 1" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0846481, 0.1, -0.781251 )
+
+[node name="Book_08" parent="Furnitures/TV Corner/Shelf 1" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0558662, 0.1, -1.44479 )
 
 [node name="Book_02" parent="Furnitures/TV Corner/Shelf 1" instance=ExtResource( 12 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 1.4 )
+
+[node name="Book_05" parent="Furnitures/TV Corner/Shelf 1" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0.260935 )
+
+[node name="Book_06" parent="Furnitures/TV Corner/Shelf 1" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.226988, 0.1, -0.181208 )
+
+[node name="Book_09" parent="Furnitures/TV Corner/Shelf 1" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.500391, 0.1, -1.99542 )
 
 [node name="Book_04" parent="Furnitures/TV Corner/Shelf 1" instance=ExtResource( 12 )]
 transform = Transform( 0.816279, 0.577658, 2.52502e-08, 0, -4.37114e-08, 1, 0.577658, -0.816279, -3.56807e-08, 0, 0.400635, 4.67028 )
 
 [node name="Book_03" parent="Furnitures/TV Corner/Shelf 1" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 0.573576, -0.819152, 0, 0.819152, 0.573576, 0, 0.3, -2.4 )
+transform = Transform( 1, 0, 0, 0, 0.573576, -0.819152, 0, 0.819152, 0.573576, 0, 0.3, -4.94789 )
 
 [node name="Shelf 2" type="CSGBox" parent="Furnitures/TV Corner"]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 29.4512, 12.9925, 14.8686 )
@@ -304,6 +321,16 @@ use_collision = true
 width = 6.0
 height = 4.0
 depth = 0.5
+
+[node name="Plant" type="CSGCylinder" parent="Furnitures/Bed Corner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -47.258, 16.8925, 43.6862 )
+use_collision = true
+radius = 2.353
+
+[node name="Plant2" type="CSGCylinder" parent="Furnitures/Bed Corner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -47.3017, 15.9444, 36.6424 )
+use_collision = true
+radius = 2.353
 
 [node name="Kitchen Corner" type="Spatial" parent="Furnitures"]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.1, 0, 51 )
@@ -481,6 +508,12 @@ height = 6.0
 depth = 24.0
 material = SubResource( 15 )
 
+[node name="CurtainRod" parent="Furnitures/Kitchen Corner" instance=ExtResource( 21 )]
+transform = Transform( 1.4, 0, -1.75998e-08, 0, 1.4, 0, 1.75998e-08, 0, 1.4, -6.3945, 19.887, -51.391 )
+
+[node name="CoffeeMachine" parent="Furnitures/Kitchen Corner" instance=ExtResource( 22 )]
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -22.2791, 8.59347, -41.1567 )
+
 [node name="Structures" type="Node" parent="."]
 
 [node name="Walls" parent="Structures" instance=ExtResource( 7 )]
@@ -540,7 +573,7 @@ omni_attenuation = 2.21914
 omni_shadow_mode = 0
 
 [node name="Light work" type="OmniLight" parent="WorldEnvironment2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5161, 15.5997, 5.07988 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.6433, 15.5997, 50.3475 )
 light_energy = 0.283
 light_indirect_energy = 0.0
 light_specular = 2.226

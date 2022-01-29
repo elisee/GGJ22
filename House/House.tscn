@@ -22,7 +22,7 @@ tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = PoolRealArray( 0, 1, 0, 9.57508, 36.1639, 0, 0, 0, 1, 1, 1, 1, 2, 1, 0, 9.57508, 73.1992, 0, 0, 0, 1, 1, 1, 1 )
 
-[node name="Spatial" type="Spatial"]
+[node name="Spatial2" type="Spatial"]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 24 )
