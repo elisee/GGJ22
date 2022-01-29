@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Props/Couch.tscn" type="PackedScene" id=2]
@@ -23,6 +23,9 @@
 [ext_resource path="res://Props/CurtainRod.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Props/CoffeeMachine.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Props/Battery.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Props/Blinds.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Props/Window.tscn" type="PackedScene" id=25]
+[ext_resource path="res://Props/Man.tscn" type="PackedScene" id=26]
 
 [sub_resource type="Curve3D" id=20]
 _data = {
@@ -63,7 +66,7 @@ albedo_color = Color( 0.901961, 0.890196, 0.890196, 1 )
 [sub_resource type="SpatialMaterial" id=15]
 albedo_color = Color( 0.317647, 0.101961, 0.101961, 1 )
 
-[sub_resource type="Environment" id=18]
+[sub_resource type="Environment" id=21]
 background_energy = 0.0
 ambient_light_color = Color( 0.160784, 0.168627, 0.345098, 1 )
 ambient_light_energy = 0.15
@@ -72,30 +75,48 @@ fog_color = Color( 0.160784, 0.419608, 0.690196, 1 )
 fog_sun_color = Color( 0.513726, 0.301961, 0.588235, 1 )
 fog_sun_amount = 0.87
 fog_depth_end = 288.7
-fog_depth_curve = 1.41421
+fog_depth_curve = 1.8025
+fog_transmit_enabled = true
+fog_transmit_curve = 1.62451
+fog_height_min = -367.4
 fog_height_max = -528.3
+tonemap_mode = 4
+tonemap_exposure = 1.3
 auto_exposure_enabled = true
-auto_exposure_scale = 1.61
-auto_exposure_min_luma = 0.61
-auto_exposure_max_luma = 5.59
+auto_exposure_scale = 1.04
+auto_exposure_min_luma = 0.2
 ssao_enabled = true
 ssao_radius = 2.21
 ssao_radius2 = 0.01
 ssao_intensity2 = 2.01
 ssao_edge_sharpness = 0.38
+dof_blur_far_enabled = true
+dof_blur_far_distance = 60.4
+dof_blur_far_transition = 57.4
+dof_blur_far_amount = 0.09
+dof_blur_far_quality = 2
 glow_enabled = true
-glow_intensity = 0.25
-glow_strength = 1.11
+glow_intensity = 0.46
+glow_strength = 0.74
 glow_bloom = 0.03
 
-[sub_resource type="GIProbeData" id=19]
+[sub_resource type="GIProbeData" id=22]
 bounds = AABB( -45.6668, -16.0468, -48.6629, 91.3336, 32.0936, 97.3258 )
 cell_size = 0.380179
 to_cell_xform = Transform( 2.63034, 0, 0, 0, 2.63034, 0, 0, 0, 2.63034, 120.119, 42.2085, 128 )
-dynamic_data = PoolIntArray( 0, 9, 256, 128, 256, 1, 0, 0, 0, 0, 0, 0, 7, 0, 9, 3614, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 8355711, 0 )
+dynamic_data = PoolIntArray( 0, 9, 256, 128, 256, 1, 0, 0, 0, 0, 0, 0, 7, 0, 1, 3599, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 8355711, 0 )
 dynamic_range = 4
 bias = 1.5
 normal_bias = 0.0
+
+[sub_resource type="QuadMesh" id=23]
+
+[sub_resource type="SpatialMaterial" id=24]
+emission_enabled = true
+emission = Color( 0.996078, 0.788235, 0.54902, 1 )
+emission_energy = 1.0
+emission_operator = 0
+emission_on_uv2 = false
 
 [node name="Spatial" type="Spatial"]
 
@@ -127,6 +148,9 @@ transform = Transform( -0.0224284, 0, 0.752103, 0, 0.672589, 0, -0.797611, 0, 0.
 [node name="Box3" parent="Furnitures/Desk Corner" instance=ExtResource( 13 )]
 transform = Transform( 0.0413451, 7.5899e-09, 0.534656, -5.51704e-08, -0.649665, 1.34889e-08, 0.541327, -4.68873e-08, -0.0441678, -24.0824, 14.5152, -6.03253 )
 
+[node name="Box4" parent="Furnitures/Desk Corner" instance=ExtResource( 13 )]
+transform = Transform( 0.0413451, 7.5899e-09, 0.534656, 0.369422, -0.00534727, -0.0301418, 0.00360301, 0.358521, -0.000293981, -48.2778, 17.7766, -11.2607 )
+
 [node name="Chair_01" parent="Furnitures/Desk Corner" instance=ExtResource( 15 )]
 transform = Transform( 0.566679, 0, -0.569267, 0, 1, 0, 0.823938, 0, 0.391524, -7.80187, -0.0082612, 0.834502 )
 
@@ -154,7 +178,7 @@ transform = Transform( 0.0619785, 0, -1.09215, 0, 1.47237, 0, 1.09215, 0, 0.0619
 transform = Transform( 0.347738, 0, -0.937592, 0, 1, 0, 0.937592, 0, 0.347738, 20.3998, 4.35562, 11.4049 )
 
 [node name="Blind_Switch" parent="Furnitures/TV Corner" instance=ExtResource( 20 )]
-transform = Transform( -8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, 30.6793, 10.5216, -6.30543 )
+transform = Transform( -8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, -49.8437, 11.6783, 49.7255 )
 
 [node name="Shelf 1" type="CSGBox" parent="Furnitures/TV Corner"]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 29.4512, 9.11769, 0.0967503 )
@@ -413,6 +437,15 @@ height = 5.87435
 depth = 5.00541
 material = SubResource( 12 )
 
+[node name="OmniLight" type="OmniLight" parent="Furnitures/Kitchen Corner/Oven"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.343811, 7.34571, -23.3993 )
+light_energy = 0.1
+shadow_enabled = true
+omni_range = 4.11765
+
+[node name="Man" parent="Furnitures/Kitchen Corner/Oven/OmniLight" instance=ExtResource( 26 )]
+transform = Transform( -0.0323702, 0, -0.999476, 0, 1, 0, 0.999476, 0, -0.0323702, 73.1312, -11.6629, 54.1748 )
+
 [node name="Stool2" type="CSGCylinder" parent="Furnitures/Kitchen Corner"]
 transform = Transform( 0.866025, 0, 0.5, 0, 0.842914, 0, -0.5, 0, 0.866025, 8.92468, 6.29655, -34.2153 )
 use_collision = true
@@ -507,7 +540,7 @@ transform = Transform( 0.882102, -0.397062, 2.57189e-07, 3.18207e-07, -4.37114e-
 transform = Transform( 0.994498, 0.0882984, 2.62166e-07, 3.18207e-07, -4.37114e-08, -1.18636, -0.104754, 0.838277, -7.1568e-08, -0.0625229, 1.02006, -0.940838 )
 
 [node name="Book_03" parent="Furnitures/Kitchen Corner/Stool3" instance=ExtResource( 4 )]
-transform = Transform( 0.987724, -0.131672, 2.71756e-07, 3.18207e-07, -4.37114e-08, -1.18636, 0.156211, 0.832566, -1.27572e-09, 0.243145, 1.78687, -1.18087 )
+transform = Transform( 0.987724, -0.131672, 2.71756e-07, 3.18207e-07, -4.37114e-08, -1.18636, 0.156211, 0.832566, -1.27572e-09, 0.243147, 1.78687, -1.18087 )
 
 [node name="Fridge" type="CSGBox" parent="Furnitures/Kitchen Corner"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.6455, 9.13239, -47.9516 )
@@ -530,6 +563,12 @@ transform = Transform( 1.4, 0, -1.75998e-08, 0, 1.4, 0, 1.75998e-08, 0, 1.4, -6.
 [node name="CoffeeMachine" parent="Furnitures/Kitchen Corner" instance=ExtResource( 22 )]
 transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -22.2791, 8.59347, -41.1567 )
 
+[node name="Window" parent="." instance=ExtResource( 25 )]
+transform = Transform( 0.000141495, 0.000397265, 1, 0.000455087, 1.076, -0.000338866, -0.963834, 0.000475211, 0.000125845, -50.7518, 11.0732, 57.5074 )
+
+[node name="Blinds" parent="." instance=ExtResource( 24 )]
+transform = Transform( -4.37114e-08, 0, -1, 0.0121123, 0.999927, -5.29445e-10, 0.999927, -0.0121123, -4.37082e-08, -51.5425, 11.1774, 57.8911 )
+
 [node name="Structures" type="Node" parent="."]
 
 [node name="Walls" parent="Structures" instance=ExtResource( 7 )]
@@ -544,22 +583,20 @@ transform = Transform( 9.99985, 0.0511194, -0.0174359, -0.0511912, 9.99978, -0.0
 [node name="TVWindowBlinder" parent="Structures" instance=ExtResource( 10 )]
 transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, -8.877, -0.00407219, -5.53841 )
 
-[node name="WorldEnvironment2" type="WorldEnvironment" parent="."]
-environment = SubResource( 18 )
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 21 )
 
-[node name="GIProbe" type="GIProbe" parent="WorldEnvironment2"]
+[node name="GIProbe" type="GIProbe" parent="WorldEnvironment"]
 transform = Transform( 0.999985, 0.00511194, -0.00174359, -0.00511912, 0.999978, -0.004138, 0.0017224, 0.00414686, 0.99999, -7.73279, 13.2854, 34.2499 )
-visible = false
 subdiv = 2
 extents = Vector3( 45.6668, 16.0468, 48.6629 )
 propagation = 1.0
-data = SubResource( 19 )
+data = SubResource( 22 )
 
-[node name="DirectionalLight" type="DirectionalLight" parent="WorldEnvironment2"]
-transform = Transform( -0.828184, -0.139267, 0.542878, 0.145577, 0.881934, 0.448331, -0.54122, 0.450331, -0.710129, 28.503, 37.4945, -22.8923 )
-visible = false
+[node name="DirectionalLight" type="DirectionalLight" parent="WorldEnvironment"]
+transform = Transform( -0.928258, -0.0350106, 0.370285, 0.142962, 0.885493, 0.442113, -0.343363, 0.463331, -0.816961, 28.503, 13.1199, -4.72262 )
 light_color = Color( 0.8, 0.505882, 0.392157, 1 )
-light_energy = 7.752
+light_energy = 3.789
 light_indirect_energy = 4.523
 light_specular = 3.567
 light_bake_mode = 0
@@ -568,54 +605,70 @@ shadow_bias = 0.65
 shadow_contact = 1.56
 directional_shadow_blend_splits = true
 directional_shadow_bias_split_scale = 0.112
-directional_shadow_max_distance = 269.6
+directional_shadow_max_distance = 230.5
 
-[node name="OmniLight2" type="OmniLight" parent="WorldEnvironment2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40.1778, 13.7856, 58.9218 )
-light_energy = 0.6
+[node name="Light Kitchen Soft" type="OmniLight" parent="WorldEnvironment"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -28.7707, 15.1607, 56.2802 )
+light_energy = 0.15
 light_indirect_energy = 6.565
 light_specular = 0.0
 shadow_enabled = true
-omni_range = 24.929
+omni_range = 24.1989
 omni_attenuation = 2.0
 
-[node name="Light Bed" type="OmniLight" parent="WorldEnvironment2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -32.3708, 15.5997, 5.07988 )
+[node name="Light Bed" type="OmniLight" parent="WorldEnvironment"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -34.2999, 13.1227, 5.07988 )
 light_energy = 0.283
 light_indirect_energy = 0.0
 light_specular = 2.226
 shadow_enabled = true
-omni_range = 24.764
+omni_range = 22.1986
 omni_attenuation = 2.21914
 omni_shadow_mode = 0
 
-[node name="Light work" type="OmniLight" parent="WorldEnvironment2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.6433, 15.5997, 50.3475 )
-light_energy = 0.283
+[node name="Light Bed2" type="OmniLight" parent="WorldEnvironment"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.56919, 12.0971, 53.3271 )
+light_color = Color( 0.364706, 0.223529, 0.333333, 1 )
+light_energy = 0.839
 light_indirect_energy = 0.0
-light_specular = 2.226
-shadow_enabled = true
-omni_range = 105.21
-omni_attenuation = 2.21914
-omni_shadow_mode = 0
-
-[node name="Light TV" type="OmniLight" parent="WorldEnvironment2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.4772, 7.40618, 27.8401 )
-light_color = Color( 0, 0.423529, 0.917647, 1 )
-light_energy = 12.638
-light_indirect_energy = 1.278
 light_specular = 0.0
+shadow_enabled = true
+omni_range = 23.4494
+omni_attenuation = 2.21914
+omni_shadow_mode = 0
+
+[node name="Light TV" type="OmniLight" parent="WorldEnvironment"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.4772, 11.1657, 25.7869 )
+light_color = Color( 0, 0.270588, 0.917647, 1 )
+light_energy = 4.618
+light_indirect_energy = 1.695
+light_specular = 2.365
 shadow_enabled = true
 shadow_color = Color( 0.356863, 0.0901961, 0.196078, 1 )
 omni_range = 24.9988
 omni_attenuation = 1.93187
 
-[node name="OmniLight" type="OmniLight" parent="WorldEnvironment2"]
-transform = Transform( -1, 0, 0, 0, -1, 0, 0, 0, 1, 18.1163, 12.9631, -2.54755 )
+[node name="OmniLight" type="OmniLight" parent="WorldEnvironment"]
+transform = Transform( -1, 0, 0, 0, -1, 0, 0, 0, 1, 18.1163, 10.098, -2.54755 )
 light_color = Color( 0.278431, 0.14902, 0.145098, 1 )
-light_energy = 7.042
+light_energy = 11.296
 light_specular = 0.0
 light_bake_mode = 2
 shadow_enabled = true
-omni_range = 14.9391
+omni_range = 15.1417
 omni_attenuation = 2.0
+
+[node name="SpotLight" type="SpotLight" parent="WorldEnvironment"]
+transform = Transform( -0.278931, 0.279616, -0.918702, -0.0241461, 0.954326, 0.29779, 0.960008, 0.105246, -0.259439, -61.9099, 17.3223, 56.6441 )
+light_color = Color( 0.984314, 0.807843, 0.282353, 1 )
+light_energy = 6.704
+light_specular = 4.117
+shadow_enabled = true
+spot_range = 61.1029
+spot_angle = 41.8946
+
+[node name="CSGMesh" type="CSGMesh" parent="."]
+transform = Transform( 60.7737, 0, 0, 0, 53.8849, 0, 0, 0, 1, 29.2893, 11.9673, -14.4617 )
+layers = 4
+mesh = SubResource( 23 )
+material = SubResource( 24 )

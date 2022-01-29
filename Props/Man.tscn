@@ -3,3 +3,7 @@
 [ext_resource path="res://Models/Man.glb" type="PackedScene" id=1]
 
 [node name="Man" instance=ExtResource( 1 )]
+transform = Transform( 2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 0, 0 )
+
+[node name="Human" parent="." index="0"]
+transform = Transform( 2.8, 0, 0, 0, 2.8, 0, 0, 0, 2.8, -0.164513, 3.8147e-06, -0.072731 )

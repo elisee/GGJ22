@@ -36,6 +36,7 @@ transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.01
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 2.6 )
 current = true
 fov = 60.0
+far = 300.8
 margin = 2.0
 process_mode = 1
 
