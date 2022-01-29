@@ -28,11 +28,8 @@ material/0 = SubResource( 3 )
 
 [node name="CameraPivot" type="Spatial" parent="."]
 
-[node name="CameraBoom" type="SpringArm" parent="CameraPivot"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
-spring_length = 4.0
-
-[node name="Camera" type="Camera" parent="CameraPivot/CameraBoom"]
+[node name="Camera" type="ClippedCamera" parent="CameraPivot"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 6 )
 fov = 60.0
 
 [node name="HUD" parent="." instance=ExtResource( 2 )]
