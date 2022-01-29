@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Props/Couch.tscn" type="PackedScene" id=2]
@@ -22,6 +22,13 @@
 [ext_resource path="res://Props/Blind_Switch.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Props/CurtainRod.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Props/CoffeeMachine.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Props/Battery.tscn" type="PackedScene" id=23]
+
+[sub_resource type="Curve3D" id=20]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -20, 0, 25, 0, 0, 0, 0, 0, 0, 5, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 31, 0, 0, 0, 0, 0, 0, -40, 0, 35, 0, 0, 0, 0, 0, 0, -36, 0, 26 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0 )
+}
 
 [sub_resource type="SpatialMaterial" id=3]
 albedo_color = Color( 0.25098, 0.129412, 0.129412, 1 )
@@ -94,6 +101,15 @@ normal_bias = 0.0
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -47.082, 18.3946, 42.0822 )
+
+[node name="Battery" parent="." instance=ExtResource( 23 )]
+transform = Transform( -1, 0, 0, 0, 1, 8.74228e-08, 0, 8.74228e-08, -1, -29.4566, 1.43051e-05, 26.8907 )
+
+[node name="Vacuum" parent="." instance=ExtResource( 11 )]
+transform = Transform( -1, 0, 0, 0, 1, 8.74228e-08, 0, 8.74228e-08, -1, -20, 0, 25 )
+
+[node name="VacuumPath" type="Path" parent="."]
+curve = SubResource( 20 )
 
 [node name="Furnitures" type="Node" parent="."]
 
@@ -602,6 +618,3 @@ light_bake_mode = 2
 shadow_enabled = true
 omni_range = 14.9391
 omni_attenuation = 2.0
-
-[node name="Vacuum" parent="WorldEnvironment2" instance=ExtResource( 11 )]
-transform = Transform( -1, 0, 0, 0, 1, 8.74228e-08, 0, 8.74228e-08, -1, 5.76841, -0.0028739, 12.2529 )

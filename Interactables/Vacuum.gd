@@ -12,7 +12,7 @@ func can_interact():
 func interact():
 	.interact()
 	
-	var light = get_node("Vacuum_Light") as MeshInstance
+	var light = $Vacuum_Light as MeshInstance
 	var mat = light.get_active_material(1) as SpatialMaterial
 	mat.set_albedo(Color(0, 1, 0))
 	
