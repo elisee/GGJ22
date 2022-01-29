@@ -125,6 +125,7 @@ material/2 = null
 
 [node name="Particles" type="Particles" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.12997, 0.28264 )
+emitting = false
 amount = 3
 lifetime = 0.4
 randomness = 0.8
