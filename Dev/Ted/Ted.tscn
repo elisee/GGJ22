@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Props/Table_01.tscn" type="PackedScene" id=2]
@@ -6,6 +6,9 @@
 [ext_resource path="res://Props/Televisionv02.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Props/Book_01.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Props/Book_02.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Props/Remote.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Props/Vacuum.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Props/Battery.tscn" type="PackedScene" id=9]
 
 [node name="Spatial" type="Spatial"]
 
@@ -44,8 +47,17 @@ transform = Transform( -0.56586, 0, 0.824502, 0, 1, 0, -0.824502, 0, -0.56586, -
 [node name="Televisionv04" parent="." instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.93851, 1, -9.86994 )
 
+[node name="Battery" parent="Televisionv04" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4114, 0, 9.7976 )
+
 [node name="Book_01" parent="." instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.90929, 0.999999, -2.60688 )
 
 [node name="Book_02" parent="." instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.24498, 1, -0.414126 )
+
+[node name="Remote" parent="." instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.52078, 1, 2.6135 )
+
+[node name="Vacuum" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.4, 0.854315, -5.4 )
