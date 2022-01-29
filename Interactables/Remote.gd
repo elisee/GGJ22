@@ -10,4 +10,5 @@ func interact():
 	if tvLights.size() > 0: tvLights[0].visible = false
 	
 	television.get_node("Screen").visible = false
+	television.get_node("SoundPlayerStaticLoop").playing = false
 	player.increment_progress()
