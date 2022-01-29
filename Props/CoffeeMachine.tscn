@@ -1,6 +1,15 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Models/CoffeeMachine.glb" type="PackedScene" id=1]
+[ext_resource path="res://Models/Coffee_Drop.obj" type="ArrayMesh" id=2]
+
+[sub_resource type="ParticlesMaterial" id=1]
+direction = Vector3( 0, -1, 0 )
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 5.0
+scale = 20.0
+scale_random = 0.5
 
 [node name="CoffeeMachine" instance=ExtResource( 1 )]
 
@@ -12,3 +21,12 @@ transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0.21454, 1.0166 )
 
 [node name="CoffeeMachine_Body" parent="." index="2"]
 transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0 )
+
+[node name="Particles" type="Particles" parent="." index="3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.23234, 0.28264 )
+emitting = false
+amount = 3
+lifetime = 0.4
+randomness = 0.8
+process_material = SubResource( 1 )
+draw_pass_1 = ExtResource( 2 )
