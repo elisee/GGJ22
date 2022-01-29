@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Models/Table_01.glb" type="PackedScene" id=2]
 
 [sub_resource type="SpatialMaterial" id=1]
 albedo_color = Color( 0.568627, 0.2, 0.2, 1 )
@@ -380,6 +381,14 @@ height = 12.2078
 depth = 0.509408
 material = SubResource( 1 )
 
+[node name="Desk6" type="CSGBox" parent="LivingRoom/Desk/Desk6"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.96066, 4.3343, 9.7223 )
+use_collision = true
+width = 0.579351
+height = 6.0
+depth = 0.509408
+material = SubResource( 1 )
+
 [node name="Desk3" type="CSGBox" parent="LivingRoom/Desk/Desk6"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -53.8802, 6.29497, 9.7223 )
 use_collision = true
@@ -447,3 +456,6 @@ material = SubResource( 7 )
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, -0.5, 0.866025, 0, -0.866025, -0.5, 0, 35.1141, -4 )
 shadow_enabled = true
+
+[node name="Table_01" parent="." instance=ExtResource( 2 )]
+transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, -31.199, 1.72643, 1.83187 )
