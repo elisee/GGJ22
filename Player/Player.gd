@@ -28,7 +28,7 @@ var active_interactable: BaseInteractable = null
 onready var camera_pivot = $CameraPivot
 onready var camera = $CameraPivot/Camera
 onready var animPlayer = $Character/AnimationPlayer
-onready var landParticles = $LandParticles
+var landParticlesScene = preload("res://Player/LandParticles.tscn")
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -99,16 +99,6 @@ func handle_movement(delta):
 	else:
 		y_velocity = clamp(y_velocity - gravity, -max_terminal_velocity, max_terminal_velocity)
 	
-	if is_on_floor():
-		if fallingTimer == 0:
-			animPlayer.play("Idle" if direction.length() == 0 else "Run")
-		elif fallingTimer > 0.5:
-			landParticles.emitting = true
-		
-		fallingTimer = 0.0
-	else:
-		fallingTimer += delta
-	
 	if Input.is_action_just_pressed("jump"):
 		wantsToJumpTimer = 0.0
 	else:
@@ -122,6 +112,19 @@ func handle_movement(delta):
 	velocity.y = y_velocity
 	velocity = move_and_slide(velocity, Vector3.UP)
 	y_velocity = velocity.y
+	
+	if is_on_floor():
+		if fallingTimer == 0:
+			animPlayer.play("Idle" if direction.length() == 0 else "Run")
+		elif fallingTimer > 0.5:
+			var instance = landParticlesScene.instance()
+			get_tree().get_current_scene().add_child(instance)
+			instance.translation = translation + velocity * 0.05
+			instance.emitting = true
+		
+		fallingTimer = 0.0
+	else:
+		fallingTimer += delta
 
 func check_interactable(delta):
 	var interactables = get_tree().get_nodes_in_group("interactable")
