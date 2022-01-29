@@ -1,13 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Props/Table_01.tscn" type="PackedScene" id=2]
-
-[sub_resource type="SpatialMaterial" id=1]
-albedo_color = Color( 0.482353, 0.337255, 0.133333, 1 )
+[ext_resource path="res://Props/Televisionv02.tscn" type="PackedScene" id=3]
 
 [sub_resource type="SpatialMaterial" id=2]
-albedo_color = Color( 0.568627, 0.2, 0.2, 1 )
+albedo_color = Color( 0.345098, 0.164706, 0.164706, 1 )
 
 [sub_resource type="SpatialMaterial" id=3]
 albedo_color = Color( 0.25098, 0.129412, 0.129412, 1 )
@@ -16,39 +14,65 @@ albedo_color = Color( 0.25098, 0.129412, 0.129412, 1 )
 albedo_color = Color( 0.454902, 0.45098, 0.45098, 1 )
 metallic = 0.33
 
-[node name="Spatial" type="Spatial"]
+[sub_resource type="SpatialMaterial" id=5]
+albedo_color = Color( 0.262745, 0.141176, 0.141176, 1 )
 
-[node name="floor test" type="CSGBox" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0656509, -0.786338 )
-use_collision = true
-width = 100.0
-height = 0.1
-depth = 100.0
-material = SubResource( 1 )
+[sub_resource type="SpatialMaterial" id=11]
+albedo_color = Color( 0.407843, 0.392157, 0.392157, 1 )
+
+[sub_resource type="SpatialMaterial" id=7]
+albedo_color = Color( 0.901961, 0.87451, 0.87451, 1 )
+
+[sub_resource type="SpatialMaterial" id=9]
+albedo_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="SpatialMaterial" id=10]
+albedo_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="SpatialMaterial" id=6]
+albedo_color = Color( 0.745098, 0.109804, 0.109804, 1 )
+
+[sub_resource type="SpatialMaterial" id=8]
+albedo_color = Color( 0.901961, 0.890196, 0.890196, 1 )
+
+[sub_resource type="SpatialMaterial" id=12]
+albedo_color = Color( 0.788235, 0.741176, 0.741176, 1 )
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 0.482353, 0.337255, 0.133333, 1 )
+
+[sub_resource type="SpatialMaterial" id=13]
+albedo_color = Color( 0.109804, 0.729412, 0.811765, 1 )
+refraction_enabled = true
+refraction_scale = 0.05
+refraction_texture_channel = 2
+
+[node name="Spatial" type="Spatial"]
 
 [node name="Player & lights" type="Spatial" parent="."]
 
 [node name="Player" parent="Player & lights" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.79986, 0.954126, 0.197825 )
+transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 1.64284, 9.98737, -36.616 )
 
-[node name="DirectionalLight" type="DirectionalLight" parent="Player & lights/Player"]
-transform = Transform( 1, 0, 0, 0, -0.5, 0.866025, 0, -0.866025, -0.5, 2.79986, 34.16, -18.3445 )
+[node name="DirectionalLight2" type="DirectionalLight" parent="Player & lights"]
+transform = Transform( -1, 1.13133e-08, 4.2222e-08, 4.2222e-08, -2.38419e-07, 1, 1.13133e-08, 1, 2.38419e-07, 22.5942, 22.1474, -22.6078 )
 shadow_enabled = true
 
 [node name="Furnitures" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0469007, 0 )
 
-[node name="Table_01" parent="Furnitures" instance=ExtResource( 2 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 43.7766, 0.115651, -20.1547 )
+[node name="Bed Corner" type="Spatial" parent="Furnitures"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.2 )
 
-[node name="Bed" type="CSGBox" parent="Furnitures"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 40.0608, 2.10148, -46.2793 )
+[node name="Bed" type="CSGBox" parent="Furnitures/Bed Corner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 40.0608, 2.44221, -46.2793 )
 use_collision = true
 width = 20.0
-height = 4.0
+height = 4.8
 depth = 9.0
 material = SubResource( 2 )
 
-[node name="Night Stand" type="CSGBox" parent="Furnitures"]
+[node name="Night Stand" type="CSGBox" parent="Furnitures/Bed Corner"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 47.6486, 2.60837, -37.8399 )
 use_collision = true
 width = 4.6
@@ -56,7 +80,7 @@ height = 5.0
 depth = 4.5
 material = SubResource( 3 )
 
-[node name="Cabinet" type="CSGBox" parent="Furnitures"]
+[node name="Cabinet" type="CSGBox" parent="Furnitures/Bed Corner"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24.1054, 9.13239, -47.8727 )
 use_collision = true
 width = 10.4
@@ -64,9 +88,287 @@ height = 18.0
 depth = 5.7
 material = SubResource( 3 )
 
-[node name="Trashbin" type="CSGCylinder" parent="Furnitures"]
+[node name="Desk Corner" type="Spatial" parent="Furnitures"]
+
+[node name="Trashbin" type="CSGCylinder" parent="Furnitures/Desk Corner"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 47.3885, 1.5733, -27.6324 )
 use_collision = true
 radius = 1.5
 height = 3.0
 material = SubResource( 4 )
+
+[node name="Table_01" parent="Furnitures/Desk Corner" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 43.7766, 0.115651, -20.1547 )
+
+[node name="TV Corner" type="Spatial" parent="Furnitures"]
+
+[node name="Sofa" type="CSGBox" parent="Furnitures/TV Corner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 45.0143, 2.41173, 8.31672 )
+use_collision = true
+width = 10.0
+height = 4.8
+depth = 17.0
+material = SubResource( 2 )
+
+[node name="Sofa2" type="CSGBox" parent="Furnitures/TV Corner/Sofa"]
+transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 3.05524, 2.67606, 0 )
+use_collision = true
+width = 10.0
+height = 4.0
+depth = 17.0
+material = SubResource( 2 )
+
+[node name="TV Stand" type="CSGBox" parent="Furnitures/TV Corner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.7698, 2.04221, 8.31672 )
+use_collision = true
+width = 8.0
+height = 4.0
+depth = 17.0
+material = SubResource( 5 )
+
+[node name="Televisionv04" parent="Furnitures/TV Corner/TV Stand" instance=ExtResource( 3 )]
+transform = Transform( -0.00101225, 0, 0.999999, 0, 1, 0, -0.999999, 0, -0.00101225, 0.658213, 3.01394, -2.01622 )
+
+[node name="Kitchen Corner" type="Spatial" parent="Furnitures"]
+
+[node name="Counter" type="CSGBox" parent="Furnitures/Kitchen Corner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.90061, 5.0443, -35.9969 )
+use_collision = true
+width = 7.0
+height = 10.0
+depth = 32.0
+material = SubResource( 2 )
+
+[node name="Kitchen surface" type="CSGBox" parent="Furnitures/Kitchen Corner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.6272, 4.34347, -40.9 )
+use_collision = true
+width = 6.0
+height = 8.5
+depth = 6.0
+material = SubResource( 2 )
+
+[node name="Kitchen surface2" type="CSGBox" parent="Furnitures/Kitchen Corner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.6272, 4.34347, -28.8499 )
+use_collision = true
+width = 6.0
+height = 8.5
+depth = 6.0
+material = SubResource( 2 )
+
+[node name="Sink" type="CSGBox" parent="Furnitures/Kitchen Corner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.6272, 4.34347, -34.8499 )
+use_collision = true
+width = 6.0
+height = 8.5
+depth = 6.0
+material = SubResource( 11 )
+
+[node name="Oven" type="CSGBox" parent="Furnitures/Kitchen Corner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.6272, 4.3172, -22.8724 )
+use_collision = true
+width = 6.0
+height = 8.5
+depth = 6.0
+material = SubResource( 7 )
+
+[node name="Hob1" type="CSGCylinder" parent="Furnitures/Kitchen Corner/Oven"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.24079, 4.04267, -1.272 )
+material = SubResource( 9 )
+
+[node name="Hob2" type="CSGCylinder" parent="Furnitures/Kitchen Corner/Oven"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.28244, 4.04267, -1.272 )
+material = SubResource( 9 )
+
+[node name="Hob3" type="CSGCylinder" parent="Furnitures/Kitchen Corner/Oven"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.24079, 4.04267, 1.24217 )
+material = SubResource( 9 )
+
+[node name="Hob4" type="CSGCylinder" parent="Furnitures/Kitchen Corner/Oven"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.28244, 4.04267, 1.24217 )
+material = SubResource( 9 )
+
+[node name="CSGBox" type="CSGBox" parent="Furnitures/Kitchen Corner/Oven"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.20751, 0.277452, 0 )
+height = 5.87435
+depth = 5.00541
+material = SubResource( 10 )
+
+[node name="Stool" type="CSGCylinder" parent="Furnitures/Kitchen Corner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.51608, 7.55605, -25.6879 )
+use_collision = true
+radius = 1.5
+height = 0.2
+sides = 12
+material = SubResource( 6 )
+
+[node name="Stoolstuff" type="CSGTorus" parent="Furnitures/Kitchen Corner/Stool"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.56646, 0 )
+inner_radius = 1.5
+outer_radius = 1.7
+material = SubResource( 6 )
+
+[node name="Stoolfoot1" type="CSGCylinder" parent="Furnitures/Kitchen Corner/Stool"]
+transform = Transform( 1, 0, 0, 0, 0.997769, 0.0667615, 0, -0.0667615, 0.997769, -0.00195646, -3.72185, 1.53072 )
+radius = 0.1
+height = 7.5
+sides = 6
+material = SubResource( 6 )
+
+[node name="Stoolfoot2" type="CSGCylinder" parent="Furnitures/Kitchen Corner/Stool"]
+transform = Transform( 0.996378, -0.0850343, 0, 0.0850343, 0.996378, 0, 0, 0, 1, 1.48677, -3.72185, 0.0217094 )
+radius = 0.1
+height = 7.5
+sides = 6
+material = SubResource( 6 )
+
+[node name="Stoolfoot3" type="CSGCylinder" parent="Furnitures/Kitchen Corner/Stool"]
+transform = Transform( 0.997639, 0.068677, 0, -0.068677, 0.997639, 0, 0, 0, 1, -1.50428, -3.72185, 0.0249672 )
+radius = 0.1
+height = 7.5
+sides = 6
+material = SubResource( 6 )
+
+[node name="Stoolfoot4" type="CSGCylinder" parent="Furnitures/Kitchen Corner/Stool"]
+transform = Transform( 1, 0, 0, 0, 0.996976, -0.0777109, 0, 0.0777109, 0.996976, 0.0245595, -3.72185, -1.53194 )
+radius = 0.1
+height = 7.5
+sides = 6
+material = SubResource( 6 )
+
+[node name="Stool2" type="CSGCylinder" parent="Furnitures/Kitchen Corner"]
+transform = Transform( 0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 8.47942, 7.55605, -34.2669 )
+use_collision = true
+radius = 1.5
+height = 0.2
+sides = 12
+material = SubResource( 6 )
+
+[node name="Stoolstuff" type="CSGTorus" parent="Furnitures/Kitchen Corner/Stool2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.56646, 0 )
+inner_radius = 1.5
+outer_radius = 1.7
+material = SubResource( 6 )
+
+[node name="Stoolfoot1" type="CSGCylinder" parent="Furnitures/Kitchen Corner/Stool2"]
+transform = Transform( 1, 0, 0, 0, 0.997769, 0.0667615, 0, -0.0667615, 0.997769, -0.00195646, -3.72185, 1.53072 )
+radius = 0.1
+height = 7.5
+sides = 6
+material = SubResource( 6 )
+
+[node name="Stoolfoot2" type="CSGCylinder" parent="Furnitures/Kitchen Corner/Stool2"]
+transform = Transform( 0.996378, -0.0850343, 0, 0.0850343, 0.996378, 0, 0, 0, 1, 1.48677, -3.72185, 0.0217094 )
+radius = 0.1
+height = 7.5
+sides = 6
+material = SubResource( 6 )
+
+[node name="Stoolfoot3" type="CSGCylinder" parent="Furnitures/Kitchen Corner/Stool2"]
+transform = Transform( 0.997639, 0.068677, 0, -0.068677, 0.997639, 0, 0, 0, 1, -1.50428, -3.72185, 0.0249672 )
+radius = 0.1
+height = 7.5
+sides = 6
+material = SubResource( 6 )
+
+[node name="Stoolfoot4" type="CSGCylinder" parent="Furnitures/Kitchen Corner/Stool2"]
+transform = Transform( 1, 0, 0, 0, 0.996976, -0.0777109, 0, 0.0777109, 0.996976, 0.0245595, -3.72185, -1.53194 )
+radius = 0.1
+height = 7.5
+sides = 6
+material = SubResource( 6 )
+
+[node name="Fridge" type="CSGBox" parent="Furnitures/Kitchen Corner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.6455, 9.13239, -47.9516 )
+use_collision = true
+width = 6.0
+height = 18.0
+depth = 8.0
+material = SubResource( 8 )
+
+[node name="Roomba" type="CSGCylinder" parent="Furnitures"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 35.233, 0.78332, -36.8726 )
+use_collision = true
+radius = 2.0
+height = 1.3
+
+[node name="Structures" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.8, 11.5422, 0 )
+
+[node name="Wall BathL" type="CSGBox" parent="Structures"]
+use_collision = true
+width = 36.0
+height = 23.0
+depth = 1.5
+material = SubResource( 12 )
+
+[node name="Wall BathS" type="CSGBox" parent="Structures"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 17.3, 0, 9.1 )
+use_collision = true
+width = 16.8
+height = 23.0
+depth = 1.5
+material = SubResource( 12 )
+
+[node name="Wall Main W" type="CSGBox" parent="Structures"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -18.7, 0, -16.9 )
+use_collision = true
+width = 70.0
+height = 23.0
+depth = 1.5
+material = SubResource( 12 )
+
+[node name="Wall Main E" type="CSGBox" parent="Structures"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 57.3, 0, -16.9 )
+use_collision = true
+width = 70.0
+height = 23.0
+depth = 1.5
+material = SubResource( 12 )
+
+[node name="Wall Main N" type="CSGBox" parent="Structures"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.3, 0, -52.7 )
+use_collision = true
+width = 78.0
+height = 23.0
+depth = 1.5
+material = SubResource( 12 )
+
+[node name="Wall Main S" type="CSGBox" parent="Structures"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.3, 0, 18 )
+use_collision = true
+width = 78.0
+height = 23.0
+depth = 1.5
+material = SubResource( 12 )
+
+[node name="floor test" type="CSGBox" parent="Structures"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.4486, -12, -17.0862 )
+use_collision = true
+width = 75.0
+height = 1.0
+depth = 70.0
+material = SubResource( 1 )
+
+[node name="Door" type="CSGBox" parent="Structures"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.2464, -2.45673, -51.9052 )
+use_collision = true
+width = 10.0
+height = 20.0
+depth = 0.2
+material = SubResource( 3 )
+
+[node name="DoorBathroom" type="CSGBox" parent="Structures"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.24638, -2.45673, -0.805216 )
+use_collision = true
+width = 10.0
+height = 20.0
+depth = 0.2
+material = SubResource( 3 )
+
+[node name="Window Living" type="CSGBox" parent="Structures"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 37.2464, 3.54327, 17.1948 )
+use_collision = true
+width = 20.0
+height = 12.0
+depth = 0.2
+material = SubResource( 13 )
