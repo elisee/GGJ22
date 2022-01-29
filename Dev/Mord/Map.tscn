@@ -1,8 +1,9 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Props/Table_01.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Props/Televisionv02.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Props/Book_01.tscn" type="PackedScene" id=4]
 
 [sub_resource type="SpatialMaterial" id=2]
 albedo_color = Color( 0.345098, 0.164706, 0.164706, 1 )
@@ -26,14 +27,17 @@ albedo_color = Color( 0.901961, 0.87451, 0.87451, 1 )
 [sub_resource type="SpatialMaterial" id=9]
 albedo_color = Color( 0, 0, 0, 1 )
 
-[sub_resource type="SpatialMaterial" id=10]
-albedo_color = Color( 0, 0, 0, 1 )
-
 [sub_resource type="SpatialMaterial" id=6]
 albedo_color = Color( 0.745098, 0.109804, 0.109804, 1 )
 
+[sub_resource type="SpatialMaterial" id=10]
+albedo_color = Color( 0, 0, 0, 1 )
+
 [sub_resource type="SpatialMaterial" id=8]
 albedo_color = Color( 0.901961, 0.890196, 0.890196, 1 )
+
+[sub_resource type="SpatialMaterial" id=14]
+albedo_color = Color( 0.317647, 0.101961, 0.101961, 1 )
 
 [sub_resource type="SpatialMaterial" id=12]
 albedo_color = Color( 0.788235, 0.741176, 0.741176, 1 )
@@ -52,7 +56,7 @@ refraction_texture_channel = 2
 [node name="Player & lights" type="Spatial" parent="."]
 
 [node name="Player" parent="Player & lights" instance=ExtResource( 1 )]
-transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 1.64284, 9.98737, -36.616 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 26.6144, 4.01703, -21.3998 )
 
 [node name="DirectionalLight2" type="DirectionalLight" parent="Player & lights"]
 transform = Transform( -1, 1.13133e-08, 4.2222e-08, 4.2222e-08, -2.38419e-07, 1, 1.13133e-08, 1, 2.38419e-07, 22.5942, 22.1474, -22.6078 )
@@ -187,12 +191,6 @@ material = SubResource( 9 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.28244, 4.04267, 1.24217 )
 material = SubResource( 9 )
 
-[node name="CSGBox" type="CSGBox" parent="Furnitures/Kitchen Corner/Oven"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.20751, 0.277452, 0 )
-height = 5.87435
-depth = 5.00541
-material = SubResource( 10 )
-
 [node name="Stool" type="CSGCylinder" parent="Furnitures/Kitchen Corner"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.51608, 7.55605, -25.6879 )
 use_collision = true
@@ -234,6 +232,12 @@ radius = 0.1
 height = 7.5
 sides = 6
 material = SubResource( 6 )
+
+[node name="Oven door" type="CSGBox" parent="Furnitures/Kitchen Corner/Stool"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.9358, -2.9614, 2.81553 )
+height = 5.87435
+depth = 5.00541
+material = SubResource( 10 )
 
 [node name="Stool2" type="CSGCylinder" parent="Furnitures/Kitchen Corner"]
 transform = Transform( 0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 8.47942, 7.55605, -34.2669 )
@@ -284,6 +288,13 @@ width = 6.0
 height = 18.0
 depth = 8.0
 material = SubResource( 8 )
+
+[node name="CSGBox" type="CSGBox" parent="Furnitures/Kitchen Corner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.7, 17, -32 )
+width = 4.0
+height = 6.0
+depth = 24.0
+material = SubResource( 14 )
 
 [node name="Roomba" type="CSGCylinder" parent="Furnitures"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 35.233, 0.78332, -36.8726 )
@@ -372,3 +383,14 @@ width = 20.0
 height = 12.0
 depth = 0.2
 material = SubResource( 13 )
+
+[node name="Window Kitchen" type="CSGBox" parent="Structures"]
+transform = Transform( -2.98023e-08, 0, -1, 0, 1, 0, 1, 0, -2.98023e-08, -17.7536, 4.54327, -13.5573 )
+use_collision = true
+width = 6.0
+height = 10.0
+depth = 0.2
+material = SubResource( 13 )
+
+[node name="Book_01" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 35.2141, 4.87576, -44.6591 )
