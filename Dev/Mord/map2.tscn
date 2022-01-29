@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Props/Couch.tscn" type="PackedScene" id=2]
@@ -26,6 +26,8 @@
 [ext_resource path="res://Props/Blinds.tscn" type="PackedScene" id=24]
 [ext_resource path="res://Props/Window.tscn" type="PackedScene" id=25]
 [ext_resource path="res://Props/Man.tscn" type="PackedScene" id=26]
+[ext_resource path="res://Props/Plant.tscn" type="PackedScene" id=27]
+[ext_resource path="res://Props/PlantPot.tscn" type="PackedScene" id=28]
 
 [sub_resource type="Curve3D" id=20]
 _data = {
@@ -362,16 +364,6 @@ width = 6.0
 height = 4.0
 depth = 0.5
 
-[node name="Plant" type="CSGCylinder" parent="Furnitures/Bed Corner"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -47.258, 16.8925, 43.6862 )
-use_collision = true
-radius = 2.353
-
-[node name="Plant2" type="CSGCylinder" parent="Furnitures/Bed Corner"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -47.3017, 15.9444, 36.6424 )
-use_collision = true
-radius = 2.353
-
 [node name="Kitchen Corner" type="Spatial" parent="Furnitures"]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.1, 0, 51 )
 
@@ -437,17 +429,8 @@ height = 5.87435
 depth = 5.00541
 material = SubResource( 12 )
 
-[node name="OmniLight" type="OmniLight" parent="Furnitures/Kitchen Corner/Oven"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.343811, 7.34571, -23.3993 )
-light_energy = 0.1
-shadow_enabled = true
-omni_range = 4.11765
-
-[node name="Man" parent="Furnitures/Kitchen Corner/Oven/OmniLight" instance=ExtResource( 26 )]
-transform = Transform( -0.0323702, 0, -0.999476, 0, 1, 0, 0.999476, 0, -0.0323702, 73.1312, -11.6629, 54.1748 )
-
 [node name="Stool2" type="CSGCylinder" parent="Furnitures/Kitchen Corner"]
-transform = Transform( 0.866025, 0, 0.5, 0, 0.842914, 0, -0.5, 0, 0.866025, 8.92468, 6.29655, -34.2153 )
+transform = Transform( 0.866025, 0, 0.5, 0, 0.842914, 0, -0.5, 0, 0.866025, 8.92467, 6.29655, -40.2085 )
 use_collision = true
 radius = 1.5
 height = 0.2
@@ -489,7 +472,7 @@ sides = 6
 material = SubResource( 13 )
 
 [node name="Stool3" type="CSGCylinder" parent="Furnitures/Kitchen Corner"]
-transform = Transform( 0.866025, 0, 0.5, 0, 0.842914, 0, -0.5, 0, 0.866025, 8.92468, 6.29655, -26.3616 )
+transform = Transform( 0.866025, 0, 0.5, 0, 0.842914, 0, -0.5, 0, 0.866025, 8.92467, 6.29655, -30.0663 )
 use_collision = true
 radius = 1.5
 height = 0.2
@@ -563,6 +546,12 @@ transform = Transform( 1.4, 0, -1.75998e-08, 0, 1.4, 0, 1.75998e-08, 0, 1.4, -6.
 [node name="CoffeeMachine" parent="Furnitures/Kitchen Corner" instance=ExtResource( 22 )]
 transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -22.2791, 8.59347, -41.1567 )
 
+[node name="PlantPot" parent="Furnitures/Kitchen Corner" instance=ExtResource( 28 )]
+transform = Transform( 1.5, 0, 0, 0, 1.3, 0, 0, 0, 1.5, 11.8853, 0, -49.392 )
+
+[node name="Plant" parent="Furnitures/Kitchen Corner/PlantPot" instance=ExtResource( 27 )]
+transform = Transform( 0.666667, 0, 0, 0, 0.769231, 0, 0, 0, 0.666667, 0, 0, 0 )
+
 [node name="Window" parent="." instance=ExtResource( 25 )]
 transform = Transform( 0.000141495, 0.000397265, 1, 0.000455087, 1.076, -0.000338866, -0.963834, 0.000475211, 0.000125845, -50.7518, 11.0732, 57.5074 )
 
@@ -582,6 +571,15 @@ transform = Transform( 9.99985, 0.0511194, -0.0174359, -0.0511912, 9.99978, -0.0
 
 [node name="TVWindowBlinder" parent="Structures" instance=ExtResource( 10 )]
 transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, -8.877, -0.00407219, -5.53841 )
+
+[node name="OmniLight" type="OmniLight" parent="."]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -38.1717, 11.6629, 72.971 )
+light_energy = 0.1
+shadow_enabled = true
+omni_range = 4.11765
+
+[node name="Man" parent="OmniLight" instance=ExtResource( 26 )]
+transform = Transform( -0.0323702, 0, -0.999476, 0, 1, 0, 0.999476, 0, -0.0323702, 73.1312, -11.6629, 54.1748 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 21 )
