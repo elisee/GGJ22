@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Models/CurtainRod.glb" type="PackedScene" id=1]
+
+[node name="CurtainRod" instance=ExtResource( 1 )]
+
+[node name="Rod_01" parent="." index="0"]
+transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0 )
+
+[node name="Rod_Attach" parent="." index="1"]
+transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0 )
+
+[node name="Rod_02" parent="." index="2"]
+transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0, -0.00423339, 0 )
+
+[node name="Rod_03" parent="." index="3"]
+transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0, -0.00423339, 0 )
+
+[node name="Rod_04" parent="." index="4"]
+transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0, -0.00423339, 0 )
