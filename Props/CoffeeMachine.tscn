@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Interactables/CoffeeMachine.gd" type="Script" id=1]
 [ext_resource path="res://Models/Coffee_Drop.obj" type="ArrayMesh" id=2]
@@ -90,10 +90,13 @@ height = 0.271586
 
 [sub_resource type="CylinderShape" id=6]
 radius = 0.374874
-height = 3.50656
+height = 3.65048
 
 [sub_resource type="BoxShape" id=7]
-extents = Vector3( 1, 1.63465, 0.798811 )
+extents = Vector3( 0.875409, 1.63465, 0.798811 )
+
+[sub_resource type="BoxShape" id=9]
+extents = Vector3( 0.867784, 0.328895, 0.720161 )
 
 [sub_resource type="CylinderShape" id=8]
 radius = 0.560257
@@ -122,7 +125,6 @@ material/2 = null
 
 [node name="Particles" type="Particles" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.12997, 0.28264 )
-emitting = false
 amount = 3
 lifetime = 0.4
 randomness = 0.8
@@ -134,12 +136,16 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.158413, 0 )
 shape = SubResource( 5 )
 
 [node name="CollisionShape3" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.03039, 0.189136 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.10585, 0.189136 )
 shape = SubResource( 6 )
 
 [node name="CollisionShape2" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.984808, -0.173648, 0, 0.173648, 0.984808, 0, 1.53211, -1.35238 )
 shape = SubResource( 7 )
+
+[node name="CollisionShape4" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, -0.000436112, 0, 0.000436112, 1, 0, 3.36154, -1.04182 )
+shape = SubResource( 9 )
 
 [node name="Area" type="Area" parent="."]
 
