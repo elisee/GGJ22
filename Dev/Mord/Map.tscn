@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Props/Table_01.tscn" type="PackedScene" id=2]
@@ -7,6 +7,39 @@
 [ext_resource path="res://Props/Book_02.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Props/Television.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Props/Remote.tscn" type="PackedScene" id=7]
+
+[sub_resource type="Environment" id=19]
+background_energy = 0.0
+ambient_light_color = Color( 0.160784, 0.168627, 0.345098, 1 )
+ambient_light_energy = 0.1
+fog_enabled = true
+fog_color = Color( 0.160784, 0.419608, 0.690196, 1 )
+fog_sun_color = Color( 0.513726, 0.301961, 0.588235, 1 )
+fog_sun_amount = 0.87
+fog_depth_end = 288.7
+fog_depth_curve = 1.41421
+fog_height_max = -528.3
+auto_exposure_enabled = true
+auto_exposure_scale = 1.61
+auto_exposure_min_luma = 0.61
+auto_exposure_max_luma = 5.59
+ssao_enabled = true
+ssao_radius = 4.62
+ssao_radius2 = 0.01
+ssao_intensity2 = 2.01
+glow_enabled = true
+glow_intensity = 0.25
+glow_strength = 1.11
+glow_bloom = 0.03
+
+[sub_resource type="GIProbeData" id=20]
+bounds = AABB( -45.6668, -16.0468, -48.6629, 91.3336, 32.0936, 97.3258 )
+cell_size = 0.380179
+to_cell_xform = Transform( 2.63034, 0, 0, 0, 2.63034, 0, 0, 0, 2.63034, 120.119, 42.2085, 128 )
+dynamic_data = PoolIntArray( 0, 9, 256, 128, 256, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1065353216, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 8355711, 0 )
+dynamic_range = 4
+bias = 1.5
+normal_bias = 0.0
 
 [sub_resource type="SpatialMaterial" id=2]
 albedo_color = Color( 0.345098, 0.164706, 0.164706, 1 )
@@ -73,9 +106,47 @@ refraction_texture_channel = 2
 [node name="Player" parent="Player & lights" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 26.6144, 0.534287, -21.3998 )
 
-[node name="DirectionalLight2" type="DirectionalLight" parent="Player & lights"]
-transform = Transform( -1, 1.13133e-08, 4.2222e-08, 4.2222e-08, -2.38419e-07, 1, 1.13133e-08, 1, 2.38419e-07, 22.5942, 22.1474, -22.6078 )
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Player & lights"]
+environment = SubResource( 19 )
+
+[node name="GIProbe" type="GIProbe" parent="Player & lights/WorldEnvironment"]
+transform = Transform( 0.999985, 0.00511194, -0.00174359, -0.00511912, 0.999978, -0.004138, 0.0017224, 0.00414686, 0.99999, 13.6288, 13.2854, -14.2203 )
+subdiv = 2
+extents = Vector3( 45.6668, 16.0468, 48.6629 )
+propagation = 1.0
+data = SubResource( 20 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="Player & lights/WorldEnvironment"]
+transform = Transform( -0.828184, -0.139267, 0.542878, 0.145577, 0.881934, 0.448331, -0.54122, 0.450331, -0.710129, 49.8646, 37.4945, -71.3625 )
+light_color = Color( 0.8, 0.505882, 0.392157, 1 )
+light_energy = 3.789
+light_indirect_energy = 4.523
+light_specular = 3.567
+light_bake_mode = 0
 shadow_enabled = true
+shadow_bias = 0.65
+shadow_contact = 1.56
+directional_shadow_blend_splits = true
+directional_shadow_bias_split_scale = 0.112
+directional_shadow_max_distance = 269.6
+
+[node name="OmniLight2" type="OmniLight" parent="Player & lights/WorldEnvironment"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.8162, 13.7856, 10.4516 )
+light_energy = 0.443
+light_indirect_energy = 6.565
+light_specular = 0.0
+shadow_enabled = true
+omni_range = 24.929
+omni_attenuation = 2.0
+
+[node name="OmniLight3" type="OmniLight" parent="Player & lights/WorldEnvironment"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.6479, 9.71203, -37.1984 )
+light_energy = 3.365
+light_indirect_energy = 6.528
+light_specular = 0.0
+shadow_enabled = true
+omni_range = 19.9342
+omni_attenuation = 2.0
 
 [node name="Furnitures" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0469007, 0 )
