@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Models/TVWindowBlinder.glb" type="PackedScene" id=1]
 
+[sub_resource type="ShaderMaterial" id=1]
+
 [node name="TVWindowBlinder" instance=ExtResource( 1 )]
 transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0 )
+
+[node name="Cube008" parent="." index="0"]
+material/0 = SubResource( 1 )
