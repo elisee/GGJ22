@@ -8,6 +8,16 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Node",
+"class": "BaseInteractable",
+"language": "GDScript",
+"path": "res://Interactables/BaseInteractable.gd"
+} ]
+_global_script_class_icons={
+"BaseInteractable": ""
+}
+
 [application]
 
 config/name="GGJ22"
@@ -80,4 +90,6 @@ common/enable_pause_aware_picking=true
 
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
+quality/directional_shadow/size=8192
+quality/filters/use_fxaa=true
 environment/default_environment="res://default_env.tres"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Props/Table_01.tscn" type="PackedScene" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://Props/Remote.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Props/Vacuum.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Props/Battery.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Props/Blind_Switch.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Props/Window.tscn" type="PackedScene" id=11]
 
 [node name="Spatial" type="Spatial"]
 
@@ -34,10 +36,6 @@ use_collision = true
 width = 10.0
 depth = 10.0
 
-[node name="DirectionalLight" type="DirectionalLight" parent="."]
-transform = Transform( 1, 0, 0, 0, -0.5, 0.866025, 0, -0.866025, -0.5, 0, 18, -4 )
-shadow_enabled = true
-
 [node name="Table_01" parent="." instance=ExtResource( 2 )]
 transform = Transform( 0.300955, 0, -0.953638, 0, 1, 0, 0.953638, 0, 0.300955, -13.4127, 1.02522, -0.332467 )
 
@@ -61,3 +59,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.52078, 1, 2.6135 )
 
 [node name="Vacuum" parent="." instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.4, 0.854315, -5.4 )
+
+[node name="Blind_Switch" parent="." instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.8547, 1.46778, 0.95043 )
+
+[node name="Window" parent="." instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.41011, 1, 1.467 )
