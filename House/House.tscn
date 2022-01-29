@@ -5,7 +5,6 @@
 [ext_resource path="res://Props/Remote.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Props/Vacuum.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Props/Battery.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Props/CoffeeMachine.tscn" type="PackedScene" id=6]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 5, 1, 5 )
