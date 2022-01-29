@@ -31,6 +31,8 @@ material/0 = SubResource( 3 )
 [node name="Camera" type="ClippedCamera" parent="CameraPivot"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 6 )
 fov = 60.0
+margin = 2.0
+process_mode = 1
 
 [node name="HUD" parent="." instance=ExtResource( 2 )]
 
