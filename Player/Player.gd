@@ -2,6 +2,7 @@ extends KinematicBody
 
 var speed : float = 15
 var acceleration : float = 10
+var decceleration : float = 20
 var air_acceleration : float = 5
 var gravity : float = 0.98
 var max_terminal_velocity : float = 54
@@ -89,7 +90,11 @@ func handle_movement(delta):
 	
 	direction = direction.normalized()
 	
-	var accel = acceleration if is_on_floor() else air_acceleration
+	var accel = 0.0
+	if is_on_floor():
+		accel = decceleration if direction.length() == 0 else acceleration
+	else:
+		accel = air_acceleration
 	velocity = velocity.linear_interpolate(direction * speed, accel * delta)
 	
 	if is_on_floor():
@@ -108,7 +113,7 @@ func handle_movement(delta):
 		animPlayer.play("Jump")
 	
 	velocity.y = y_velocity
-	velocity = move_and_slide(velocity, Vector3.UP)
+	velocity = move_and_slide(velocity, Vector3.UP, true)
 	y_velocity = velocity.y
 	
 	if is_on_floor():
