@@ -125,7 +125,7 @@ func handle_movement(delta):
 				animPlayer.play("Idle")
 				$soundPlayer_rat_walk.stop()
 			else:
-				animPlayer.play("Run")
+				animPlayer.play("Run", -1, 1.6)
 				if not $soundPlayer_rat_walk.is_playing():	
 					$soundPlayer_rat_walk.play()
 		elif fallingTimer > 0.5:
