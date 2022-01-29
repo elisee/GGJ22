@@ -8,6 +8,7 @@ extents = Vector3( 1, 2, 1 )
 
 [node name="Blind_Switch" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+label = "Open the blinds"
 
 [node name="Switch_Body" parent="." index="0"]
 transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0 )
