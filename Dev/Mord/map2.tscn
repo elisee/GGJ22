@@ -14,7 +14,6 @@
 background_energy = 0.0
 ambient_light_color = Color( 0.160784, 0.168627, 0.345098, 1 )
 ambient_light_energy = 0.1
-fog_enabled = true
 fog_color = Color( 0.160784, 0.419608, 0.690196, 1 )
 fog_sun_color = Color( 0.513726, 0.301961, 0.588235, 1 )
 fog_sun_amount = 0.87
@@ -91,6 +90,7 @@ environment = SubResource( 1 )
 
 [node name="GIProbe" type="GIProbe" parent="WorldEnvironment"]
 transform = Transform( 0.999985, 0.00511194, -0.00174359, -0.00511912, 0.999978, -0.004138, 0.0017224, 0.00414686, 0.99999, -7.73279, 13.2854, 34.2499 )
+visible = false
 subdiv = 2
 extents = Vector3( 45.6668, 16.0468, 48.6629 )
 propagation = 1.0
@@ -120,7 +120,7 @@ omni_range = 24.929
 omni_attenuation = 2.0
 
 [node name="OmniLight3" type="OmniLight" parent="WorldEnvironment"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -32.0095, 9.71203, 11.2718 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -32.0095, 9.71203, 0.2718 )
 light_energy = 3.365
 light_indirect_energy = 6.528
 light_specular = 0.0
@@ -148,6 +148,24 @@ shadow_enabled = true
 shadow_color = Color( 0.356863, 0.0901961, 0.196078, 1 )
 omni_range = 16.952
 omni_attenuation = 1.93187
+
+[node name="working light" type="OmniLight" parent="WorldEnvironment"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -37.019, 14.4241, 0.5436 )
+light_energy = 3.365
+light_indirect_energy = 6.528
+light_specular = 0.0
+shadow_enabled = true
+omni_range = 19.9342
+omni_attenuation = 2.0
+
+[node name="working light" type="OmniLight" parent="WorldEnvironment/working light"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24.981, 2.42406, 4.5436 )
+light_energy = 3.365
+light_indirect_energy = 6.528
+light_specular = 0.0
+shadow_enabled = true
+omni_range = 19.9342
+omni_attenuation = 2.0
 
 [node name="Furnitures" type="Node" parent="."]
 
@@ -206,7 +224,7 @@ radius = 1.37648
 height = 3.47021
 
 [node name="CSGBox" type="CSGBox" parent="Furnitures/Bed Corner"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -45, 9.00006, 16 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -46.9, 9.00006, 17 )
 width = 4.5
 height = 18.0
 depth = 10.0
@@ -377,7 +395,7 @@ depth = 24.0
 material = SubResource( 15 )
 
 [node name="Vacuum" parent="." instance=ExtResource( 11 )]
-transform = Transform( -1, 0, 0, 0, -1, 0, 0, 0, 1, -34.9133, 1.40776, 13.4417 )
+transform = Transform( -1, 0, 0, 0, -1, 0, 0, 0, 1, -20.9133, 1.40776, 24.4417 )
 
 [node name="Structures" type="Node" parent="."]
 
@@ -389,6 +407,7 @@ transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, -12.021, 0, -4.678 )
 
 [node name="Ceiling" parent="Structures" instance=ExtResource( 8 )]
 transform = Transform( 9.99985, 0.0511194, -0.0174359, -0.0511912, 9.99978, -0.04138, 0.017224, 0.0414686, 9.9999, -11.9846, -0.32818, -4.87877 )
+visible = false
 
 [node name="TVWindowBlinder" parent="Structures" instance=ExtResource( 10 )]
 transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, -8.877, -0.00407219, -5.53841 )
