@@ -104,3 +104,4 @@ func handle_movement(delta):
 	
 	velocity.y = y_velocity
 	velocity = move_and_slide(velocity, Vector3.UP)
+	y_velocity = velocity.y
