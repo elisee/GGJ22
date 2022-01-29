@@ -109,6 +109,7 @@ height = 0.897022
 [node name="Vacuum" type="KinematicBody"]
 script = ExtResource( 6 )
 label = "Put battery in"
+conditionLabel = "Need a battery to turn it on"
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0.4, 0 )

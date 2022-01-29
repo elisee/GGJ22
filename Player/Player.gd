@@ -21,9 +21,11 @@ var wantsToJumpTimer = jump_flexibility_delay
 
 var progress = 0;
 signal progress(newProgress)
-signal canInteract(label)
+signal setInteraction(label)
 
 var active_interactable: BaseInteractable = null
+
+var item: String = ""
 
 onready var camera_pivot = $CameraPivot
 onready var camera = $CameraPivot/Camera
@@ -51,10 +53,6 @@ func _input(event):
 func _process(delta):
 	if Input.is_action_just_pressed("ui_cancel"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-
-func incrementProgress():
-	progress = clamp(progress + 10, 0, 100)
-	emit_signal("progress", progress)
 
 func _physics_process(delta):
 	handle_look(delta)
@@ -137,11 +135,31 @@ func check_interactable(delta):
 			new_interactable = interactable
 			break
 
+	var can_interact = new_interactable != null and new_interactable.can_interact()
+
 	if new_interactable != self.active_interactable:
 		self.active_interactable = new_interactable
-		var label = self.active_interactable.label if self.active_interactable != null else null
-		emit_signal("canInteract", label)
-	
-	if Input.is_action_just_pressed("interact"):
 		if self.active_interactable != null:
-			self.active_interactable.interact()
+			var label = self.active_interactable.label if can_interact else self.active_interactable.conditionLabel
+			emit_signal("setInteraction", label, can_interact)
+		else:
+			emit_signal("setInteraction", "", false)
+	
+	if Input.is_action_just_pressed("interact") and can_interact:
+		self.active_interactable.interact()
+
+func set_item(item: String):
+	if item != "":
+		assert(self.item == "")
+		self.item = item
+		# TODO: Add item above player
+	else:
+		self.item = ""
+		# TODO: Clear item above player
+
+func get_item():
+	return self.item
+
+func increment_progress():
+	progress = clamp(progress + 10, 0, 100)
+	emit_signal("progress", progress)
