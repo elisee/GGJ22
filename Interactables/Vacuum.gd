@@ -5,6 +5,11 @@ func can_interact():
 
 func interact():
 	.interact()
-	print("VACUUM!")
+	
+	var light = get_node("Vacuum_Light") as MeshInstance
+	var mat = light.get_active_material(1) as SpatialMaterial
+	mat.set_albedo(Color(0, 1, 0))
+	
+	get_node("Battery").visible = true
 	
 	get_node("/root/Spatial/Player").increment_progress()
