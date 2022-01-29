@@ -129,7 +129,7 @@ func handle_movement(delta):
 func check_interactable(delta):
 	var interactables = get_tree().get_nodes_in_group("interactable")
 
-	var new_interactable: BaseInteractable = null	
+	var new_interactable: BaseInteractable = null
 	
 	for node in interactables:
 		var interactable := node as BaseInteractable
@@ -139,7 +139,7 @@ func check_interactable(delta):
 
 	if new_interactable != self.active_interactable:
 		self.active_interactable = new_interactable
-		var label = self.active_interactable.label if self.active_interactable != null else ""
+		var label = self.active_interactable.label if self.active_interactable != null else null
 		emit_signal("canInteract", label)
 	
 	if Input.is_action_just_pressed("interact"):
