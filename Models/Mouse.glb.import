@@ -2,13 +2,11 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/Mouse.glb-b82741a8dbc1e24235a8990c23e62605.scn"
+valid=false
 
 [deps]
 
 source_file="res://Models/Mouse.glb"
-dest_files=[ "res://.import/Mouse.glb-b82741a8dbc1e24235a8990c23e62605.scn" ]
-
 [params]
 
 nodes/root_type="Spatial"
