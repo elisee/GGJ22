@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="CubeMesh" id=1]
+
+[sub_resource type="Environment" id=2]
+
+[node name="Spatial" type="Spatial"]
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+use_in_baked_light = true
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="MeshInstance3" type="MeshInstance" parent="."]
+transform = Transform( 0.153829, 0, 0, 0, 2.06336, 0, 0, 0, 1, -1.02996, 1.19834, 0 )
+use_in_baked_light = true
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="MeshInstance3"]
+environment = SubResource( 2 )
+
+[node name="OmniLight" type="OmniLight" parent="MeshInstance3/WorldEnvironment"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2, 1 )
+omni_range = 3.0
+
+[node name="MeshInstance2" type="MeshInstance" parent="."]
+transform = Transform( 0.352884, 0, 0, 0, 0.352884, 0, 0, 0, 1, 0.234526, 1.36846, 0 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="BakedLightmap" type="BakedLightmap" parent="."]
