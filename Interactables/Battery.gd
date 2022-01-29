@@ -1,10 +1,12 @@
 extends BaseInteractable
 
+onready var player = get_tree().get_nodes_in_group("player")[0]
+
 func can_interact():
-	if get_node("/root/Spatial/Player").get_item() != "": return false
+	if player.get_item() != "": return false
 	return true
 
 func interact():
 	.interact()
-	get_node("/root/Spatial/Player").set_item("Battery")
+	player.set_item("Battery")
 	self.queue_free()

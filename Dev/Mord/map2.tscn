@@ -103,12 +103,12 @@ normal_bias = 0.0
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -47.082, 18.3946, 42.0822 )
 
 [node name="Battery" parent="." instance=ExtResource( 23 )]
-transform = Transform( -1, 0, 0, 0, 1, 8.74228e-08, 0, 8.74228e-08, -1, -29.4566, 1.43051e-05, 26.8907 )
+transform = Transform( -0.788741, -5.3741e-08, 0.614726, 0, 1, 8.74228e-08, -0.614726, 6.89539e-08, -0.788741, -8.65092, 1.43051e-05, 71.7579 )
 
 [node name="Vacuum" parent="." instance=ExtResource( 11 )]
 transform = Transform( -1, 0, 0, 0, 1, 8.74228e-08, 0, 8.74228e-08, -1, -20, 0, 25 )
 
-[node name="VacuumPath" type="Path" parent="."]
+[node name="VacuumPath" type="Path" parent="." groups=["vacuum_path"]]
 curve = SubResource( 20 )
 
 [node name="Furnitures" type="Node" parent="."]
@@ -557,6 +557,7 @@ data = SubResource( 19 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="WorldEnvironment2"]
 transform = Transform( -0.828184, -0.139267, 0.542878, 0.145577, 0.881934, 0.448331, -0.54122, 0.450331, -0.710129, 28.503, 37.4945, -22.8923 )
+visible = false
 light_color = Color( 0.8, 0.505882, 0.392157, 1 )
 light_energy = 7.752
 light_indirect_energy = 4.523
