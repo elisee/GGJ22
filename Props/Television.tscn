@@ -6,3 +6,17 @@
 
 [node name="Cube" parent="." index="0"]
 transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0 )
+
+[node name="StaticBody" type="StaticBody" parent="Cube" index="0"]
+
+[node name="CollisionPolygon" type="CollisionPolygon" parent="Cube/StaticBody" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.290142, 0, 0, 0.00642691 )
+polygon = PoolVector2Array( -0.285338, 0.458962, 0.310232, 0.512521, 0.24382, 0.0540605, -0.244633, 0.0433488 )
+
+[node name="CollisionPolygon2" type="CollisionPolygon" parent="Cube/StaticBody" index="1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.193525, 0, 0, -0.00629873 )
+polygon = PoolVector2Array( -0.202791, 0.0457466, -0.20909, -0.0361369, 0.209776, -0.0377116, 0.200328, 0.0473213 )
+
+[node name="CollisionPolygon3" type="CollisionPolygon" parent="Cube/StaticBody" index="2"]
+transform = Transform( 0.985695, 0, 0.00278917, 0, 1, 0, -0.168541, 0, 0.0163122, -0.00510454, 0, -0.0350975 )
+polygon = PoolVector2Array( -0.312569, 0.58082, -0.191506, 0.467696, -0.156775, 0.46968, 0.017873, 0.661197, 0.00398051, 0.672113, -0.173644, 0.477619, -0.303638, 0.596697 )

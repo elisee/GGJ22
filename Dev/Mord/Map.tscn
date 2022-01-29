@@ -1,16 +1,26 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Props/Table_01.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Props/Televisionv02.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Props/Book_01.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Props/Book_02.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Props/Television.tscn" type="PackedScene" id=6]
 
 [sub_resource type="SpatialMaterial" id=2]
 albedo_color = Color( 0.345098, 0.164706, 0.164706, 1 )
 
+[sub_resource type="SpatialMaterial" id=15]
+albedo_color = Color( 0.176471, 0.843137, 0.121569, 1 )
+
+[sub_resource type="SpatialMaterial" id=16]
+albedo_color = Color( 0.176471, 0.843137, 0.121569, 1 )
+
 [sub_resource type="SpatialMaterial" id=3]
 albedo_color = Color( 0.25098, 0.129412, 0.129412, 1 )
+
+[sub_resource type="SpatialMaterial" id=17]
+albedo_color = Color( 0.356863, 0.188235, 0.188235, 1 )
 
 [sub_resource type="SpatialMaterial" id=4]
 albedo_color = Color( 0.454902, 0.45098, 0.45098, 1 )
@@ -57,7 +67,7 @@ refraction_texture_channel = 2
 [node name="Player & lights" type="Spatial" parent="."]
 
 [node name="Player" parent="Player & lights" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 26.6144, 4.01703, -21.3998 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 26.6144, 0.534287, -21.3998 )
 
 [node name="DirectionalLight2" type="DirectionalLight" parent="Player & lights"]
 transform = Transform( -1, 1.13133e-08, 4.2222e-08, 4.2222e-08, -2.38419e-07, 1, 1.13133e-08, 1, 2.38419e-07, 22.5942, 22.1474, -22.6078 )
@@ -77,6 +87,17 @@ height = 4.8
 depth = 9.0
 material = SubResource( 2 )
 
+[node name="CSGCylinder" type="CSGCylinder" parent="Furnitures/Bed Corner/Bed"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.70868, 3.47737, -2.68971 )
+radius = 1.2234
+height = 2.0
+cone = true
+material = SubResource( 15 )
+
+[node name="CSGSphere" type="CSGSphere" parent="Furnitures/Bed Corner/Bed/CSGCylinder"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.45085, 0 )
+material = SubResource( 16 )
+
 [node name="Night Stand" type="CSGBox" parent="Furnitures/Bed Corner"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 47.6486, 2.60837, -37.8399 )
 use_collision = true
@@ -85,6 +106,15 @@ height = 5.0
 depth = 4.5
 material = SubResource( 3 )
 
+[node name="Lamp" type="CSGSphere" parent="Furnitures/Bed Corner/Night Stand"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.592361, 3.6777, -0.646797 )
+radius = 1.312
+
+[node name="CSGCylinder" type="CSGCylinder" parent="Furnitures/Bed Corner/Night Stand/Lamp"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.49231, 0 )
+radius = 1.37648
+height = 2.59736
+
 [node name="Cabinet" type="CSGBox" parent="Furnitures/Bed Corner"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24.1054, 9.13239, -47.8727 )
 use_collision = true
@@ -92,6 +122,141 @@ width = 10.4
 height = 18.0
 depth = 5.7
 material = SubResource( 3 )
+
+[node name="Shelf 1" type="CSGBox" parent="Furnitures/Bed Corner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 37.3014, 9.59183, -49.492 )
+use_collision = true
+width = 15.0
+height = 0.2
+depth = 2.5
+material = SubResource( 17 )
+
+[node name="Book_01" parent="Furnitures/Bed Corner/Shelf 1" instance=ExtResource( 4 )]
+transform = Transform( -0.122822, 0.992429, -3.80117e-08, -4.37114e-08, -4.37114e-08, -1, -0.992429, -0.122822, 4.87492e-08, -5.15592, 1.22728, 0.731922 )
+
+[node name="Book_10" parent="Furnitures/Bed Corner/Shelf 1" instance=ExtResource( 4 )]
+transform = Transform( -3.22527e-08, -0.674959, -0.737855, -2.95034e-08, 0.737855, -0.674959, 1, 0, -4.37114e-08, 1.35286, 0.272925, 0.0541534 )
+
+[node name="Book_03" parent="Furnitures/Bed Corner/Shelf 1" instance=ExtResource( 4 )]
+transform = Transform( 0.988876, -0.148741, -3.67235e-08, -4.37114e-08, -4.37114e-08, -1, 0.148741, 0.988876, -4.97268e-08, -3.78314, 0.442557, 0.194225 )
+
+[node name="Book_02" parent="Furnitures/Bed Corner/Shelf 1" instance=ExtResource( 5 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.21967, 0.1, 0.0309029 )
+
+[node name="Book_06" parent="Furnitures/Bed Corner/Shelf 1" instance=ExtResource( 5 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -6.26852, 0.1, 0.0309029 )
+
+[node name="Book_07" parent="Furnitures/Bed Corner/Shelf 1" instance=ExtResource( 5 )]
+transform = Transform( -4.37114e-08, 0, -1, -0.164721, 0.98634, 7.20016e-09, 0.98634, 0.164721, -4.31143e-08, -6.79623, 0.32848, 0.712597 )
+
+[node name="Book_08" parent="Furnitures/Bed Corner/Shelf 1" instance=ExtResource( 5 )]
+transform = Transform( 0.196567, -0.0797814, -0.977239, 0.0157325, 0.996812, -0.0782148, 0.980364, 0, 0.197195, -7.46346, 0.1, 0.808178 )
+
+[node name="Book_04" parent="Furnitures/Bed Corner/Shelf 1" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, -1, -1, -4.37114e-08, 4.37114e-08, -4.37114e-08, 1, 1.91069e-15, -5.73858, 1.23007, -0.413921 )
+
+[node name="Book_05" parent="Furnitures/Bed Corner/Shelf 1" instance=ExtResource( 5 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.81933, 0.1, 0.0309029 )
+
+[node name="Shelf 2" type="CSGBox" parent="Furnitures/Bed Corner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 33.2662, 13.2378, -49.492 )
+use_collision = true
+width = 7.0
+height = 0.2
+depth = 2.5
+material = SubResource( 17 )
+
+[node name="Book_01" parent="Furnitures/Bed Corner/Shelf 2" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.84, 0.109341, 0.0541534 )
+
+[node name="Book_03" parent="Furnitures/Bed Corner/Shelf 2" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.128975, 0.109341, 0.0541534 )
+
+[node name="Book_02" parent="Furnitures/Bed Corner/Shelf 2" instance=ExtResource( 5 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.4175, 0.1, 0.0309029 )
+
+[node name="Book_04" parent="Furnitures/Bed Corner/Shelf 2" instance=ExtResource( 4 )]
+transform = Transform( -1, 4.37114e-08, 8.74228e-08, -8.74228e-08, 1.91069e-15, -1, -4.37114e-08, -1, 1.91069e-15, -2.84142, 0.349335, 2.41777 )
+
+[node name="Book_05" parent="Furnitures/Bed Corner/Shelf 2" instance=ExtResource( 5 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.472843, 0.1, 0.0309029 )
+
+[node name="Shelf 3" type="CSGBox" parent="Furnitures/Bed Corner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 43.7599, 13.2378, -49.492 )
+use_collision = true
+width = 7.0
+height = 0.2
+depth = 2.5
+material = SubResource( 17 )
+
+[node name="Shelf 4" type="CSGBox" parent="Furnitures/Bed Corner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 38.5254, 16.6854, -49.492 )
+use_collision = true
+width = 17.5
+height = 0.2
+depth = 2.5
+material = SubResource( 17 )
+
+[node name="Book_06" parent="Furnitures/Bed Corner/Shelf 4" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.448, 0.122768, 0.0541534 )
+
+[node name="Book_07" parent="Furnitures/Bed Corner/Shelf 4" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5.73698, 0.122768, 0.0541534 )
+
+[node name="Book_08" parent="Furnitures/Bed Corner/Shelf 4" instance=ExtResource( 5 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7.0255, 0.11343, 0.0309029 )
+
+[node name="Book_09" parent="Furnitures/Bed Corner/Shelf 4" instance=ExtResource( 5 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5.13516, 0.11343, 0.0309029 )
+
+[node name="Book_10" parent="Furnitures/Bed Corner/Shelf 4" instance=ExtResource( 5 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.58487, 0.11343, 0.453365 )
+
+[node name="Shelf 5" type="CSGBox" parent="Furnitures/Bed Corner"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 48.5172, 13.2378, -45.6971 )
+use_collision = true
+width = 10.0
+height = 0.2
+depth = 2.5
+material = SubResource( 17 )
+
+[node name="Shelf 6" type="CSGBox" parent="Furnitures/Bed Corner"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 48.5172, 16.6889, -45.7482 )
+use_collision = true
+width = 10.0
+height = 0.2
+depth = 2.5
+material = SubResource( 17 )
+
+[node name="Book_11" parent="Furnitures/Bed Corner/Shelf 6" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.647766, 0.119225, -0.0896835 )
+
+[node name="Book_20" parent="Furnitures/Bed Corner/Shelf 6" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.03013, 0.119225, -0.0896912 )
+
+[node name="Book_16" parent="Furnitures/Bed Corner/Shelf 6" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.82479, 0.119225, 0.233631 )
+
+[node name="Book_12" parent="Furnitures/Bed Corner/Shelf 6" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.0632591, 0.119225, -0.0896835 )
+
+[node name="Book_13" parent="Furnitures/Bed Corner/Shelf 6" instance=ExtResource( 5 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.22526, 0.109886, -0.112934 )
+
+[node name="Book_17" parent="Furnitures/Bed Corner/Shelf 6" instance=ExtResource( 5 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.36538, 0.109886, -0.112934 )
+
+[node name="Book_18" parent="Furnitures/Bed Corner/Shelf 6" instance=ExtResource( 5 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.80248, 0.109886, 0.0285454 )
+
+[node name="Book_19" parent="Furnitures/Bed Corner/Shelf 6" instance=ExtResource( 5 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.29272, 0.109886, -0.0671768 )
+
+[node name="Book_14" parent="Furnitures/Bed Corner/Shelf 6" instance=ExtResource( 5 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.665077, 0.109886, -0.112934 )
+
+[node name="Book_15" parent="Furnitures/Bed Corner/Shelf 6" instance=ExtResource( 5 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.21537, 0.109886, 0.309532 )
 
 [node name="Desk Corner" type="Spatial" parent="Furnitures"]
 
@@ -393,8 +558,5 @@ height = 10.0
 depth = 0.2
 material = SubResource( 13 )
 
-[node name="Book_01" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 35.2141, 4.87576, -44.6591 )
-
-[node name="Book_02" parent="." instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 39.7743, 4.79531, -44.3495 )
+[node name="Televisionv02" parent="." instance=ExtResource( 6 )]
+transform = Transform( 0.453496, 0, -0.310908, 0, 0.46516, 0, 0.327662, 0, 0.430308, 47.7231, 13.4794, -49.8632 )

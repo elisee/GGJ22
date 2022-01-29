@@ -1,9 +1,6 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=2 format=2]
 
 [ext_resource path="res://Models/Book_01.glb" type="PackedScene" id=1]
-
-[sub_resource type="BoxShape" id=1]
-extents = Vector3( 0.12172, 0.157783, 0.0330911 )
 
 [node name="Book_01" instance=ExtResource( 1 )]
 
@@ -13,6 +10,6 @@ transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0 )
 [node name="StaticBody" type="StaticBody" parent="Book" index="0"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.160594, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Book/StaticBody" index="0"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00124846, -0.00374524, -0.00624202 )
-shape = SubResource( 1 )
+[node name="CollisionPolygon" type="CollisionPolygon" parent="Book/StaticBody" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.0640634, 0, -0.0045881, -0.00671618 )
+polygon = PoolVector2Array( -0.122795, 0.15164, 0.118539, 0.139711, 0.112116, -0.159434, -0.103525, -0.159434 )
