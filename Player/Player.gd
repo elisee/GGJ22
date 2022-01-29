@@ -17,6 +17,7 @@ var velocity : Vector3
 var y_velocity : float
 
 var fallingTimer = 0.0
+var wantsToJumpTimer = jump_flexibility_delay
 
 var progress = 0;
 signal progress(newProgress)
@@ -92,7 +93,12 @@ func handle_movement(delta):
 	else:
 		fallingTimer += delta
 	
-	if Input.is_action_just_pressed("jump") and fallingTimer < jump_flexibility_delay:
+	if Input.is_action_just_pressed("jump"):
+		wantsToJumpTimer = 0.0
+	else:
+		wantsToJumpTimer += delta
+		
+	if wantsToJumpTimer < jump_flexibility_delay and fallingTimer < jump_flexibility_delay:
 		y_velocity = jump_power
 		fallingTimer = jump_flexibility_delay
 	
