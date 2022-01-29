@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Props/Table_01.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Props/Book_01.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Props/Book_02.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Props/Television.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Props/Remote.tscn" type="PackedScene" id=7]
 
 [sub_resource type="SpatialMaterial" id=2]
 albedo_color = Color( 0.345098, 0.164706, 0.164706, 1 )
@@ -25,6 +26,9 @@ albedo_color = Color( 0.356863, 0.188235, 0.188235, 1 )
 [sub_resource type="SpatialMaterial" id=4]
 albedo_color = Color( 0.454902, 0.45098, 0.45098, 1 )
 metallic = 0.33
+
+[sub_resource type="SpatialMaterial" id=18]
+albedo_color = Color( 0.788235, 0.678431, 0.239216, 1 )
 
 [sub_resource type="SpatialMaterial" id=5]
 albedo_color = Color( 0.262745, 0.141176, 0.141176, 1 )
@@ -107,13 +111,13 @@ depth = 4.5
 material = SubResource( 3 )
 
 [node name="Lamp" type="CSGSphere" parent="Furnitures/Bed Corner/Night Stand"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.592361, 3.6777, -0.646797 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.592361, 3.59291, -0.646797 )
 radius = 1.312
 
 [node name="CSGCylinder" type="CSGCylinder" parent="Furnitures/Bed Corner/Night Stand/Lamp"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.49231, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.12434, 0 )
 radius = 1.37648
-height = 2.59736
+height = 3.47021
 
 [node name="Cabinet" type="CSGBox" parent="Furnitures/Bed Corner"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24.1054, 9.13239, -47.8727 )
@@ -261,7 +265,7 @@ transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.2153
 [node name="Desk Corner" type="Spatial" parent="Furnitures"]
 
 [node name="Trashbin" type="CSGCylinder" parent="Furnitures/Desk Corner"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 47.3885, 1.5733, -27.6324 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 47.3885, 1.5733, -6.31151 )
 use_collision = true
 radius = 1.5
 height = 3.0
@@ -269,6 +273,30 @@ material = SubResource( 4 )
 
 [node name="Table_01" parent="Furnitures/Desk Corner" instance=ExtResource( 2 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 43.7766, 0.115651, -20.1547 )
+
+[node name="Box" type="CSGBox" parent="Furnitures/Desk Corner"]
+transform = Transform( 0.987198, 0, -0.159502, 0, 1, 0, 0.159502, 0, 0.987198, 45.6947, 3.10694, -31.6014 )
+use_collision = true
+width = 6.0
+height = 6.0
+depth = 6.0
+material = SubResource( 18 )
+
+[node name="Box2" type="CSGBox" parent="Furnitures/Desk Corner"]
+transform = Transform( 0.985055, 0, 0.172239, 0, 1, 0, -0.172239, 0, 0.985055, 46.2075, 9.07873, -32.0069 )
+use_collision = true
+width = 6.0
+height = 6.0
+depth = 6.0
+material = SubResource( 18 )
+
+[node name="Box3" type="CSGBox" parent="Furnitures/Desk Corner"]
+transform = Transform( 0.992555, 0, -0.1218, 0, 1, 0, 0.1218, 0, 0.992555, 46.2075, 15.0956, -31.231 )
+use_collision = true
+width = 6.0
+height = 6.0
+depth = 6.0
+material = SubResource( 18 )
 
 [node name="TV Corner" type="Spatial" parent="Furnitures"]
 
@@ -560,3 +588,6 @@ material = SubResource( 13 )
 
 [node name="Televisionv02" parent="." instance=ExtResource( 6 )]
 transform = Transform( 0.453496, 0, -0.310908, 0, 0.46516, 0, 0.327662, 0, 0.430308, 47.7231, 13.4794, -49.8632 )
+
+[node name="Remote" parent="." instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 42.8617, 4.76483, 1.38858 )
