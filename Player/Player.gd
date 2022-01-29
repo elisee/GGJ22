@@ -1,11 +1,11 @@
 extends KinematicBody
 
-var speed : float = 20
-var acceleration : float = 15
+var speed : float = 15
+var acceleration : float = 10
 var air_acceleration : float = 5
 var gravity : float = 0.98
 var max_terminal_velocity : float = 54
-var jump_power : float = 20
+var jump_power : float = 15
 var jump_flexibility_delay : float = 0.15
 
 var mouse_sensitivity = 0.3
