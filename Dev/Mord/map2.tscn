@@ -1,7 +1,9 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Props/Couch.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Props/TVFurniture.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Props/Book_01.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Props/Table_01.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Props/Parquet.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Props/Walls.tscn" type="PackedScene" id=7]
@@ -9,6 +11,7 @@
 [ext_resource path="res://Props/Televisionv02.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Props/TVWindowBlinder.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Props/Vacuum.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Props/Book_02.tscn" type="PackedScene" id=12]
 
 [sub_resource type="Environment" id=1]
 background_energy = 0.0
@@ -172,7 +175,7 @@ omni_attenuation = 2.0
 [node name="Desk Corner" type="Node" parent="Furnitures"]
 
 [node name="Table_01" parent="Furnitures/Desk Corner" instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.76731, -0.0556363, -5.08822 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.7673, -0.0556363, -5.08822 )
 
 [node name="TV Corner" type="Node" parent="Furnitures"]
 
@@ -181,6 +184,9 @@ transform = Transform( -0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, -0.965926,
 
 [node name="TVFurniture" parent="Furnitures/TV Corner" instance=ExtResource( 3 )]
 transform = Transform( 9.99985, 0.0511194, -0.0174359, -0.0511912, 9.99978, -0.04138, 0.017224, 0.0414686, 9.9999, 19.5656, -0.0850025, 28.6244 )
+
+[node name="Couch" parent="Furnitures/TV Corner" instance=ExtResource( 2 )]
+transform = Transform( 1, -8.74228e-08, 0, 8.74228e-08, 1, 0, 0, 0, 1, 17.4, 8.15816, -1 )
 
 [node name="Bed Corner" type="Node" parent="Furnitures"]
 
@@ -411,3 +417,9 @@ visible = false
 
 [node name="TVWindowBlinder" parent="Structures" instance=ExtResource( 10 )]
 transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, -8.877, -0.00407219, -5.53841 )
+
+[node name="Book_01" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -43, 4, 4 )
+
+[node name="Book_02" parent="." instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -43, 4, 2 )
