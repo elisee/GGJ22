@@ -8,7 +8,7 @@
 transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0 )
 
 [node name="CoffeeMachine_Button" parent="." index="1"]
-transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0.0213041, 0.102011 )
+transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0.21454, 1.0166 )
 
 [node name="CoffeeMachine_Body" parent="." index="2"]
 transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0 )
