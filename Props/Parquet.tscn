@@ -12,7 +12,6 @@ transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0 )
 material/0 = ExtResource( 2 )
 
 [node name="StaticBody" type="StaticBody" parent="Parquet" index="0"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Parquet/StaticBody" index="0"]
 transform = Transform( 0.594001, 0, 0, 0, 0, 0, 0, 0, 0.594001, 0, 0, 0.468114 )
