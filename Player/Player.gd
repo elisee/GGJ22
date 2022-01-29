@@ -6,6 +6,7 @@ var air_acceleration : float = 5
 var gravity : float = 0.98
 var max_terminal_velocity : float = 54
 var jump_power : float = 25
+var jump_flexibility_delay : float = 0.15
 
 var mouse_sensitivity = 0.3
 var look_speed = 200
@@ -14,6 +15,8 @@ var max_pitch : float = 70
 
 var velocity : Vector3
 var y_velocity : float
+
+var fallingTimer = 0.0
 
 var progress = 0;
 signal progress(newProgress)
@@ -84,8 +87,14 @@ func handle_movement(delta):
 	else:
 		y_velocity = clamp(y_velocity - gravity, -max_terminal_velocity, max_terminal_velocity)
 	
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if is_on_floor():
+		fallingTimer = 0.0
+	else:
+		fallingTimer += delta
+	
+	if Input.is_action_just_pressed("jump") and fallingTimer < jump_flexibility_delay:
 		y_velocity = jump_power
+		fallingTimer = jump_flexibility_delay
 	
 	velocity.y = y_velocity
 	velocity = move_and_slide(velocity, Vector3.UP)
