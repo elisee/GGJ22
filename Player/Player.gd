@@ -31,6 +31,7 @@ var item: String = ""
 onready var camera_pivot = $CameraPivot
 onready var camera = $CameraPivot/Camera
 onready var animPlayer = $Character/AnimationPlayer
+
 var landParticlesScene = preload("res://Player/LandParticles.tscn")
 
 func _ready():
@@ -104,6 +105,8 @@ func handle_movement(delta):
 	
 	if Input.is_action_just_pressed("jump"):
 		wantsToJumpTimer = 0.0
+		$soundPlayer_rat_walk.stop()
+		$soundPlayer_rat_jump.play_random()
 	else:
 		wantsToJumpTimer += delta
 		
@@ -118,7 +121,13 @@ func handle_movement(delta):
 	
 	if is_on_floor():
 		if fallingTimer == 0:
-			animPlayer.play("Idle" if direction.length() == 0 else "Run")
+			if direction.length() == 0:
+				animPlayer.play("Idle")
+				$soundPlayer_rat_walk.stop()
+			else:
+				animPlayer.play("Run")
+				if not $soundPlayer_rat_walk.is_playing():	
+					$soundPlayer_rat_walk.play()
 		elif fallingTimer > 0.5:
 			var instance = landParticlesScene.instance()
 			get_tree().get_current_scene().add_child(instance)
