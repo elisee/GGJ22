@@ -27,9 +27,15 @@ var active_interactable: BaseInteractable = null
 
 onready var camera_pivot = $CameraPivot
 onready var camera = $CameraPivot/Camera
+onready var animPlayer = $Character/AnimationPlayer
+onready var landParticles = $LandParticles
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	
+	animPlayer.get_animation("Idle").set_loop(true)
+	animPlayer.get_animation("Idle2").set_loop(true)
+	animPlayer.get_animation("Run").set_loop(true)
 
 func _input(event):
 	if event is InputEventMouseButton:
@@ -94,6 +100,11 @@ func handle_movement(delta):
 		y_velocity = clamp(y_velocity - gravity, -max_terminal_velocity, max_terminal_velocity)
 	
 	if is_on_floor():
+		if fallingTimer == 0:
+			animPlayer.play("Idle" if direction.length() == 0 else "Run")
+		elif fallingTimer > 0.5:
+			landParticles.emitting = true
+		
 		fallingTimer = 0.0
 	else:
 		fallingTimer += delta
@@ -106,6 +117,7 @@ func handle_movement(delta):
 	if wantsToJumpTimer < jump_flexibility_delay and fallingTimer < jump_flexibility_delay:
 		y_velocity = jump_power
 		fallingTimer = jump_flexibility_delay
+		animPlayer.play("Jump")
 	
 	velocity.y = y_velocity
 	velocity = move_and_slide(velocity, Vector3.UP)
