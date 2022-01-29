@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Props/Table_01.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Props/Battery.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Props/Blind_Switch.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Props/Window.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Props/Blinds.tscn" type="PackedScene" id=12]
 
 [node name="Spatial" type="Spatial"]
 
@@ -43,7 +44,7 @@ transform = Transform( 0.300955, 0, -0.953638, 0, 1, 0, 0.953638, 0, 0.300955, -
 transform = Transform( -0.56586, 0, 0.824502, 0, 1, 0, -0.824502, 0, -0.56586, -11.8449, 10.3141, -0.481254 )
 
 [node name="Televisionv04" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.93851, 1, -9.86994 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.56002, -1.63962, 9.35023 )
 
 [node name="Battery" parent="Televisionv04" instance=ExtResource( 9 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4114, 0, 9.7976 )
@@ -64,4 +65,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.4, 0.854315, -5.4 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.8547, 1.46778, 0.95043 )
 
 [node name="Window" parent="." instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.41011, 1, 1.467 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.41011, 1, -15.6932 )
+
+[node name="Blinds" parent="." instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.55192, 1.0393, -16.2474 )
