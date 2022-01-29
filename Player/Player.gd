@@ -5,7 +5,7 @@ var acceleration : float = 15
 var air_acceleration : float = 5
 var gravity : float = 0.98
 var max_terminal_velocity : float = 54
-var jump_power : float = 25
+var jump_power : float = 20
 var jump_flexibility_delay : float = 0.15
 
 var mouse_sensitivity = 0.3
@@ -21,6 +21,9 @@ var wantsToJumpTimer = jump_flexibility_delay
 
 var progress = 0;
 signal progress(newProgress)
+signal canInteract(label)
+
+var active_interactable: BaseInteractable = null
 
 onready var camera_pivot = $CameraPivot
 onready var camera = $CameraPivot/Camera
@@ -50,6 +53,8 @@ func _process(delta):
 func _physics_process(delta):
 	handle_look(delta)
 	handle_movement(delta)
+	
+	check_interactable(delta)
 
 func handle_look(delta):
 	if Input.is_action_pressed("look_up"):
@@ -105,3 +110,23 @@ func handle_movement(delta):
 	velocity.y = y_velocity
 	velocity = move_and_slide(velocity, Vector3.UP)
 	y_velocity = velocity.y
+
+func check_interactable(delta):
+	var interactables = get_tree().get_nodes_in_group("interactable")
+
+	var new_interactable: BaseInteractable = null	
+	
+	for node in interactables:
+		var interactable := node as BaseInteractable
+		if interactable.area.overlaps_body(self):
+			new_interactable = interactable
+			break
+
+	if new_interactable != self.active_interactable:
+		self.active_interactable = new_interactable
+		var label = self.active_interactable.label if self.active_interactable != null else ""
+		emit_signal("canInteract", label)
+	
+	if Input.is_action_just_pressed("interact"):
+		if self.active_interactable != null:
+			self.active_interactable.interact()

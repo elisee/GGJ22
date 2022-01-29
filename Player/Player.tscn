@@ -36,4 +36,5 @@ process_mode = 1
 
 [node name="HUD" parent="." instance=ExtResource( 2 )]
 
+[connection signal="canInteract" from="." to="HUD" method="_on_Player_canInteract"]
 [connection signal="progress" from="." to="HUD" method="_on_Player_progress"]

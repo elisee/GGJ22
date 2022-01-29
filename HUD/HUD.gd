@@ -18,3 +18,11 @@ func _ready():
 
 func _on_Player_progress(newProgress):
 	$Root/ProgressBar.value = newProgress
+
+
+func _on_Player_canInteract(label):
+	if label != null:
+		$Root/InteractPanel.visible = true
+		$Root/InteractPanel/InteractLabel.text = label
+	else:
+		$Root/InteractPanel.visible = false
