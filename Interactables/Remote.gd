@@ -1,4 +1,4 @@
 extends BaseInteractable
 
 func interact():
-	print("INTERACTED WITH REMOTE")
+	get_node("/root/Spatial/Televisionv04/Screen").visible = false

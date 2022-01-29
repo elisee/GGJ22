@@ -120,4 +120,4 @@ anims/On-Off = SubResource( 4 )
 anims/RESET = SubResource( 5 )
 
 [node name="Cache" parent="." index="4"]
-visible = false
+transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0.332273, -0.1 )
