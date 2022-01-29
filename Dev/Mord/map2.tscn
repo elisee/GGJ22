@@ -175,7 +175,7 @@ transform = Transform( 1.75686, -1.53589e-07, -0.0151838, 7.92838e-08, 0.906901,
 transform = Transform( 0.0619785, 0, -1.09215, 0, 1.47237, 0, 1.09215, 0, 0.0619785, 16.9417, -0.0614958, 11.4098 )
 
 [node name="Remote" parent="Furnitures/TV Corner" instance=ExtResource( 19 )]
-transform = Transform( 0.347738, 0, -0.937592, 0, 1, 0, 0.937592, 0, 0.347738, 20.3998, 4.35562, 11.4049 )
+transform = Transform( -0.269895, 0, 0.96289, 0, 1, 0, -0.96289, 0, -0.269895, 20.3998, 4.35562, 11.4049 )
 
 [node name="Blind_Switch" parent="Furnitures/TV Corner" instance=ExtResource( 20 )]
 transform = Transform( -8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, -49.8437, 11.6783, 49.7255 )
@@ -637,7 +637,7 @@ omni_range = 23.4494
 omni_attenuation = 2.21914
 omni_shadow_mode = 0
 
-[node name="Light TV" type="OmniLight" parent="WorldEnvironment"]
+[node name="Light TV" type="OmniLight" parent="WorldEnvironment" groups=["lightTV"]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.4772, 11.1657, 25.7869 )
 light_color = Color( 0, 0.270588, 0.917647, 1 )
 light_energy = 4.618
