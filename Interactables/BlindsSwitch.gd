@@ -11,6 +11,7 @@ func interact():
 	self.active = true
 	$SoundPlayerUIBlindsSwitch.play()
 	$SoundPlayerBlindsOpen.play()
+	$SoundPlayerUISuccess.play()
 
 func _process(delta):
 	if not self.active:

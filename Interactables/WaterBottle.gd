@@ -19,6 +19,7 @@ func interact():
 	.interact()
 	self.active = true
 	$SoundPlayerWaterBottle.play()
+	$SoundPlayerUISuccess.play()
 
 func _physics_process(delta):
 	if not self.active: return

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Models/Can_01.material" type="Material" id=1]
 [ext_resource path="res://Interactables/Can.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Models/Can_03.material" type="Material" id=4]
 [ext_resource path="res://Models/Can_02.material" type="Material" id=5]
 [ext_resource path="res://Sounds/SFX/sfx_can_in_trashbin_success.wav" type="AudioStream" id=6]
+[ext_resource path="res://Sounds/UI/ui_success_reward.wav" type="AudioStream" id=7]
 
 [sub_resource type="CylinderShape" id=3]
 radius = 0.0417488
@@ -90,4 +91,8 @@ shape = SubResource( 2 )
 [node name="SoundPlayerCanTrash" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
 volume_db = -6.992
+bus = "UI"
+
+[node name="SoundPlayerUISuccess" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
 bus = "UI"

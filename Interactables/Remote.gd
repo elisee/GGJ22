@@ -10,6 +10,7 @@ func interact():
 
 	$SoundPlayerUIRemote.play()
 	$SoundPlayerTvPowerDown.play()
+	$SoundPlayerUISuccess.play()
 	
 	television.get_node("Screen").visible = false
 	television.get_node("SoundPlayerStaticLoop").playing = false

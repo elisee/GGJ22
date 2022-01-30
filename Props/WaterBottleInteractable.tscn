@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Models/Bottle_01.material" type="Material" id=1]
 [ext_resource path="res://Models/Bottle_Label.material" type="Material" id=2]
 [ext_resource path="res://Models/Bottle_Water.material" type="Material" id=3]
 [ext_resource path="res://Interactables/WaterBottle.gd" type="Script" id=4]
 [ext_resource path="res://Sounds/SFX/sfx_bottle_in_plant_success.wav" type="AudioStream" id=5]
+[ext_resource path="res://Sounds/UI/ui_success_reward.wav" type="AudioStream" id=6]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "WaterBottle_Circle001"
@@ -83,4 +84,8 @@ shape = SubResource( 4 )
 [node name="SoundPlayerWaterBottle" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
 volume_db = -6.992
+bus = "UI"
+
+[node name="SoundPlayerUISuccess" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
 bus = "UI"

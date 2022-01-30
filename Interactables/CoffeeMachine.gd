@@ -5,3 +5,4 @@ func interact():
 	$Particles.emitting = true
 	$SoundPlayerUICoffeeSwitch.play()
 	$SoundPlayerCoffeeMachineOn.play()
+	$SoundPlayerUISuccess.play()

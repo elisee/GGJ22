@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Sounds/SFX/sfx_picture_frame_small_success.wav" type="AudioStream" id=1]
 [ext_resource path="res://Interactables/FrameSmall.gd" type="Script" id=2]
 [ext_resource path="res://Models/FrameSmall_Wood.material" type="Material" id=3]
 [ext_resource path="res://Models/FrameSmall_Back.material" type="Material" id=4]
 [ext_resource path="res://Models/FrameSmall_Photo.material" type="Material" id=5]
+[ext_resource path="res://Sounds/UI/ui_success_reward.wav" type="AudioStream" id=6]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "FrameSmall_Cube002"
@@ -77,3 +78,7 @@ max_distance = 50.0
 bus = "SFX"
 attenuation_filter_cutoff_hz = 2000.0
 attenuation_filter_db = -20.8
+
+[node name="SoundPlayerUISuccess" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+bus = "UI"

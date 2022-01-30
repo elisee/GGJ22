@@ -21,6 +21,7 @@ func interact():
 	$SoundPlayerUIBatteryInsert.play()
 	$SoundPlayerVacuumMoving.play()
 	$SoundPlayerVacuumVO.play()
+	$SoundPlayerUISuccess.play()
 
 	self.active = true
 

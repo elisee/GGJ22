@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Models/Vacuum_03.material" type="Material" id=1]
 [ext_resource path="res://Models/Vacuum_02.material" type="Material" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Models/Battery.glb" type="PackedScene" id=7]
 [ext_resource path="res://Sounds/SFX/sfx_roomba_vacuum_time.wav" type="AudioStream" id=8]
 [ext_resource path="res://Sounds/VO/Roomba/vo_roomba_cleaning_01.wav" type="AudioStream" id=9]
+[ext_resource path="res://Sounds/UI/ui_success_reward.wav" type="AudioStream" id=10]
 [ext_resource path="res://Sounds/VO/Roomba/vo_roomba_cleaning_03.wav" type="AudioStream" id=16]
 [ext_resource path="res://Sounds/UI/ui_btn_insert_battery.wav" type="AudioStream" id=17]
 
@@ -186,3 +187,7 @@ light_color = Color( 0.94902, 0.878431, 0.631373, 1 )
 light_energy = 0.722
 omni_range = 6.56542
 omni_attenuation = 2.07053
+
+[node name="SoundPlayerUISuccess" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+bus = "UI"

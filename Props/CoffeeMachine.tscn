@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Interactables/CoffeeMachine.gd" type="Script" id=1]
 [ext_resource path="res://Models/Coffee_Drop.obj" type="ArrayMesh" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Models/CoffeeMachine_Cup.material" type="Material" id=7]
 [ext_resource path="res://Sounds/SFX/sfx_coffee_pot_loop.wav" type="AudioStream" id=8]
 [ext_resource path="res://Sounds/UI/ui_btn_coffee_machine_press.wav" type="AudioStream" id=9]
+[ext_resource path="res://Sounds/UI/ui_success_reward.wav" type="AudioStream" id=10]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "CoffeeMachine_Cylinder"
@@ -168,3 +169,7 @@ max_distance = 50.0
 bus = "SFX"
 attenuation_filter_cutoff_hz = 2000.0
 attenuation_filter_db = -20.8
+
+[node name="SoundPlayerUISuccess" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+bus = "UI"
