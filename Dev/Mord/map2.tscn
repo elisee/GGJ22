@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=2]
+[gd_scene load_steps=60 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Props/Couch.tscn" type="PackedScene" id=2]
@@ -38,6 +38,7 @@
 [ext_resource path="res://Props/Garbage.tscn" type="PackedScene" id=36]
 [ext_resource path="res://Props/WaterBottle.tscn" type="PackedScene" id=37]
 [ext_resource path="res://Models/Particles_Dust.jpg" type="Texture" id=38]
+[ext_resource path="res://Props/FrameSmall.tscn" type="PackedScene" id=39]
 
 [sub_resource type="Curve3D" id=20]
 _data = {
@@ -272,6 +273,9 @@ transform = Transform( 0.816279, 0.577658, 2.52502e-08, 0, -4.37114e-08, 1, 0.57
 
 [node name="Book_03" parent="Furnitures/TV Corner/Shelf 2" instance=ExtResource( 4 )]
 transform = Transform( 1, 1.59035e-07, 5.01436e-08, -5.01436e-08, 4.32134e-07, 1, 1.59035e-07, -1, 4.32134e-07, 0, 0.538004, -2.4 )
+
+[node name="FrameSmall" parent="Furnitures/TV Corner" instance=ExtResource( 39 )]
+transform = Transform( -5.84286, 0, -3.855, 0, 7, 0, 3.855, 0, -5.84286, 13.6946, 6.96843, 29.5453 )
 
 [node name="Bed Corner" type="Node" parent="Furnitures"]
 
