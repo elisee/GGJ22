@@ -15,6 +15,7 @@ func interact():
 	var light = $Vacuum_Light
 	var mat = light.get_active_material(1) as SpatialMaterial
 	mat.set_albedo(Color(0, 1, 0))
+	mat.set_emission(Color(0, 1, 0))
 	
 	$Battery.visible = true
 	$SoundPlayerUIBatteryInsert.play()
