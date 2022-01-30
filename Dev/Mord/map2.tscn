@@ -394,7 +394,7 @@ depth = 8.0
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -42.6749, 0, 10.8495 )
 
 [node name="FrameLarge" parent="Furnitures/Bed Corner" instance=ExtResource( 44 )]
-transform = Transform( 0.992336, -0.12346, 0.00514858, 0.123567, 0.991475, -0.0413471, 3.10439e-10, 0.0416664, 0.999132, -33.7655, 13.8914, -11.335 )
+transform = Transform( 0.985993, -0.166786, 4.59139e-10, 0.166643, 0.98515, -0.0413525, 0.00689702, 0.0407733, 0.999145, -34.15, 16.9794, -11.2052 )
 
 [node name="Kitchen Corner" type="Spatial" parent="Furnitures"]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.1, 0, 51 )
