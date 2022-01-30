@@ -24,7 +24,7 @@ transform = Transform( 10, 0, 0, 0, 9.39693, 3.4202, 0, -3.4202, 9.39693, 0, 0, 
 shape = SubResource( 1 )
 
 [node name="SoundPlayerBlindsOpen" type="AudioStreamPlayer3D" parent="." index="3"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.26577, 2.65526, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.4359, 3.60375, -6.24263 )
 stream = ExtResource( 4 )
 unit_db = 1.0
 unit_size = 20.0

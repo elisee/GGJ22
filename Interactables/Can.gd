@@ -10,6 +10,7 @@ var max_terminal_velocity : float = 54
 func interact():
 	.interact()
 	self.active = true
+	$SoundPlayerCanTrash.play()
 
 func _physics_process(delta):
 	if not self.active: return
