@@ -115,8 +115,9 @@ glow_bloom = 0.03
 bounds = AABB( -45.6668, -16.0468, -48.6629, 91.3336, 32.0936, 97.3258 )
 cell_size = 0.380179
 to_cell_xform = Transform( 2.63034, 0, 0, 0, 2.63034, 0, 0, 0, 2.63034, 120.119, 42.2085, 128 )
-dynamic_data = PoolIntArray( 0, 9, 256, 128, 256, 1, 0, 0, 0, 0, 0, 0, 7, 0, 1, 3599, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 8355711, 0 )
-dynamic_range = 4
+dynamic_data = PoolIntArray( 0, 9, 256, 128, 256, 1, 0, 0, 0, 1098907648, 1098907648, 0, 362018576, 0, 0, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 8355711, 0 )
+dynamic_range = 3
+energy = 2.14
 bias = 1.5
 normal_bias = 0.0
 
@@ -728,6 +729,8 @@ environment = SubResource( 21 )
 transform = Transform( 0.999985, 0.00511194, -0.00174359, -0.00511912, 0.999978, -0.004138, 0.0017224, 0.00414686, 0.99999, -7.73279, 13.2854, 34.2499 )
 subdiv = 2
 extents = Vector3( 45.6668, 16.0468, 48.6629 )
+dynamic_range = 3
+energy = 2.14
 propagation = 1.0
 data = SubResource( 22 )
 
@@ -820,11 +823,12 @@ spot_range = 61.1029
 spot_angle = 41.8946
 
 [node name="Particles_Dust" type="Particles" parent="WorldEnvironment"]
-transform = Transform( 0.999304, -2.90114e-08, 0, 2.90114e-08, 0.999304, 0, 0, 0, 0.999304, 15.2998, 14.0832, 17.9382 )
+transform = Transform( -0.999304, 1.16373e-07, 0, -1.16373e-07, -0.999304, 0, 0, 0, 0.999304, -9.69085, 21.0386, 32.7703 )
 material_override = SubResource( 26 )
 use_in_baked_light = true
 amount = 250
 lifetime = 30.94
+visibility_aabb = AABB( -3.6071, -4, -4, 7.21421, 8, 8 )
 process_material = SubResource( 27 )
 draw_pass_1 = SubResource( 28 )
 
