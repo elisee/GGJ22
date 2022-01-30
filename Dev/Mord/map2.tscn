@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=2]
+[gd_scene load_steps=70 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Props/Couch.tscn" type="PackedScene" id=2]
@@ -57,6 +57,9 @@
 [ext_resource path="res://Props/CerealeBox.tscn" type="PackedScene" id=55]
 [ext_resource path="res://Props/Cushion.tscn" type="PackedScene" id=56]
 [ext_resource path="res://Props/Stool.tscn" type="PackedScene" id=57]
+[ext_resource path="res://Props/PostIt01.tscn" type="PackedScene" id=58]
+[ext_resource path="res://Props/PostIt02.tscn" type="PackedScene" id=59]
+[ext_resource path="res://Props/PostIt03.tscn" type="PackedScene" id=60]
 
 [sub_resource type="Curve3D" id=20]
 _data = {
@@ -373,6 +376,12 @@ transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.1, 0,
 
 [node name="Fridge" parent="Furnitures/Kitchen Corner" instance=ExtResource( 35 )]
 transform = Transform( -2.53261e-08, 0, 1, 0, 1, 0, -1.42061, 0, -8.0482e-08, -20.9089, 3.8147e-06, -47.5673 )
+
+[node name="PostIt02" parent="Furnitures/Kitchen Corner/Fridge" instance=ExtResource( 59 )]
+transform = Transform( 0.981511, 0.00896775, -0.134435, -0.26919, 0.205499, -0.960138, 0.038377, 0.978574, 0.204114, -2.22329, 9.58286, 3.04996 )
+
+[node name="PostIt03" parent="Furnitures/Kitchen Corner/Fridge" instance=ExtResource( 60 )]
+transform = Transform( 0.99803, -0.0107129, 0.04284, 0.0879591, 0.0829642, -0.994627, 0.014331, 0.996436, 0.0837431, 0.286453, 17.8254, 3.02486 )
 
 [node name="KitchenCupboard" parent="Furnitures/Kitchen Corner" instance=ExtResource( 43 )]
 transform = Transform( -1.49787e-07, 0, 2.21337, 0, 1.15995, 0, -1, 0, 9.32651e-09, -22.1668, 15.239, -39.1736 )
@@ -764,3 +773,6 @@ transform = Transform( 1.65729, 0.378657, 0, -0.378657, 1.65729, 0, 0, 0, 1.7, -
 
 [node name="Clothes" parent="." instance=ExtResource( 54 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29.1868, -0.027689, 13.09 )
+
+[node name="PostIt01" parent="." instance=ExtResource( 58 )]
+transform = Transform( -0.969045, -0.0143088, 0.246468, -0.244886, 0.182433, -0.952234, -0.0313384, -0.983114, -0.18029, -47.4374, 17.6802, 68.8638 )
