@@ -20,8 +20,11 @@ var y_velocity : float
 var fallingTimer = 0.0
 var wantsToJumpTimer = jump_flexibility_delay
 
-var progress = 0;
-signal progress(newProgress)
+var initialized = false
+var progress = 0.0
+var totalProgress = 0.0
+var musicLevel = 0
+signal progress(newProgress, totalProgress)
 signal setInteraction(label)
 
 var active_interactable: BaseInteractable = null
@@ -33,6 +36,13 @@ onready var camera = $CameraPivot/Camera
 onready var animPlayer = $Character/AnimationPlayer
 
 var landParticlesScene = preload("res://Player/LandParticles.tscn")
+
+var musics = [
+	preload("res://Sounds/Music/CheeseMouse01.wav"),
+	preload("res://Sounds/Music/CheeseMouse02.wav"),
+	preload("res://Sounds/Music/CheeseMouse03.wav"),
+	preload("res://Sounds/Music/CheeseMouse04.wav")
+]
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -53,6 +63,16 @@ func _input(event):
 			camera_pivot.rotation_degrees.x = clamp(camera_pivot.rotation_degrees.x, min_pitch, max_pitch)
 
 func _process(delta):
+	if not initialized:
+		var interactables = get_tree().get_nodes_in_group("interactable")
+		for node in interactables:
+			var interactable := node as BaseInteractable
+			if interactable.isProgress:
+				totalProgress += 1.0
+
+		emit_signal("progress", progress, totalProgress)
+		initialized = true
+	
 	if Input.is_action_just_pressed("ui_cancel"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
@@ -172,11 +192,25 @@ func set_item(item: String):
 		# TODO: Add item above player
 	else:
 		self.item = ""
-		# TODO: Clear item above player
 
 func get_item():
 	return self.item
 
 func increment_progress():
-	progress += 1
-	emit_signal("progress", progress)
+	progress += 1.0
+	
+	var newMusicLevel = 0
+	if progress / totalProgress >= 1.0:
+		newMusicLevel = 3
+	elif progress / totalProgress >= 0.66:
+		newMusicLevel = 2
+	elif progress / totalProgress >= 0.33:
+		newMusicLevel = 1
+	
+	if musicLevel != newMusicLevel:
+		musicLevel = newMusicLevel
+		var playbackPos = $SoundPlayerMusic.get_playback_position()
+		$SoundPlayerMusic.stream = musics[musicLevel]
+		$SoundPlayerMusic.play(playbackPos)
+	
+	emit_signal("progress", progress, totalProgress)

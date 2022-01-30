@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://HUD/HUD.tscn" type="PackedScene" id=2]
@@ -26,6 +26,7 @@
 [ext_resource path="res://Sounds/SFX/animJump/fol_player_anim_jump_05.wav" type="AudioStream" id=24]
 [ext_resource path="res://Sounds/SFX/animJump/fol_player_anim_jump_07.wav" type="AudioStream" id=25]
 [ext_resource path="res://Sounds/SFX/animJump/fol_player_anim_jump_06.wav" type="AudioStream" id=26]
+[ext_resource path="res://Sounds/Music/CheeseMouse01.wav" type="AudioStream" id=28]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.407908
@@ -75,6 +76,11 @@ volume_db = -9.756
 mix_target = 2
 bus = "Player"
 audio_files = [ ExtResource( 6 ), ExtResource( 9 ), ExtResource( 12 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 7 ), ExtResource( 13 ), ExtResource( 8 ), ExtResource( 15 ), ExtResource( 15 ), ExtResource( 15 ), ExtResource( 15 ), ExtResource( 15 ) ]
+
+[node name="SoundPlayerMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 28 )
+autoplay = true
+bus = "Music"
 
 [connection signal="progress" from="." to="HUD" method="_on_Player_progress"]
 [connection signal="setInteraction" from="." to="HUD" method="_on_Player_setInteraction"]
