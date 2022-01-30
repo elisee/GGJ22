@@ -27,6 +27,7 @@ var musicLevel = 0
 signal progress(newProgress, totalProgress)
 signal setInteraction(label)
 
+var isInteracting = false
 var active_interactable: BaseInteractable = null
 
 var item: String = ""
@@ -78,9 +79,12 @@ func _process(delta):
 
 func _physics_process(delta):
 	handle_look(delta)
-	handle_movement(delta)
-	
-	check_interactable(delta)
+
+	if self.isInteracting:
+		handle_interaction()
+	else:
+		handle_movement(delta)
+		check_interactable(delta)
 
 func handle_look(delta):
 	if Input.is_action_pressed("look_up"):
@@ -161,6 +165,12 @@ func handle_movement(delta):
 		fallingTimer += delta
 		$SoundPlayerWalk.stop()
 
+func handle_interaction():
+	if self.animPlayer.is_playing(): return
+
+	self.active_interactable.interact()
+	self.isInteracting = false
+
 func check_interactable(delta):
 	var interactables = get_tree().get_nodes_in_group("interactable")
 
@@ -172,7 +182,7 @@ func check_interactable(delta):
 			new_interactable = interactable
 			break
 
-	var can_interact = new_interactable != null and new_interactable.can_interact()
+	var can_interact = new_interactable != null and new_interactable.can_interact() and fallingTimer == 0
 
 	if new_interactable != self.active_interactable:
 		self.active_interactable = new_interactable
@@ -183,7 +193,8 @@ func check_interactable(delta):
 			emit_signal("setInteraction", "", false)
 	
 	if Input.is_action_just_pressed("interact") and can_interact:
-		self.active_interactable.interact()
+		self.isInteracting = true
+		animPlayer.play("Interact")
 
 func set_item(item: String):
 	if item != "":
