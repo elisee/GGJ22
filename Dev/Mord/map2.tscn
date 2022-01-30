@@ -435,7 +435,7 @@ depth = 5.00541
 material = SubResource( 12 )
 
 [node name="Stool2" type="CSGCylinder" parent="Furnitures/Kitchen Corner"]
-transform = Transform( 0.866025, 0, 0.5, 0, 0.842914, 0, -0.5, 0, 0.866025, 8.92467, 6.29655, -40.2085 )
+transform = Transform( 0.866025, 0, 0.5, 0, 0.717127, 0, -0.5, 0, 0.866025, 8.92467, 5.35684, -42.2925 )
 use_collision = true
 radius = 1.5
 height = 0.2
@@ -476,8 +476,50 @@ height = 7.5
 sides = 6
 material = SubResource( 13 )
 
+[node name="Stool4" type="CSGCylinder" parent="Furnitures/Kitchen Corner"]
+transform = Transform( 0.866025, 0, 0.5, 0, 0.717127, 0, -0.5, 0, 0.866025, 8.92467, 5.35684, -35.8631 )
+use_collision = true
+radius = 1.5
+height = 0.2
+sides = 12
+material = SubResource( 13 )
+
+[node name="Stoolstuff" type="CSGTorus" parent="Furnitures/Kitchen Corner/Stool4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.56646, 0 )
+inner_radius = 1.5
+outer_radius = 1.7
+material = SubResource( 13 )
+
+[node name="Stoolfoot1" type="CSGCylinder" parent="Furnitures/Kitchen Corner/Stool4"]
+transform = Transform( 1, 0, 0, 0, 0.997769, 0.0667615, 0, -0.0667615, 0.997769, -0.00195646, -3.72185, 1.53072 )
+radius = 0.1
+height = 7.5
+sides = 6
+material = SubResource( 13 )
+
+[node name="Stoolfoot2" type="CSGCylinder" parent="Furnitures/Kitchen Corner/Stool4"]
+transform = Transform( 0.996378, -0.0850343, 0, 0.0850343, 0.996378, 0, 0, 0, 1, 1.48677, -3.72185, 0.0217094 )
+radius = 0.1
+height = 7.5
+sides = 6
+material = SubResource( 13 )
+
+[node name="Stoolfoot3" type="CSGCylinder" parent="Furnitures/Kitchen Corner/Stool4"]
+transform = Transform( 0.997639, 0.068677, 0, -0.068677, 0.997639, 0, 0, 0, 1, -1.50428, -3.72185, 0.0249672 )
+radius = 0.1
+height = 7.5
+sides = 6
+material = SubResource( 13 )
+
+[node name="Stoolfoot4" type="CSGCylinder" parent="Furnitures/Kitchen Corner/Stool4"]
+transform = Transform( 1, 0, 0, 0, 0.996976, -0.0777109, 0, 0.0777109, 0.996976, 0.0245595, -3.72185, -1.53194 )
+radius = 0.1
+height = 7.5
+sides = 6
+material = SubResource( 13 )
+
 [node name="Stool3" type="CSGCylinder" parent="Furnitures/Kitchen Corner"]
-transform = Transform( 0.866025, 0, 0.5, 0, 0.842914, 0, -0.5, 0, 0.866025, 8.92467, 6.29655, -30.0663 )
+transform = Transform( 0.866025, 0, 0.5, 0, 0.703799, 0, -0.5, 0, 0.866025, 8.92467, 5.2574, -29.823 )
 use_collision = true
 radius = 1.5
 height = 0.2
@@ -485,7 +527,7 @@ sides = 12
 material = SubResource( 13 )
 
 [node name="Stoolstuff" type="CSGTorus" parent="Furnitures/Kitchen Corner/Stool3"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.56646, 0 )
+transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0, -4.56646, 0 )
 inner_radius = 1.5
 outer_radius = 1.7
 material = SubResource( 13 )
@@ -519,16 +561,16 @@ sides = 6
 material = SubResource( 13 )
 
 [node name="Book_02" parent="Furnitures/Kitchen Corner/Stool3" instance=ExtResource( 12 )]
-transform = Transform( 0.848999, 0.44539, 2.04623e-07, 3.18207e-07, -4.37114e-08, -1.18636, -0.528394, 0.715634, -1.78837e-07, -0.223246, 0.334112, -0.95591 )
+transform = Transform( 0.848999, 0.44539, 2.04623e-07, 3.81105e-07, -5.23515e-08, -1.42086, -0.528394, 0.715634, -1.78837e-07, -1.28239, 0.400155, -0.395763 )
 
 [node name="Book_04" parent="Furnitures/Kitchen Corner/Stool3" instance=ExtResource( 12 )]
-transform = Transform( 0.882102, -0.397062, 2.57189e-07, 3.18207e-07, -4.37114e-08, -1.18636, 0.471058, 0.743536, 8.77899e-08, 0.598309, 2.42552, -0.565037 )
+transform = Transform( 0.948445, 0.267153, 2.40539e-07, 3.81104e-07, -5.23514e-08, -1.42086, -0.316941, 0.799458, -1.26468e-07, -1.37333, 2.90496, -0.438778 )
 
 [node name="Book_01" parent="Furnitures/Kitchen Corner/Stool3" instance=ExtResource( 4 )]
-transform = Transform( 0.994498, 0.0882984, 2.62166e-07, 3.18207e-07, -4.37114e-08, -1.18636, -0.104754, 0.838277, -7.1568e-08, -0.0625229, 1.02006, -0.940838 )
+transform = Transform( 0.934453, 0.30015, 2.35075e-07, 3.81105e-07, -5.23515e-08, -1.42086, -0.356086, 0.787664, -1.36356e-07, -1.12167, 1.22169, -0.380695 )
 
 [node name="Book_03" parent="Furnitures/Kitchen Corner/Stool3" instance=ExtResource( 4 )]
-transform = Transform( 0.987724, -0.131672, 2.71756e-07, 3.18207e-07, -4.37114e-08, -1.18636, 0.156211, 0.832566, -1.27572e-09, 0.243147, 1.78687, -1.18087 )
+transform = Transform( 0.843354, 0.452947, 2.02716e-07, 3.81104e-07, -5.23515e-08, -1.42086, -0.537358, 0.710874, -1.80995e-07, -1.36176, 2.14007, -0.513065 )
 
 [node name="Fridge" type="CSGBox" parent="Furnitures/Kitchen Corner"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.6455, 9.13239, -47.9516 )
