@@ -38,6 +38,7 @@
 [ext_resource path="res://Props/FrameSmall.tscn" type="PackedScene" id=39]
 [ext_resource path="res://Props/Counter.tscn" type="PackedScene" id=40]
 [ext_resource path="res://Props/Door.tscn" type="PackedScene" id=41]
+[ext_resource path="res://Props/WaterBottleInteractable.tscn" type="PackedScene" id=42]
 
 [sub_resource type="Curve3D" id=20]
 _data = {
@@ -411,7 +412,7 @@ transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.1, 0,
 [node name="Counter2" parent="Furnitures/Kitchen Corner" instance=ExtResource( 40 )]
 transform = Transform( -6.11959e-08, 0, -1, 0, 1.32, 0, 1.4, 0, -4.37114e-08, 0.5, 0, -36 )
 
-[node name="WaterBottle" parent="Furnitures/Kitchen Corner" instance=ExtResource( 37 )]
+[node name="WaterBottle" parent="Furnitures/Kitchen Corner" instance=ExtResource( 42 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.8, 10.1, -50.5 )
 
 [node name="Kitchen surface" type="CSGBox" parent="Furnitures/Kitchen Corner"]
@@ -678,17 +679,23 @@ transform = Transform( 0.666667, 0, 0, 0, 0.769231, 0, 0, 0, 0.666667, 0, 0, 0 )
 [node name="Garbage" parent="Furnitures/Kitchen Corner" instance=ExtResource( 36 )]
 transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -21.1007, -0.152204, 5.49271 )
 
-[node name="Can" parent="Furnitures" instance=ExtResource( 18 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.0271, 1.28746e-05, 73.9259 )
+[node name="Can" parent="Furnitures/Kitchen Corner" instance=ExtResource( 18 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -22.9259, 1.28746e-05, -8.1271 )
 
-[node name="Can2" parent="Furnitures" instance=ExtResource( 18 )]
-transform = Transform( 1, 0, 0, 0, 0.120276, 0.992741, 0, -0.992741, 0.120276, -6.0271, 0.175421, 70.1516 )
+[node name="Can2" parent="Furnitures/Kitchen Corner" instance=ExtResource( 18 )]
+transform = Transform( -4.37114e-08, 0.992741, -0.120276, 0, 0.120276, 0.992741, 1, 4.33941e-08, -5.25743e-09, -19.1516, 0.175421, -8.1271 )
 
-[node name="Can3" parent="Furnitures" instance=ExtResource( 18 )]
-transform = Transform( 0.506154, 0.856182, -0.103731, 0, 0.120276, 0.992741, 0.862443, -0.50248, 0.0608779, -9.54451, 0.175421, 70.1516 )
+[node name="Can3" parent="Furnitures/Kitchen Corner" instance=ExtResource( 18 )]
+transform = Transform( -0.862443, 0.50248, -0.0608779, 0, 0.120276, 0.992741, 0.506154, 0.856182, -0.103731, -19.1516, 0.175421, -11.6445 )
 
-[node name="Can4" parent="Furnitures" instance=ExtResource( 18 )]
-transform = Transform( 0.506154, 0.856182, -0.103731, 0, 0.120276, 0.992741, 0.862443, -0.50248, 0.0608779, -49.3059, 0.175421, 67.5344 )
+[node name="Can4" parent="Furnitures/Kitchen Corner" instance=ExtResource( 18 )]
+transform = Transform( -0.862443, 0.50248, -0.0608779, 0, 0.120276, 0.992741, 0.506154, 0.856182, -0.103731, -16.5344, 0.175421, -51.4059 )
+
+[node name="Bottle" parent="Furnitures/Kitchen Corner" instance=ExtResource( 37 )]
+transform = Transform( -1.25121e-08, 3.25675e-16, -1, 7.45058e-09, 1, -7.45058e-09, 1, -7.45058e-09, -9.21402e-08, -0.166603, -2.38419e-07, 6.6194 )
+
+[node name="Bottle2" parent="Furnitures/Kitchen Corner" instance=ExtResource( 37 )]
+transform = Transform( -0.832361, -0.552137, -0.0481698, -9.31323e-10, 0.0869123, -0.996216, 0.554234, -0.829211, -0.0723424, -1.267, 0.4243, 6.9548 )
 
 [node name="Window" parent="." instance=ExtResource( 25 )]
 transform = Transform( 0.000141495, 0.000397265, 1, 0.000455087, 1.076, -0.000338866, -0.963834, 0.000475211, 0.000125845, -50.7518, 11.0732, 57.5074 )
@@ -786,12 +793,6 @@ shadow_enabled = true
 omni_range = 23.4494
 omni_attenuation = 2.21914
 omni_shadow_mode = 0
-
-[node name="Door" parent="WorldEnvironment/Light Bed2" instance=ExtResource( 37 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.1139, -12.0971, -21.4022 )
-
-[node name="Door2" parent="WorldEnvironment/Light Bed2" instance=ExtResource( 37 )]
-transform = Transform( 0.554234, -0.829211, -0.0723424, 0, 0.0869123, -0.996216, 0.832361, 0.552137, 0.0481698, 13.4493, -11.6728, -20.3018 )
 
 [node name="Light TV" type="OmniLight" parent="WorldEnvironment" groups=["lightTV"]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.4772, 11.1657, 25.7869 )
