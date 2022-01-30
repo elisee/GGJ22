@@ -409,6 +409,7 @@ transform = Transform( 0.271735, 0, -1.28028, 0, 0.69702, 0, 0.756121, 0, 0.1604
 
 [node name="Sink" parent="Furnitures/Kitchen Corner" instance=ExtResource( 34 )]
 transform = Transform( -6.71271e-08, 0, 1.26784, 0, 1.45667, 0, -1, 0, -3.20035e-08, -21.9449, 7.93934e-05, -32.8144 )
+respawn = Vector3( -36, 9, 73 )
 
 [node name="Sponge" parent="Furnitures/Kitchen Corner/Sink" instance=ExtResource( 33 )]
 transform = Transform( -0.866025, -1.10285e-07, -0.633923, 6.00157e-08, -1, 5.24674e-15, -0.394371, -5.02214e-08, 0.866026, 1.02221, 5.95219, 0.762695 )
