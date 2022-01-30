@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Interactables/CoffeeMachine.gd" type="Script" id=1]
 [ext_resource path="res://Models/Coffee_Drop.obj" type="ArrayMesh" id=2]
@@ -9,7 +9,8 @@
 [ext_resource path="res://Models/CoffeeMachine_Cup.material" type="Material" id=7]
 [ext_resource path="res://Sounds/SFX/sfx_coffee_pot_loop.wav" type="AudioStream" id=8]
 [ext_resource path="res://Sounds/UI/ui_btn_coffee_machine_press.wav" type="AudioStream" id=9]
-[ext_resource path="res://Sounds/UI/ui_success_reward.wav" type="AudioStream" id=10]
+[ext_resource path="res://Sounds/UI/ui_success_reward.wav" type="AudioStream" id=11]
+[ext_resource path="res://Models/Particle_Interaction.png" type="Texture" id=10]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "CoffeeMachine_Cylinder"
@@ -105,6 +106,41 @@ extents = Vector3( 0.867784, 0.328895, 0.720161 )
 radius = 0.892971
 height = 0.418182
 
+[sub_resource type="SpatialMaterial" id=10]
+flags_transparent = true
+flags_unshaded = true
+flags_ensure_correct_normals = true
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+params_blend_mode = 1
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+albedo_color = Color( 0.678431, 0.823529, 0.917647, 0.0823529 )
+albedo_texture = ExtResource( 10 )
+
+[sub_resource type="Curve" id=11]
+_data = [ Vector2( 0, 0.183596 ), 0.0, 0.0, 0, 0, Vector2( 0.548913, 0.790909 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.187005 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=12]
+curve = SubResource( 11 )
+
+[sub_resource type="ParticlesMaterial" id=13]
+lifetime_randomness = 0.33
+emission_shape = 2
+emission_box_extents = Vector3( 1, 1, 1 )
+direction = Vector3( 0, -1, 0 )
+spread = 159.7
+gravity = Vector3( 0, 1, 0 )
+initial_velocity = 0.01
+linear_accel = 0.1
+scale = 0.3
+scale_random = 1.0
+scale_curve = SubResource( 12 )
+
+[sub_resource type="QuadMesh" id=14]
+
 [node name="CoffeeMachine" type="StaticBody"]
 script = ExtResource( 1 )
 label = "Brew coffee"
@@ -171,5 +207,15 @@ attenuation_filter_cutoff_hz = 2000.0
 attenuation_filter_db = -20.8
 
 [node name="SoundPlayerUISuccess" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 10 )
+stream = ExtResource( 11 )
 bus = "UI"
+
+[node name="Particles_Interaction" type="Particles" parent="."]
+transform = Transform( -0.5, 5.8227e-08, -4.37114e-08, 5.8227e-08, 0.5, 4.37114e-08, 4.37114e-08, 4.37114e-08, -0.5, 0.001266, 0.49155, 0.634462 )
+material_override = SubResource( 10 )
+use_in_baked_light = true
+amount = 30
+lifetime = 3.0
+visibility_aabb = AABB( -1.20583, -1.45115, -1.88755, 2.41166, 2.45016, 2.65205 )
+process_material = SubResource( 13 )
+draw_pass_1 = SubResource( 14 )

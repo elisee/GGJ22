@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Models/Battery.glb" type="PackedScene" id=1]
 [ext_resource path="res://Interactables/Battery.gd" type="Script" id=2]
+[ext_resource path="res://Models/Particle_Interaction.png" type="Texture" id=3]
 
 [sub_resource type="CylinderShape" id=1]
 radius = 0.3
@@ -9,6 +10,41 @@ height = 1.0
 
 [sub_resource type="BoxShape" id=2]
 extents = Vector3( 1, 0.4, 1 )
+
+[sub_resource type="SpatialMaterial" id=31]
+flags_transparent = true
+flags_unshaded = true
+flags_ensure_correct_normals = true
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+params_blend_mode = 1
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+albedo_color = Color( 0.678431, 0.823529, 0.917647, 0.0823529 )
+albedo_texture = ExtResource( 3 )
+
+[sub_resource type="Curve" id=32]
+_data = [ Vector2( 0, 0.183596 ), 0.0, 0.0, 0, 0, Vector2( 0.548913, 0.790909 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.187005 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=35]
+curve = SubResource( 32 )
+
+[sub_resource type="ParticlesMaterial" id=33]
+lifetime_randomness = 0.33
+emission_shape = 2
+emission_box_extents = Vector3( 1, 1, 1 )
+direction = Vector3( 0, -1, 0 )
+spread = 159.7
+gravity = Vector3( 0, 1, 0 )
+initial_velocity = 0.01
+linear_accel = 0.1
+scale = 0.3
+scale_random = 1.0
+scale_curve = SubResource( 35 )
+
+[sub_resource type="QuadMesh" id=34]
 
 [node name="Battery" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
@@ -30,3 +66,13 @@ shape = SubResource( 1 )
 [node name="CollisionShape" type="CollisionShape" parent="Area" index="0"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0 )
 shape = SubResource( 2 )
+
+[node name="Particles_Interaction" type="Particles" parent="." index="3"]
+transform = Transform( -0.4, 4.65816e-08, -3.49691e-08, 4.65816e-08, 0.4, 3.49691e-08, 3.49691e-08, 3.49691e-08, -0.4, 0.001266, 0.00852931, 0.0171928 )
+material_override = SubResource( 31 )
+use_in_baked_light = true
+amount = 30
+lifetime = 3.0
+visibility_aabb = AABB( -1.20583, -1.45115, -1.88755, 2.41166, 2.45016, 2.65205 )
+process_material = SubResource( 33 )
+draw_pass_1 = SubResource( 34 )

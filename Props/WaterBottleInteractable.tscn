@@ -1,11 +1,12 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Models/Bottle_01.material" type="Material" id=1]
 [ext_resource path="res://Models/Bottle_Label.material" type="Material" id=2]
 [ext_resource path="res://Models/Bottle_Water.material" type="Material" id=3]
 [ext_resource path="res://Interactables/WaterBottle.gd" type="Script" id=4]
 [ext_resource path="res://Sounds/SFX/sfx_bottle_in_plant_success.wav" type="AudioStream" id=5]
-[ext_resource path="res://Sounds/UI/ui_success_reward.wav" type="AudioStream" id=6]
+[ext_resource path="res://Sounds/UI/ui_success_reward.wav" type="AudioStream" id=7]
+[ext_resource path="res://Models/Particle_Interaction.png" type="Texture" id=6]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "WaterBottle_Circle001"
@@ -56,6 +57,41 @@ surfaces/0 = {
 [sub_resource type="BoxShape" id=4]
 extents = Vector3( 1.27139, 1, 1.17338 )
 
+[sub_resource type="SpatialMaterial" id=6]
+flags_transparent = true
+flags_unshaded = true
+flags_ensure_correct_normals = true
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+params_blend_mode = 1
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+albedo_color = Color( 0.678431, 0.823529, 0.917647, 0.0823529 )
+albedo_texture = ExtResource( 6 )
+
+[sub_resource type="Curve" id=7]
+_data = [ Vector2( 0, 0.183596 ), 0.0, 0.0, 0, 0, Vector2( 0.548913, 0.790909 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.187005 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=8]
+curve = SubResource( 7 )
+
+[sub_resource type="ParticlesMaterial" id=9]
+lifetime_randomness = 0.33
+emission_shape = 2
+emission_box_extents = Vector3( 1, 1, 1 )
+direction = Vector3( 0, -1, 0 )
+spread = 159.7
+gravity = Vector3( 0, 1, 0 )
+initial_velocity = 0.01
+linear_accel = 0.1
+scale = 0.3
+scale_random = 1.0
+scale_curve = SubResource( 8 )
+
+[sub_resource type="QuadMesh" id=10]
+
 [node name="WaterBottle" type="KinematicBody"]
 script = ExtResource( 4 )
 label = "Water the plant"
@@ -87,5 +123,15 @@ volume_db = -6.992
 bus = "UI"
 
 [node name="SoundPlayerUISuccess" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 6 )
+stream = ExtResource( 7 )
 bus = "UI"
+
+[node name="Particles_Interaction" type="Particles" parent="."]
+transform = Transform( -0.6, 6.98724e-08, -9.05975e-08, 6.98724e-08, 0.6, 5.24537e-08, 9.05975e-08, 5.24537e-08, -0.6, -0.00569568, 0.355781, -0.173164 )
+material_override = SubResource( 6 )
+use_in_baked_light = true
+amount = 30
+lifetime = 3.0
+visibility_aabb = AABB( -1.20583, -1.45115, -1.88755, 2.41166, 2.45016, 2.65205 )
+process_material = SubResource( 9 )
+draw_pass_1 = SubResource( 10 )

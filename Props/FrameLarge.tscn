@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Models/FrameLarge.material" type="Material" id=1]
 [ext_resource path="res://Models/FrameLarge_Image.material" type="Material" id=2]
 [ext_resource path="res://Interactables/FrameLarge.gd" type="Script" id=3]
-[ext_resource path="res://Sounds/SFX/sfx_picture_frame_large_success.wav" type="AudioStream" id=4]
+[ext_resource path="res://Sounds/SFX/sfx_picture_frame_large_success.wav" type="AudioStream" id=6]
 [ext_resource path="res://Sounds/UI/ui_success_reward.wav" type="AudioStream" id=5]
+[ext_resource path="res://Models/Particle_Interaction.png" type="Texture" id=4]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "FrameLarge_Cube001"
@@ -39,6 +40,41 @@ extents = Vector3( 0.279038, 0.196248, 0.040812 )
 [sub_resource type="BoxShape" id=3]
 extents = Vector3( 2.85109, 0.810387, 0.744879 )
 
+[sub_resource type="SpatialMaterial" id=4]
+flags_transparent = true
+flags_unshaded = true
+flags_ensure_correct_normals = true
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+params_blend_mode = 1
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+albedo_color = Color( 0.678431, 0.823529, 0.917647, 0.0823529 )
+albedo_texture = ExtResource( 4 )
+
+[sub_resource type="Curve" id=5]
+_data = [ Vector2( 0, 0.183596 ), 0.0, 0.0, 0, 0, Vector2( 0.548913, 0.790909 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.187005 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=6]
+curve = SubResource( 5 )
+
+[sub_resource type="ParticlesMaterial" id=7]
+lifetime_randomness = 0.33
+emission_shape = 2
+emission_box_extents = Vector3( 1, 1, 1 )
+direction = Vector3( 0, -1, 0 )
+spread = 159.7
+gravity = Vector3( 0, 1, 0 )
+initial_velocity = 0.01
+linear_accel = 0.1
+scale = 0.3
+scale_random = 1.0
+scale_curve = SubResource( 6 )
+
+[sub_resource type="QuadMesh" id=8]
+
 [node name="FrameLarge" type="KinematicBody"]
 script = ExtResource( 3 )
 label = "Make the picture level"
@@ -60,7 +96,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.183721 )
 shape = SubResource( 3 )
 
 [node name="SoundPlayerFrameFix" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource( 4 )
+stream = ExtResource( 6 )
 unit_db = 1.0
 unit_size = 20.0
 max_distance = 50.0
@@ -71,3 +107,13 @@ attenuation_filter_db = -20.8
 [node name="SoundPlayerUISuccess" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
 bus = "UI"
+
+[node name="Particles_Interaction" type="Particles" parent="."]
+transform = Transform( -0.4, 4.65816e-08, -3.49691e-08, 4.65816e-08, 0.4, 3.49691e-08, 3.49691e-08, 3.49691e-08, -0.4, 0.001266, 0.00852931, 0.0171928 )
+material_override = SubResource( 4 )
+use_in_baked_light = true
+amount = 30
+lifetime = 3.0
+visibility_aabb = AABB( -1.20583, -1.45115, -1.88755, 2.41166, 2.45016, 2.65205 )
+process_material = SubResource( 7 )
+draw_pass_1 = SubResource( 8 )

@@ -17,4 +17,5 @@ func can_interact():
 func interact():
 	# TODO: Override in child classes
 	if isProgress: player.increment_progress()
+	$Particles_Interaction.visible = false
 	self.remove_from_group("interactable")

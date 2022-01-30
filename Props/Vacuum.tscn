@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Models/Vacuum_03.material" type="Material" id=1]
 [ext_resource path="res://Models/Vacuum_02.material" type="Material" id=2]
@@ -9,7 +9,8 @@
 [ext_resource path="res://Models/Battery.glb" type="PackedScene" id=7]
 [ext_resource path="res://Sounds/SFX/sfx_roomba_vacuum_time.wav" type="AudioStream" id=8]
 [ext_resource path="res://Sounds/VO/Roomba/vo_roomba_cleaning_01.wav" type="AudioStream" id=9]
-[ext_resource path="res://Sounds/UI/ui_success_reward.wav" type="AudioStream" id=10]
+[ext_resource path="res://Sounds/UI/ui_success_reward.wav" type="AudioStream" id=11]
+[ext_resource path="res://Models/Particle_Interaction.png" type="Texture" id=10]
 [ext_resource path="res://Sounds/VO/Roomba/vo_roomba_cleaning_03.wav" type="AudioStream" id=16]
 [ext_resource path="res://Sounds/UI/ui_btn_insert_battery.wav" type="AudioStream" id=17]
 
@@ -112,6 +113,41 @@ surfaces/1 = {
 radius = 1.64107
 height = 0.897022
 
+[sub_resource type="SpatialMaterial" id=6]
+flags_transparent = true
+flags_unshaded = true
+flags_ensure_correct_normals = true
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+params_blend_mode = 1
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+albedo_color = Color( 0.678431, 0.823529, 0.917647, 0.0823529 )
+albedo_texture = ExtResource( 10 )
+
+[sub_resource type="Curve" id=7]
+_data = [ Vector2( 0, 0.183596 ), 0.0, 0.0, 0, 0, Vector2( 0.548913, 0.790909 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.187005 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=8]
+curve = SubResource( 7 )
+
+[sub_resource type="ParticlesMaterial" id=9]
+lifetime_randomness = 0.33
+emission_shape = 2
+emission_box_extents = Vector3( 1, 1, 1 )
+direction = Vector3( 0, -1, 0 )
+spread = 159.7
+gravity = Vector3( 0, 1, 0 )
+initial_velocity = 0.01
+linear_accel = 0.1
+scale = 0.3
+scale_random = 1.0
+scale_curve = SubResource( 8 )
+
+[sub_resource type="QuadMesh" id=10]
+
 [node name="Vacuum" type="KinematicBody"]
 script = ExtResource( 6 )
 label = "Put battery in"
@@ -189,5 +225,15 @@ omni_range = 6.56542
 omni_attenuation = 2.07053
 
 [node name="SoundPlayerUISuccess" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 10 )
+stream = ExtResource( 11 )
 bus = "UI"
+
+[node name="Particles_Interaction" type="Particles" parent="."]
+transform = Transform( -0.5, 5.8227e-08, -7.54979e-08, 5.8227e-08, 0.5, 4.37114e-08, 7.54979e-08, 4.37114e-08, -0.5, -0.00569568, 1.29303, -0.173164 )
+material_override = SubResource( 6 )
+use_in_baked_light = true
+amount = 30
+lifetime = 3.0
+visibility_aabb = AABB( -1.20583, -1.45115, -1.88755, 2.41166, 2.45016, 2.65205 )
+process_material = SubResource( 9 )
+draw_pass_1 = SubResource( 10 )
