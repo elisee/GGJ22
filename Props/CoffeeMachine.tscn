@@ -101,8 +101,8 @@ extents = Vector3( 0.875409, 1.63465, 0.798811 )
 extents = Vector3( 0.867784, 0.328895, 0.720161 )
 
 [sub_resource type="CylinderShape" id=8]
-radius = 0.560257
-height = 0.162602
+radius = 0.892971
+height = 0.418182
 
 [node name="CoffeeMachine" type="StaticBody"]
 script = ExtResource( 1 )
@@ -153,7 +153,7 @@ shape = SubResource( 9 )
 [node name="Area" type="Area" parent="."]
 
 [node name="CollisionShape" type="CollisionShape" parent="Area"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0633093, 0.964819 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0633093, 0.770523 )
 shape = SubResource( 8 )
 
 [node name="SoundPlayerUICoffeeSwitch" type="AudioStreamPlayer" parent="."]

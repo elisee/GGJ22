@@ -13,7 +13,7 @@ var rot_prog = 0
 var plant_grow = 0
 
 func _ready():
-	plant.translation.y -= 3
+	plant.translation.y -= 10
 
 func interact():
 	.interact()
@@ -35,7 +35,7 @@ func _physics_process(delta):
 		if rot_prog < 16:
 			rot_prog += 1
 			body.rotate_z(-PI / 32)
-		elif plant_grow < 9:
+		elif plant_grow < 10:
 			plant_grow += 1
 			plant.translation.y += 1
 
