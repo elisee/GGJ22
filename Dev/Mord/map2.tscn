@@ -94,8 +94,8 @@ tonemap_white = 0.7
 auto_exposure_enabled = true
 auto_exposure_scale = 1.04
 auto_exposure_min_luma = 0.2
+auto_exposure_speed = 5.91
 ssao_enabled = true
-ssao_intensity = 4.62
 ssao_radius2 = 0.01
 ssao_intensity2 = 2.01
 ssao_quality = 2
@@ -114,9 +114,9 @@ glow_bloom = 0.03
 bounds = AABB( -45.6668, -16.0468, -48.6629, 91.3336, 32.0936, 97.3258 )
 cell_size = 0.380179
 to_cell_xform = Transform( 2.63034, 0, 0, 0, 2.63034, 0, 0, 0, 2.63034, 120.119, 42.2085, 128 )
-dynamic_data = PoolIntArray( 0, 9, 256, 128, 256, 1, 0, 0, 0, 1094713344, 0, 0, 7, 0, 1, 3621, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 8355711, 0 )
+dynamic_data = PoolIntArray( 0, 9, 256, 128, 256, 1, 0, 0, 0, 0, 0, 0, 7, 0, 1, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 8355711, 0 )
 dynamic_range = 4
-energy = 0.8
+energy = 0.9
 bias = 1.5
 normal_bias = 0.0
 
@@ -393,7 +393,10 @@ transform = Transform( 0.298997, 0, 0.648695, 0, 0.757576, 0, -0.908172, 0, 0.41
 transform = Transform( 0.565221, 0, 0.436726, 0, 0.757576, 0, -0.611417, 0, 0.791309, 3.85582, 7.91316, 0.468456 )
 
 [node name="Plates" parent="Furnitures/Kitchen Corner/Counter2" instance=ExtResource( 50 )]
-transform = Transform( -0.489916, 0, 0.519795, 0, 0.757576, 0, -0.727713, 0, -0.685882, -2.86817, 7.68345, -3.62775 )
+transform = Transform( -0.489916, 0, 0.519795, 0, 0.757576, 0, -0.727713, 0, -0.685882, -2.86817, 7.59576, -3.62775 )
+
+[node name="Plates2" parent="Furnitures/Kitchen Corner/Counter2" instance=ExtResource( 50 )]
+transform = Transform( -0.489916, 0, 0.519795, 0, 0.757576, 0, -0.727713, 0, -0.685882, -2.86817, 15.7577, 21.0127 )
 
 [node name="WaterBottle" parent="Furnitures/Kitchen Corner" instance=ExtResource( 42 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.8, 10.1, -50.5 )
@@ -516,7 +519,7 @@ transform = Transform( -0.832361, -0.552137, -0.0481698, -9.31323e-10, 0.0869123
 transform = Transform( -1.54543e-08, 0.482963, -0.12941, -0.5, -2.18557e-08, -2.18557e-08, -2.67677e-08, 0.12941, 0.482963, -24.2273, 9.27263, -15.2591 )
 
 [node name="CerealeBox" parent="Furnitures/Kitchen Corner" instance=ExtResource( 55 )]
-transform = Transform( -0.809089, 0, 0.587686, 0, 1, 0, -0.587686, 0, -0.809089, 0.549553, 10.1331, -21.8105 )
+transform = Transform( -0.809089, 0, 0.587686, 0, 1, 0, -0.587686, 0, -0.809089, 0.549553, 10.0745, -21.8105 )
 
 [node name="Window" parent="." instance=ExtResource( 25 )]
 transform = Transform( 0.000141495, 0.000397265, 1, 0.000455087, 1.076, -0.000338866, -0.963834, 0.000475211, 0.000125845, -50.7518, 11.0732, 57.5074 )
@@ -595,24 +598,25 @@ omni_attenuation = 1.68179
 transform = Transform( -0.0323702, 0, -0.999476, 0, 1, 0, 0.999476, 0, -0.0323702, 77.6398, -11.9264, 54.1748 )
 
 [node name="OmniLight3" type="OmniLight" parent="WorldEnvironment"]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15.7948, 3.44024, 46.7912 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -17.7478, 1.50139, 50.0836 )
 light_energy = 0.293
 shadow_enabled = true
-omni_range = 9.50347
+omni_range = 4.43118
 omni_attenuation = 1.68179
 
 [node name="OmniLight4" type="OmniLight" parent="WorldEnvironment"]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -46.1589, 22.2732, 30.6377 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -33.1319, 5.86265, 30.6377 )
+light_color = Color( 0.72549, 0.490196, 0.619608, 1 )
 light_energy = 0.293
 shadow_enabled = true
-omni_range = 17.7578
+omni_range = 26.2634
 omni_attenuation = 1.68179
 
 [node name="GIProbe" type="GIProbe" parent="WorldEnvironment"]
 transform = Transform( 0.999985, 0.00511194, -0.00174359, -0.00511912, 0.999978, -0.004138, 0.0017224, 0.00414686, 0.99999, -7.73279, 13.2854, 34.2499 )
 subdiv = 2
 extents = Vector3( 45.6668, 16.0468, 48.6629 )
-energy = 0.8
+energy = 0.9
 propagation = 1.0
 data = SubResource( 27 )
 
@@ -682,7 +686,7 @@ light_energy = 5.592
 light_indirect_energy = 1.695
 light_specular = 2.365
 shadow_enabled = true
-shadow_color = Color( 0.356863, 0.0901961, 0.196078, 1 )
+shadow_color = Color( 0.109804, 0, 0.0431373, 1 )
 omni_range = 24.9988
 omni_attenuation = 1.93187
 
@@ -730,12 +734,12 @@ transform = Transform( 0.213484, -0.560429, -0.0185468, 0.000234812, 0.0199349, 
 [node name="Light Bed3" type="OmniLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30.4, 10.7401, -7.15078 )
 light_energy = 1.118
-light_indirect_energy = 0.0
-light_specular = 11.13
+light_indirect_energy = 2.922
+light_specular = 0.139
 shadow_enabled = true
-shadow_bias = 0.324
+shadow_bias = 0.922
 omni_range = 14.671
-omni_attenuation = 2.21914
+omni_attenuation = 3.73213
 omni_shadow_mode = 0
 
 [node name="LampBed" parent="." instance=ExtResource( 47 )]
@@ -747,9 +751,9 @@ light_color = Color( 0.886275, 0.882353, 0.654902, 1 )
 light_energy = 1.279
 light_indirect_energy = 2.113
 light_specular = 2.03
-spot_range = 16.176
+spot_range = 18.8826
 spot_attenuation = 0.615572
-spot_angle = 40.95
+spot_angle = 33.1508
 spot_angle_attenuation = 0.34151
 
 [node name="LampDesk" parent="." instance=ExtResource( 48 )]
