@@ -6,3 +6,5 @@ func interact():
 	.interact()
 	$Particles.emitting = true
 	player.increment_progress()
+	$SoundPlayerUICoffeeSwitch.play()
+	$SoundPlayerCoffeeMachineOn.play()

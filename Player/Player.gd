@@ -106,6 +106,7 @@ func handle_movement(delta):
 	if Input.is_action_just_pressed("jump"):
 		wantsToJumpTimer = 0.0
 		$SoundPlayerWalk.stop()
+		$SoundPlayerJumpVO.play_random()
 		$SoundPlayerJump.play_random()
 	else:
 		wantsToJumpTimer += delta
@@ -133,10 +134,12 @@ func handle_movement(delta):
 			get_tree().get_current_scene().add_child(instance)
 			instance.translation = translation + velocity * 0.05
 			instance.emitting = true
+			$SoundPlayerLand.play_random()
 		
 		fallingTimer = 0.0
 	else:
 		fallingTimer += delta
+		$SoundPlayerWalk.stop()
 
 func check_interactable(delta):
 	var interactables = get_tree().get_nodes_in_group("interactable")

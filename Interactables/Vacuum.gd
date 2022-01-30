@@ -20,6 +20,12 @@ func interact():
 	$Battery.visible = true
 	player.increment_progress()
 	self.active = true
+	$SoundPlayerUIBatteryInsert.play()
+	
+	if not $SoundPlayerVacuumMoving.is_playing():
+				$SoundPlayerVacuumMoving.play()
+	if not $SoundPlayerVacuumVO.is_playing():
+				$SoundPlayerVacuumVO.play()				
 
 func _physics_process(delta):
 	if not self.active:
@@ -46,6 +52,7 @@ func _physics_process(delta):
 	else:
 		var dir = (pos - self.translation) / dist
 		self.translation += dir * min(speed * delta, dist)
+	
 
 func short_angle_dist(from, to):
 	var max_angle = TAU

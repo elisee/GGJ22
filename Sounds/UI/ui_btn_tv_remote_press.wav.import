@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/ui_btn_tv_remote_press.wav-ec274452093fd61c35da753a67c5015d.sample"
+
+[deps]
+
+source_file="res://Sounds/UI/ui_btn_tv_remote_press.wav"
+dest_files=[ "res://.import/ui_btn_tv_remote_press.wav-ec274452093fd61c35da753a67c5015d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

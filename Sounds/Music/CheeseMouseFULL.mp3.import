@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/CheeseMouseFULL.mp3-5ac5f5085647f96829c3e1d990909535.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Music/CheeseMouseFULL.mp3"
+dest_files=[ "res://.import/CheeseMouseFULL.mp3-5ac5f5085647f96829c3e1d990909535.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

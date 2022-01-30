@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Models/Blind_Switch.glb" type="PackedScene" id=1]
 [ext_resource path="res://Interactables/BlindsSwitch.gd" type="Script" id=2]
+[ext_resource path="res://Sounds/UI/ui_btn_window_blinds_press.wav" type="AudioStream" id=3]
+[ext_resource path="res://Sounds/SFX/sfx_window_blinds_open.wav" type="AudioStream" id=4]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 1, 2, 1 )
@@ -20,3 +22,17 @@ transform = Transform( 10, 0, 0, 0, 9.39693, 3.4202, 0, -3.4202, 9.39693, 0, 0, 
 
 [node name="CollisionShape" type="CollisionShape" parent="Area" index="0"]
 shape = SubResource( 1 )
+
+[node name="SoundPlayerBlindsOpen" type="AudioStreamPlayer3D" parent="." index="3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.26577, 2.65526, 0 )
+stream = ExtResource( 4 )
+unit_db = 1.0
+unit_size = 20.0
+max_distance = 50.0
+bus = "SFX"
+attenuation_filter_cutoff_hz = 2000.0
+attenuation_filter_db = -20.8
+
+[node name="SoundPlayerUIBlindsSwitch" type="AudioStreamPlayer" parent="." index="4"]
+stream = ExtResource( 3 )
+bus = "UI"

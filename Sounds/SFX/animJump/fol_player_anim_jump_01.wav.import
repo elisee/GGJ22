@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/fol_player_anim_jump_01.wav-f022219bacceca94f681ba18d08ed839.sample"
+
+[deps]
+
+source_file="res://Sounds/SFX/animJump/fol_player_anim_jump_01.wav"
+dest_files=[ "res://.import/fol_player_anim_jump_01.wav-f022219bacceca94f681ba18d08ed839.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

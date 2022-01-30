@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/vo_roomba_sad_02.wav-9ac9894ea7fbbf8b35b18e2728c8b358.sample"
+
+[deps]
+
+source_file="res://Sounds/VO/Roomba/vo_roomba_sad_02.wav"
+dest_files=[ "res://.import/vo_roomba_sad_02.wav-9ac9894ea7fbbf8b35b18e2728c8b358.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

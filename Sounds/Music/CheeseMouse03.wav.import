@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/CheeseMouse03.wav-2a1393c2d9e54ebeebad8c7ac6330c0b.sample"
+
+[deps]
+
+source_file="res://Sounds/Music/CheeseMouse03.wav"
+dest_files=[ "res://.import/CheeseMouse03.wav-2a1393c2d9e54ebeebad8c7ac6330c0b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

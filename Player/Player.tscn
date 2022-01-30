@@ -1,19 +1,31 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://HUD/HUD.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Player/Mouse.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Sounds/fol_player_anim_walk.wav" type="AudioStream" id=4]
-[ext_resource path="res://Sounds/VO/Jump/vo_player_walk_01.wav" type="AudioStream" id=6]
-[ext_resource path="res://Sounds/VO/Jump/vo_player_walk_06.wav" type="AudioStream" id=7]
-[ext_resource path="res://Sounds/VO/Jump/vo_player_walk_08.wav" type="AudioStream" id=8]
-[ext_resource path="res://Sounds/VO/Jump/vo_player_walk_02.wav" type="AudioStream" id=9]
-[ext_resource path="res://Sounds/VO/Jump/vo_player_walk_04.wav" type="AudioStream" id=10]
-[ext_resource path="res://Sounds/VO/Jump/vo_player_walk_05.wav" type="AudioStream" id=11]
-[ext_resource path="res://Sounds/VO/Jump/vo_player_walk_03.wav" type="AudioStream" id=12]
-[ext_resource path="res://Sounds/VO/Jump/vo_player_walk_07.wav" type="AudioStream" id=13]
+[ext_resource path="res://Sounds/SFX/fol_player_anim_walk.wav" type="AudioStream" id=4]
+[ext_resource path="res://Sounds/SFX/animLand/fol_player_anim_land_01.wav" type="AudioStream" id=5]
+[ext_resource path="res://Sounds/VO/Player/vo_player_walk_01.wav" type="AudioStream" id=6]
+[ext_resource path="res://Sounds/VO/Player/vo_player_walk_06.wav" type="AudioStream" id=7]
+[ext_resource path="res://Sounds/VO/Player/vo_player_walk_08.wav" type="AudioStream" id=8]
+[ext_resource path="res://Sounds/VO/Player/vo_player_walk_02.wav" type="AudioStream" id=9]
+[ext_resource path="res://Sounds/VO/Player/vo_player_walk_04.wav" type="AudioStream" id=10]
+[ext_resource path="res://Sounds/VO/Player/vo_player_walk_05.wav" type="AudioStream" id=11]
+[ext_resource path="res://Sounds/VO/Player/vo_player_walk_03.wav" type="AudioStream" id=12]
+[ext_resource path="res://Sounds/VO/Player/vo_player_walk_07.wav" type="AudioStream" id=13]
 [ext_resource path="res://Sounds/RandomSFXPlayer.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Sounds/VO/Jump/Silence.tres" type="AudioStream" id=15]
+[ext_resource path="res://Sounds/VO/Player/Silence.tres" type="AudioStream" id=15]
+[ext_resource path="res://Sounds/SFX/animLand/fol_player_anim_land_03.wav" type="AudioStream" id=16]
+[ext_resource path="res://Sounds/SFX/animLand/fol_player_anim_land_04.wav" type="AudioStream" id=17]
+[ext_resource path="res://Sounds/SFX/animLand/fol_player_anim_land_05.wav" type="AudioStream" id=18]
+[ext_resource path="res://Sounds/SFX/animLand/fol_player_anim_land_02.wav" type="AudioStream" id=19]
+[ext_resource path="res://Sounds/SFX/animJump/fol_player_anim_jump_04.wav" type="AudioStream" id=20]
+[ext_resource path="res://Sounds/SFX/animJump/fol_player_anim_jump_01.wav" type="AudioStream" id=21]
+[ext_resource path="res://Sounds/SFX/animJump/fol_player_anim_jump_02.wav" type="AudioStream" id=22]
+[ext_resource path="res://Sounds/SFX/animJump/fol_player_anim_jump_03.wav" type="AudioStream" id=23]
+[ext_resource path="res://Sounds/SFX/animJump/fol_player_anim_jump_05.wav" type="AudioStream" id=24]
+[ext_resource path="res://Sounds/SFX/animJump/fol_player_anim_jump_07.wav" type="AudioStream" id=25]
+[ext_resource path="res://Sounds/SFX/animJump/fol_player_anim_jump_06.wav" type="AudioStream" id=26]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.407908
@@ -42,21 +54,26 @@ process_mode = 1
 
 [node name="HUD" parent="." instance=ExtResource( 2 )]
 
-[node name="SoundPlayerIdle" type="AudioStreamPlayer3D" parent="."]
-
-[node name="SoundPlayerLand" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 4 )
-volume_db = 1.0
-mix_target = 2
-
 [node name="SoundPlayerWalk" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
 volume_db = 1.0
 mix_target = 2
+bus = "Player"
 
 [node name="SoundPlayerJump" parent="." instance=ExtResource( 14 )]
+volume_db = 1.0
+bus = "Player"
+audio_files = [ ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 20 ), ExtResource( 24 ), ExtResource( 26 ), ExtResource( 25 ) ]
+
+[node name="SoundPlayerLand" parent="." instance=ExtResource( 14 )]
+volume_db = -3.0
+bus = "Player"
+audio_files = [ ExtResource( 5 ), ExtResource( 19 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ) ]
+
+[node name="SoundPlayerJumpVO" parent="." instance=ExtResource( 14 )]
 volume_db = -9.756
 mix_target = 2
+bus = "Player"
 audio_files = [ ExtResource( 6 ), ExtResource( 9 ), ExtResource( 12 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 7 ), ExtResource( 13 ), ExtResource( 8 ), ExtResource( 15 ), ExtResource( 15 ), ExtResource( 15 ), ExtResource( 15 ), ExtResource( 15 ) ]
 
 [connection signal="progress" from="." to="HUD" method="_on_Player_progress"]

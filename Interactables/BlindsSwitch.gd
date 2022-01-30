@@ -10,6 +10,8 @@ func interact():
 	
 	$Switch_Button.rotation_degrees.x = 20
 	self.active = true
+	$SoundPlayerUIBlindsSwitch.play()
+	$SoundPlayerBlindsOpen.play()
 
 	player.increment_progress()
 

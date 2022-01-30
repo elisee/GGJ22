@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/anim_emitter_cellphone_ring.wav-e2adf3fd68d8ed4e5d13e15d50c6bc89.sample"
+
+[deps]
+
+source_file="res://Sounds/Amb/anim_emitter_cellphone_ring.wav"
+dest_files=[ "res://.import/anim_emitter_cellphone_ring.wav-e2adf3fd68d8ed4e5d13e15d50c6bc89.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

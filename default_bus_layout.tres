@@ -1,23 +1,41 @@
-[gd_resource type="AudioBusLayout" load_steps=4 format=2]
+[gd_resource type="AudioBusLayout" load_steps=6 format=2]
 
-[sub_resource type="AudioEffectReverb" id=3]
-resource_name = "Reverb"
+[sub_resource type="AudioEffectLimiter" id=4]
+resource_name = "Limiter"
 
 [sub_resource type="AudioEffectReverb" id=1]
 resource_name = "Reverb"
 predelay_feedback = 0.26
 room_size = 0.6
 damping = 0.25
-hipass = 0.37
-wet = 0.3
+hipass = 0.5
+wet = 0.41
+
+[sub_resource type="AudioEffectReverb" id=5]
+resource_name = "Reverb"
+room_size = 0.5
+damping = 0.25
+wet = 0.39
+
+[sub_resource type="AudioEffectDelay" id=6]
+resource_name = "Delay"
+tap1/level_db = -22.7
+tap1/pan = -1.0
+tap2/level_db = -22.44
+tap2/pan = 1.0
+feedback/level_db = -7.04
 
 [sub_resource type="AudioEffectReverb" id=2]
 resource_name = "Reverb"
+room_size = 0.6
+damping = 0.31
 hipass = 0.2
 dry = 0.0
 wet = 1.0
 
 [resource]
+bus/0/effect/0/effect = SubResource( 4 )
+bus/0/effect/0/enabled = true
 bus/1/name = "Music"
 bus/1/solo = false
 bus/1/mute = false
@@ -36,21 +54,35 @@ bus/3/mute = false
 bus/3/bypass_fx = false
 bus/3/volume_db = 0.0
 bus/3/send = "Master"
-bus/3/effect/0/effect = SubResource( 3 )
-bus/3/effect/0/enabled = false
-bus/4/name = "Player"
+bus/4/name = "SFX"
 bus/4/solo = false
 bus/4/mute = false
 bus/4/bypass_fx = false
 bus/4/volume_db = 0.0
 bus/4/send = "Master"
-bus/4/effect/0/effect = SubResource( 1 )
-bus/4/effect/0/enabled = true
-bus/5/name = "RevRoom"
+bus/5/name = "Player"
 bus/5/solo = false
 bus/5/mute = false
 bus/5/bypass_fx = false
-bus/5/volume_db = -25.7583
+bus/5/volume_db = 0.0
 bus/5/send = "Master"
-bus/5/effect/0/effect = SubResource( 2 )
+bus/5/effect/0/effect = SubResource( 1 )
 bus/5/effect/0/enabled = true
+bus/6/name = "UI"
+bus/6/solo = false
+bus/6/mute = false
+bus/6/bypass_fx = false
+bus/6/volume_db = 0.0
+bus/6/send = "Master"
+bus/6/effect/0/effect = SubResource( 5 )
+bus/6/effect/0/enabled = true
+bus/6/effect/1/effect = SubResource( 6 )
+bus/6/effect/1/enabled = true
+bus/7/name = "RevRoom"
+bus/7/solo = false
+bus/7/mute = false
+bus/7/bypass_fx = false
+bus/7/volume_db = -6.57885
+bus/7/send = "Master"
+bus/7/effect/0/effect = SubResource( 2 )
+bus/7/effect/0/enabled = true

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/vo_player_walk_01.wav-c627625387f5d5383cbd6da6c4330f13.sample"
+
+[deps]
+
+source_file="res://Sounds/VO/Player/vo_player_walk_01.wav"
+dest_files=[ "res://.import/vo_player_walk_01.wav-c627625387f5d5383cbd6da6c4330f13.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

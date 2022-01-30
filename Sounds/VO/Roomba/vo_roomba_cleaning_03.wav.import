@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/vo_roomba_cleaning_03.wav-176ef657e3f7e23f6595e803d75f847f.sample"
+
+[deps]
+
+source_file="res://Sounds/VO/Roomba/vo_roomba_cleaning_03.wav"
+dest_files=[ "res://.import/vo_roomba_cleaning_03.wav-176ef657e3f7e23f6595e803d75f847f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

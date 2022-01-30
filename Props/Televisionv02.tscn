@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Models/Televisionv04.glb" type="PackedScene" id=1]
 [ext_resource path="res://Videos/Screen_animation_large.ogv" type="VideoStream" id=2]
 [ext_resource path="res://Props/VideoPlayer.gd" type="Script" id=3]
+[ext_resource path="res://Sounds/Amb/amb_emitter_tv_broadcast.wav" type="AudioStream" id=4]
 [ext_resource path="res://Sounds/Amb/amb_tv_static_loop.wav" type="AudioStream" id=5]
 
 [sub_resource type="ConcavePolygonShape" id=6]
@@ -123,14 +124,27 @@ anims/RESET = SubResource( 5 )
 [node name="Cache" parent="." index="4"]
 transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0.332273, -0.1 )
 
-[node name="SoundPlayerStaticLoop" type="AudioStreamPlayer3D" parent="." index="5"]
+[node name="SoundPlayerTvBroadcast" type="AudioStreamPlayer3D" parent="." index="5"]
+transform = Transform( 0.98336, 0, 0.181669, 0, 1, 0, -0.181669, 0, 0.98336, 0, 0, 0 )
+stream = ExtResource( 4 )
+unit_size = 36.9
+autoplay = true
+max_distance = 1678.61
+bus = "AmbEmitter"
+emission_angle_enabled = true
+emission_angle_degrees = 90.0
+emission_angle_filter_attenuation_db = -14.9
+attenuation_filter_db = -21.7
+
+[node name="SoundPlayerStaticLoop" type="AudioStreamPlayer3D" parent="." index="6"]
 transform = Transform( 0.98336, 0, 0.181669, 0, 1, 0, -0.181669, 0, 0.98336, 0, 0, 0 )
 stream = ExtResource( 5 )
-unit_size = 30.9
+unit_db = 2.832
+unit_size = 24.7
 autoplay = true
-max_distance = 1341.17
+max_distance = 144.99
+bus = "AmbEmitter"
 emission_angle_enabled = true
 emission_angle_degrees = 79.8
 emission_angle_filter_attenuation_db = -2.8
-attenuation_filter_cutoff_hz = 200.0
-attenuation_filter_db = -31.3
+attenuation_filter_db = -11.4

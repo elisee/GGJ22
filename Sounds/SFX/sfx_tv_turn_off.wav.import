@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sfx_tv_turn_off.wav-7835b12a13ce278b754ba913ec41e195.sample"
+
+[deps]
+
+source_file="res://Sounds/SFX/sfx_tv_turn_off.wav"
+dest_files=[ "res://.import/sfx_tv_turn_off.wav-7835b12a13ce278b754ba913ec41e195.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

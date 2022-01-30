@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Models/Vacuum_03.material" type="Material" id=1]
 [ext_resource path="res://Models/Vacuum_02.material" type="Material" id=2]
@@ -7,6 +7,10 @@
 [ext_resource path="res://Models/Vacuum_Metal.material" type="Material" id=5]
 [ext_resource path="res://Interactables/Vacuum.gd" type="Script" id=6]
 [ext_resource path="res://Models/Battery.glb" type="PackedScene" id=7]
+[ext_resource path="res://Sounds/SFX/sfx_roomba_vacuum_time.wav" type="AudioStream" id=8]
+[ext_resource path="res://Sounds/VO/Roomba/vo_roomba_cleaning_01.wav" type="AudioStream" id=9]
+[ext_resource path="res://Sounds/VO/Roomba/vo_roomba_cleaning_03.wav" type="AudioStream" id=16]
+[ext_resource path="res://Sounds/UI/ui_btn_insert_battery.wav" type="AudioStream" id=17]
 
 [sub_resource type="CylinderShape" id=1]
 height = 1.8
@@ -144,3 +148,34 @@ shape = SubResource( 5 )
 [node name="Battery" parent="." instance=ExtResource( 7 )]
 transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, -0.0015251, 0.845516, -0.530518 )
 visible = false
+
+[node name="SoundPlayerVacuumMoving" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 8 )
+unit_db = -19.824
+unit_size = 59.4
+max_distance = 2718.57
+bus = "SFX"
+attenuation_filter_cutoff_hz = 5386.0
+attenuation_filter_db = -14.5
+doppler_tracking = 2
+
+[node name="SoundPlayerVacuumVO_Turn" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 9 )
+unit_db = -24.072
+unit_size = 36.4
+max_distance = 1304.91
+bus = "SFX"
+attenuation_filter_cutoff_hz = 5386.0
+
+[node name="SoundPlayerVacuumVO" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 16 )
+unit_db = -24.072
+unit_size = 36.4
+max_distance = 1304.91
+bus = "SFX"
+attenuation_filter_cutoff_hz = 5386.0
+
+[node name="SoundPlayerUIBatteryInsert" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 17 )
+volume_db = -6.992
+bus = "UI"
