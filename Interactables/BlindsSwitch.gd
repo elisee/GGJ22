@@ -1,6 +1,5 @@
 extends BaseInteractable
 
-onready var player = get_tree().get_nodes_in_group("player")[0]
 onready var blinds = get_tree().get_nodes_in_group("blinds")[0]
 
 var active = false
@@ -12,8 +11,6 @@ func interact():
 	self.active = true
 	$SoundPlayerUIBlindsSwitch.play()
 	$SoundPlayerBlindsOpen.play()
-
-	player.increment_progress()
 
 func _process(delta):
 	if not self.active:

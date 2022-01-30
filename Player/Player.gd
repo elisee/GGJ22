@@ -178,5 +178,5 @@ func get_item():
 	return self.item
 
 func increment_progress():
-	progress = clamp(progress + 10, 0, 100)
+	progress += 1
 	emit_signal("progress", progress)

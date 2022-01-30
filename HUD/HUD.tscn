@@ -20,6 +20,17 @@ margin_top = 42.0
 margin_right = 181.0
 margin_bottom = 85.0
 theme = ExtResource( 2 )
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Root/ProgressBar"]
+margin_right = 142.0
+margin_bottom = 43.0
+text = "2 / 5"
+align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }

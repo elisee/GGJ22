@@ -1,23 +1,26 @@
 extends CanvasLayer
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
+var initialized = false
+var totalProgress = 0
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+func _process(_delta):
+	if initialized: return
+	
+	var interactables = get_tree().get_nodes_in_group("interactable")
+	for node in interactables:
+		var interactable := node as BaseInteractable
+		if interactable.isProgress:
+			totalProgress += 1
 
+	$Root/ProgressBar/Label.text = "0 / " + str(totalProgress)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
+	initialized = true
 
 func _on_Player_progress(newProgress):
-	$Root/ProgressBar.value = newProgress
+	print(newProgress / totalProgress * 100)
+	$Root/ProgressBar.value = 100.0 * newProgress / totalProgress
+	$Root/ProgressBar/Label.text = str(newProgress) + " / " + str(totalProgress)
 
 
 func _on_Player_setInteraction(label, can_interact):

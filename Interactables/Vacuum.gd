@@ -4,7 +4,6 @@ var point_index = 0
 var speed = 3
 var active = false
 
-onready var player = get_tree().get_nodes_in_group("player")[0]
 onready var vacuum_path = get_tree().get_nodes_in_group("vacuum_path")[0] as Path
 
 func can_interact():
@@ -18,14 +17,11 @@ func interact():
 	mat.set_albedo(Color(0, 1, 0))
 	
 	$Battery.visible = true
-	player.increment_progress()
-	self.active = true
 	$SoundPlayerUIBatteryInsert.play()
-	
-	if not $SoundPlayerVacuumMoving.is_playing():
-				$SoundPlayerVacuumMoving.play()
-	if not $SoundPlayerVacuumVO.is_playing():
-				$SoundPlayerVacuumVO.play()				
+	$SoundPlayerVacuumMoving.play()
+	$SoundPlayerVacuumVO.play()
+
+	self.active = true
 
 func _physics_process(delta):
 	if not self.active:
