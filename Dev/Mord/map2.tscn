@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=2]
+[gd_scene load_steps=62 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Props/Couch.tscn" type="PackedScene" id=2]
@@ -43,6 +43,8 @@
 [ext_resource path="res://Props/Door.tscn" type="PackedScene" id=41]
 [ext_resource path="res://Props/WaterBottleInteractable.tscn" type="PackedScene" id=42]
 [ext_resource path="res://Props/KitchenCupboard.tscn" type="PackedScene" id=43]
+[ext_resource path="res://Props/FrameLarge.tscn" type="PackedScene" id=44]
+[ext_resource path="res://Props/KitchenFurniture.tscn" type="PackedScene" id=45]
 
 [sub_resource type="Curve3D" id=20]
 _data = {
@@ -58,9 +60,6 @@ albedo_color = Color( 0.411765, 0.160784, 0.160784, 1 )
 
 [sub_resource type="SpatialMaterial" id=16]
 albedo_color = Color( 0.133333, 0.596078, 0.239216, 1 )
-
-[sub_resource type="SpatialMaterial" id=8]
-albedo_color = Color( 0.345098, 0.164706, 0.164706, 1 )
 
 [sub_resource type="SpatialMaterial" id=10]
 albedo_color = Color( 0.901961, 0.87451, 0.87451, 1 )
@@ -394,12 +393,8 @@ depth = 8.0
 [node name="Bed2" parent="Furnitures/Bed Corner" instance=ExtResource( 14 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -42.6749, 0, 10.8495 )
 
-[node name="Painting" type="CSGBox" parent="Furnitures/Bed Corner"]
-transform = Transform( 0.992336, -0.12346, 0.00514858, 0.123567, 0.991475, -0.0413471, 0, 0.0416664, 0.999132, -34.1973, 16.1563, -11.0191 )
-use_collision = true
-width = 6.0
-height = 4.0
-depth = 0.5
+[node name="FrameLarge" parent="Furnitures/Bed Corner" instance=ExtResource( 44 )]
+transform = Transform( 0.992336, -0.12346, 0.00514858, 0.123567, 0.991475, -0.0413471, 3.10439e-10, 0.0416664, 0.999132, -33.7655, 13.8914, -11.335 )
 
 [node name="Kitchen Corner" type="Spatial" parent="Furnitures"]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.1, 0, 51 )
@@ -422,21 +417,11 @@ transform = Transform( -6.11959e-08, 0, -1, 0, 1.32, 0, 1.4, 0, -4.37114e-08, 0.
 [node name="WaterBottle" parent="Furnitures/Kitchen Corner" instance=ExtResource( 42 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.8, 10.1, -50.5 )
 
-[node name="Kitchen surface" type="CSGBox" parent="Furnitures/Kitchen Corner"]
-transform = Transform( 0.746775, 0, -2.09621e-08, 0, 1, 0, -2.09621e-08, 0, 1.22633, -22.6634, 4.34347, -40.3507 )
-use_collision = true
-width = 6.0
-height = 8.5
-depth = 6.0
-material = SubResource( 8 )
+[node name="KitchenFurniture" parent="Furnitures/Kitchen Corner" instance=ExtResource( 45 )]
+transform = Transform( -6.63653e-08, 0, 1.33137, 0, 1.45636, 0, -1.14448, 0, -4.18578e-08, -21.8756, 6.19888e-05, -24.2122 )
 
-[node name="Kitchen surface2" type="CSGBox" parent="Furnitures/Kitchen Corner"]
-transform = Transform( 0.853098, 0, -2.57444e-08, 0, 1, 0, -2.57444e-08, 0, 1.44206, -22.2971, 4.34347, -24.1663 )
-use_collision = true
-width = 6.0
-height = 8.5
-depth = 6.4
-material = SubResource( 8 )
+[node name="KitchenFurniture2" parent="Furnitures/Kitchen Corner" instance=ExtResource( 45 )]
+transform = Transform( -7.97027e-08, 0, 1.29372, 0, 1.43468, 0, -0.764059, 0, -1.02457e-08, -21.9542, 0.09347, -39.7895 )
 
 [node name="Sink" parent="Furnitures/Kitchen Corner" instance=ExtResource( 34 )]
 transform = Transform( -6.71271e-08, 0, 1.26784, 0, 1.45667, 0, -1, 0, -3.20035e-08, -21.9449, 7.93934e-05, -32.8144 )
@@ -762,7 +747,7 @@ omni_attenuation = 2.21914
 omni_shadow_mode = 0
 
 [node name="work temp light" type="OmniLight" parent="WorldEnvironment"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -33.5698, 15.6301, 60.7171 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -33.5698, 15.6301, 5.14091 )
 light_energy = 16.0
 light_indirect_energy = 0.0
 light_specular = 2.226
