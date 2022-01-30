@@ -719,7 +719,7 @@ shadow_enabled = true
 omni_range = 4.11765
 
 [node name="Man" parent="OmniLight" instance=ExtResource( 26 )]
-transform = Transform( -0.0323702, 0, -0.999476, 0, 1, 0, 0.999476, 0, -0.0323702, 73.1312, -11.6629, 54.1748 )
+transform = Transform( -0.0323702, 0, -0.999476, 0, 1, 0, 0.999476, 0, -0.0323702, 77.6398, -11.9264, 54.1748 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 21 )
