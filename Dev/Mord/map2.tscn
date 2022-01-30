@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=2]
+[gd_scene load_steps=64 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Props/Couch.tscn" type="PackedScene" id=2]
@@ -52,21 +52,13 @@
 [ext_resource path="res://Props/Plates.tscn" type="PackedScene" id=50]
 [ext_resource path="res://Props/Wardrobe.tscn" type="PackedScene" id=51]
 [ext_resource path="res://Props/PizzaBox.tscn" type="PackedScene" id=52]
+[ext_resource path="res://Props/Oven.tscn" type="PackedScene" id=53]
 
 [sub_resource type="Curve3D" id=20]
 _data = {
 "points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -20, 0, 25, 0, 0, 0, 0, 0, 0, 5, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 31, 0, 0, 0, 0, 0, 0, -40, 0, 35, 0, 0, 0, 0, 0, 0, -36, 0, 26 ),
 "tilts": PoolRealArray( 0, 0, 0, 0, 0 )
 }
-
-[sub_resource type="SpatialMaterial" id=10]
-albedo_color = Color( 0.901961, 0.87451, 0.87451, 1 )
-
-[sub_resource type="SpatialMaterial" id=11]
-albedo_color = Color( 0, 0, 0, 1 )
-
-[sub_resource type="SpatialMaterial" id=12]
-albedo_color = Color( 0, 0, 0, 1 )
 
 [sub_resource type="SpatialMaterial" id=13]
 albedo_color = Color( 0.745098, 0.109804, 0.109804, 1 )
@@ -357,7 +349,7 @@ depth = 20.2
 transform = Transform( 1.75498e-09, 0.00582902, -0.999983, 0.0401493, 0.999177, 0.00582436, 0.846801, -0.0340253, -0.000198337, -1.02765, 0.00655556, 9.40061 )
 
 [node name="Book_10" parent="Furnitures/Bed Corner/Shelf 3a" instance=ExtResource( 4 )]
-transform = Transform( 0.958843, -0.283927, -0.00165505, 0.0480982, 0.156681, 0.986476, -0.23715, -0.801684, 0.138894, 0.772667, 1.55382, 17.0193 )
+transform = Transform( 0.958843, -0.283927, -0.00165505, 0.0106122, 0.030012, 0.999492, -0.24046, -0.812208, 0.0269416, 0.772667, 1.7425, 17.0193 )
 
 [node name="Shelf 3b" type="CSGBox" parent="Furnitures/Bed Corner"]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -46.1, 16.4435, -10.1 )
@@ -403,7 +395,7 @@ transform = Transform( -0.489916, 0, 0.519795, 0, 0.757576, 0, -0.727713, 0, -0.
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.8, 10.1, -50.5 )
 
 [node name="KitchenFurniture" parent="Furnitures/Kitchen Corner" instance=ExtResource( 45 )]
-transform = Transform( -6.63653e-08, 0, 1.33137, 0, 1.45636, 0, -1.14448, 0, -4.18578e-08, -21.8756, 6.19888e-05, -24.2122 )
+transform = Transform( -7.81439e-08, 0, 1.33137, 0, 1.45636, 0, -0.875018, 0, -1.83006e-08, -21.8756, 6.19888e-05, -25.3634 )
 
 [node name="KitchenFurniture2" parent="Furnitures/Kitchen Corner" instance=ExtResource( 45 )]
 transform = Transform( -7.97027e-08, 0, 1.29372, 0, 1.43468, 0, -0.764059, 0, -1.02457e-08, -21.9542, 0.09347, -39.7895 )
@@ -417,35 +409,8 @@ transform = Transform( -6.71271e-08, 0, 1.26784, 0, 1.45667, 0, -1, 0, -3.20035e
 [node name="Sponge" parent="Furnitures/Kitchen Corner/Sink" instance=ExtResource( 33 )]
 transform = Transform( -0.866025, -1.10285e-07, -0.633923, 6.00157e-08, -1, 5.24674e-15, -0.394371, -5.02214e-08, 0.866026, 1.02221, 5.95219, 0.762695 )
 
-[node name="Oven" type="CSGBox" parent="Furnitures/Kitchen Corner"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.6272, 4.3172, -16.8724 )
-use_collision = true
-width = 6.0
-height = 8.5
-depth = 6.0
-material = SubResource( 10 )
-
-[node name="Hob1" type="CSGCylinder" parent="Furnitures/Kitchen Corner/Oven"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.24079, 4.04267, -1.272 )
-material = SubResource( 11 )
-
-[node name="Hob2" type="CSGCylinder" parent="Furnitures/Kitchen Corner/Oven"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.28244, 4.04267, -1.272 )
-material = SubResource( 11 )
-
-[node name="Hob3" type="CSGCylinder" parent="Furnitures/Kitchen Corner/Oven"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.24079, 4.04267, 1.24217 )
-material = SubResource( 11 )
-
-[node name="Hob4" type="CSGCylinder" parent="Furnitures/Kitchen Corner/Oven"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.28244, 4.04267, 1.24217 )
-material = SubResource( 11 )
-
-[node name="Oven door" type="CSGBox" parent="Furnitures/Kitchen Corner/Oven"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.20747, 0.27745, 3.43323e-05 )
-height = 5.87435
-depth = 5.00541
-material = SubResource( 12 )
+[node name="Oven2" parent="Furnitures/Kitchen Corner" instance=ExtResource( 53 )]
+transform = Transform( -7.63701e-08, 0, 1.37616, 0, 1.45406, 0, -1.00518, 0, -2.77218e-08, -21.8521, 0.0672002, -17.9791 )
 
 [node name="Stool2" type="CSGCylinder" parent="Furnitures/Kitchen Corner"]
 transform = Transform( 0.866025, 0, 0.5, 0, 0.717127, 0, -0.5, 0, 0.866025, 8.92467, 5.35684, -42.2925 )
@@ -659,6 +624,9 @@ transform = Transform( -1.25121e-08, 3.25675e-16, -1, 7.45058e-09, 1, -7.45058e-
 [node name="Bottle2" parent="Furnitures/Kitchen Corner" instance=ExtResource( 37 )]
 transform = Transform( -0.832361, -0.552137, -0.0481698, -9.31323e-10, 0.0869123, -0.996216, 0.554234, -0.829211, -0.0723424, -1.267, 0.4243, 6.9548 )
 
+[node name="BottleWine" parent="Furnitures/Kitchen Corner" instance=ExtResource( 46 )]
+transform = Transform( -1.54543e-08, 0.482963, -0.12941, -0.5, -2.18557e-08, -2.18557e-08, -2.67677e-08, 0.12941, 0.482963, -24.2273, 9.27263, -24.653 )
+
 [node name="Window" parent="." instance=ExtResource( 25 )]
 transform = Transform( 0.000141495, 0.000397265, 1, 0.000455087, 1.076, -0.000338866, -0.963834, 0.000475211, 0.000125845, -50.7518, 11.0732, 57.5074 )
 
@@ -750,7 +718,7 @@ omni_range = 17.7578
 omni_attenuation = 1.68179
 
 [node name="Workinglight" type="OmniLight" parent="WorldEnvironment"]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -34.213, 13.2891, 24.0479 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -19.0754, 13.4371, 57.5489 )
 light_energy = 7.632
 shadow_enabled = true
 omni_range = 17.7578
@@ -887,7 +855,7 @@ omni_attenuation = 2.21914
 omni_shadow_mode = 0
 
 [node name="LampBed" parent="." instance=ExtResource( 47 )]
-transform = Transform( 1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -30.5356, 7.2482, -7.1402 )
+transform = Transform( 1.19812, -0.0670695, 0, 0.0670695, 1.19812, 0, 0, 0, 1.2, -30.5356, 7.2482, -7.1402 )
 
 [node name="SpotLight2" type="SpotLight" parent="."]
 transform = Transform( 0.852666, 0.142878, -0.50254, 0.520277, -0.319976, 0.791788, -0.0476712, -0.93659, -0.347169, -9.68136, 13.0371, -8.32154 )
@@ -904,4 +872,4 @@ spot_angle_attenuation = 0.34151
 transform = Transform( 0.277113, 0, 0.960837, 0, 1, 0, -0.960837, 0, 0.277113, -10.2724, 8.84243, -8.9 )
 
 [node name="Can" parent="." instance=ExtResource( 18 )]
-transform = Transform( 1.27103, 0, 0, 0, 1, 0, 0, 0, 1.3255, -48.6949, 17.989, 75.0212 )
+transform = Transform( 1.65729, 0.378657, 0, -0.378657, 1.65729, 0, 0, 0, 1.7, -49.5744, 17.0697, 75.0644 )
