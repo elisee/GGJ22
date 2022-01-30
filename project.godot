@@ -9,7 +9,7 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Node",
+"base": "Spatial",
 "class": "BaseInteractable",
 "language": "GDScript",
 "path": "res://Interactables/BaseInteractable.gd"
@@ -20,7 +20,8 @@ _global_script_class_icons={
 
 [application]
 
-config/name="GGJ22"
+config/name="Mousecare"
+config/description="A short 3D platformer"
 run/main_scene="res://Menus/MainMenu.tscn"
 config/icon="res://icon.png"
 
