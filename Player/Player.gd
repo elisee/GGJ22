@@ -212,11 +212,11 @@ func increment_progress():
 	progress += 1.0
 	
 	var newMusicLevel = 0
-	if progress / totalProgress >= 1.0:
+	if progress / totalProgress >= 0.75:
 		newMusicLevel = 3
-	elif progress / totalProgress >= 0.66:
+	elif progress / totalProgress >= 0.50:
 		newMusicLevel = 2
-	elif progress / totalProgress >= 0.33:
+	elif progress / totalProgress >= 0.25:
 		newMusicLevel = 1
 	
 	if musicLevel != newMusicLevel:
@@ -226,3 +226,8 @@ func increment_progress():
 		$SoundPlayerMusic.play(playbackPos)
 	
 	emit_signal("progress", progress, totalProgress)
+	
+	if progress == totalProgress:
+		yield(get_tree().create_timer(3.0), "timeout")
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		get_tree().change_scene("res://Cinematics/Outro.tscn")
