@@ -151,7 +151,7 @@ visible = false
 
 [node name="SoundPlayerVacuumMoving" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource( 8 )
-unit_db = -19.824
+unit_db = -23.0
 unit_size = 59.4
 max_distance = 2718.57
 bus = "SFX"
