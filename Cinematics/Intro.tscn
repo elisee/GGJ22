@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Theme/Theme.tres" type="Theme" id=1]
+[ext_resource path="res://Cinematics/Intro.jpg" type="Texture" id=2]
+[ext_resource path="res://Cinematics/Intro.gd" type="Script" id=3]
+
+[node name="Control" type="Control"]
+rect_pivot_offset = Vector2( -537, 22 )
+theme = ExtResource( 1 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 521, 303 )
+scale = Vector2( 0.568225, 0.568225 )
+texture = ExtResource( 2 )
+
+[node name="IntroLabel" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 375.0
+margin_top = 276.0
+margin_right = 637.0
+margin_bottom = 313.0
+text = "Plz write an interesting story line
+For real though"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
