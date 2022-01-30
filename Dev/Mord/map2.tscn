@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=2]
+[gd_scene load_steps=59 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Props/Couch.tscn" type="PackedScene" id=2]
@@ -37,6 +37,7 @@
 [ext_resource path="res://Sounds/Music/CheeseMouse03.wav" type="AudioStream" id=35]
 [ext_resource path="res://Props/Garbage.tscn" type="PackedScene" id=36]
 [ext_resource path="res://Props/WaterBottle.tscn" type="PackedScene" id=37]
+[ext_resource path="res://Models/Particles_Dust.jpg" type="Texture" id=38]
 
 [sub_resource type="Curve3D" id=20]
 _data = {
@@ -91,7 +92,6 @@ fog_transmit_enabled = true
 fog_transmit_curve = 1.62451
 fog_height_min = -367.4
 fog_height_max = -528.3
-tonemap_mode = 2
 tonemap_exposure = 0.5
 tonemap_white = 0.7
 auto_exposure_enabled = true
@@ -120,6 +120,32 @@ dynamic_data = PoolIntArray( 0, 9, 256, 128, 256, 1, 0, 0, 0, 0, 0, 0, 7, 0, 1, 
 dynamic_range = 4
 bias = 1.5
 normal_bias = 0.0
+
+[sub_resource type="SpatialMaterial" id=26]
+flags_transparent = true
+flags_unshaded = true
+flags_albedo_tex_force_srgb = true
+flags_ensure_correct_normals = true
+vertex_color_use_as_albedo = true
+params_blend_mode = 1
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+albedo_color = Color( 0.678431, 0.823529, 0.917647, 0.0313726 )
+albedo_texture = ExtResource( 38 )
+
+[sub_resource type="ParticlesMaterial" id=27]
+lifetime_randomness = 0.33
+emission_shape = 2
+emission_box_extents = Vector3( 40, 40, 40 )
+direction = Vector3( 0, 1, 0 )
+spread = 159.7
+gravity = Vector3( 0, -0.003, 0 )
+initial_velocity = 0.01
+scale = 20.0
+
+[sub_resource type="QuadMesh" id=28]
 
 [sub_resource type="QuadMesh" id=23]
 
@@ -654,6 +680,18 @@ transform = Transform( 0.666667, 0, 0, 0, 0.769231, 0, 0, 0, 0.666667, 0, 0, 0 )
 [node name="Garbage" parent="Furnitures/Kitchen Corner" instance=ExtResource( 36 )]
 transform = Transform( 1.41421, 0, -1.41421, 0, 2, 0, 1.41421, 0, 1.41421, -20.3591, -0.617499, -7.90423 )
 
+[node name="Can" parent="Furnitures" instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.0271, 1.28746e-05, 73.9259 )
+
+[node name="Can2" parent="Furnitures" instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 0.120276, 0.992741, 0, -0.992741, 0.120276, -6.0271, 0.175421, 70.1516 )
+
+[node name="Can3" parent="Furnitures" instance=ExtResource( 18 )]
+transform = Transform( 0.506154, 0.856182, -0.103731, 0, 0.120276, 0.992741, 0.862443, -0.50248, 0.0608779, -9.54451, 0.175421, 70.1516 )
+
+[node name="Can4" parent="Furnitures" instance=ExtResource( 18 )]
+transform = Transform( 0.506154, 0.856182, -0.103731, 0, 0.120276, 0.992741, 0.862443, -0.50248, 0.0608779, -49.3059, 0.175421, 67.5344 )
+
 [node name="Window" parent="." instance=ExtResource( 25 )]
 transform = Transform( 0.000141495, 0.000397265, 1, 0.000455087, 1.076, -0.000338866, -0.963834, 0.000475211, 0.000125845, -50.7518, 11.0732, 57.5074 )
 
@@ -664,10 +702,6 @@ transform = Transform( -4.37114e-08, 0, -1, 0.0121123, 0.999927, -5.29445e-10, 0
 
 [node name="Walls" parent="Structures" instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.897, 0, -4.763 )
-
-[node name="BakedLightmap" type="BakedLightmap" parent="Structures/Walls"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13.1372, 38.3896 )
-extents = Vector3( 51.0226, 15.8338, 50.1103 )
 
 [node name="Parquet" parent="Structures" instance=ExtResource( 6 )]
 transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, -12.021, 0, -4.678 )
@@ -731,7 +765,7 @@ omni_attenuation = 2.21914
 omni_shadow_mode = 0
 
 [node name="Light Bed2" type="OmniLight" parent="WorldEnvironment"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.56919, 12.0971, 53.3271 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.3945, 12.0971, 72.5688 )
 light_color = Color( 0.364706, 0.223529, 0.333333, 1 )
 light_energy = 0.839
 light_indirect_energy = 0.0
@@ -741,10 +775,13 @@ omni_range = 23.4494
 omni_attenuation = 2.21914
 omni_shadow_mode = 0
 
+[node name="Door" parent="WorldEnvironment/Light Bed2" instance=ExtResource( 37 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.42318, -12.0971, -31.9134 )
+
 [node name="Light TV" type="OmniLight" parent="WorldEnvironment" groups=["lightTV"]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.4772, 11.1657, 25.7869 )
-light_color = Color( 0, 0.270588, 0.917647, 1 )
-light_energy = 4.618
+light_color = Color( 0.101961, 0.352941, 0.952941, 1 )
+light_energy = 5.592
 light_indirect_energy = 1.695
 light_specular = 2.365
 shadow_enabled = true
@@ -771,8 +808,23 @@ shadow_enabled = true
 spot_range = 61.1029
 spot_angle = 41.8946
 
+[node name="Particles_Dust" type="Particles" parent="WorldEnvironment"]
+transform = Transform( 0.999304, -2.90114e-08, 0, 2.90114e-08, 0.999304, 0, 0, 0, 0.999304, 15.2998, 14.0832, 17.9382 )
+material_override = SubResource( 26 )
+use_in_baked_light = true
+amount = 250
+lifetime = 30.94
+process_material = SubResource( 27 )
+draw_pass_1 = SubResource( 28 )
+
 [node name="CSGMesh" type="CSGMesh" parent="."]
 transform = Transform( 60.7737, 0, 0, 0, 53.8849, 0, 0, 0, 1, 29.2893, 11.9673, -14.4617 )
+layers = 4
+mesh = SubResource( 23 )
+material = SubResource( 24 )
+
+[node name="CSGMesh2" type="CSGMesh" parent="."]
+transform = Transform( -0.621557, 0, 0.999948, 0, 53.8849, 0, -60.7705, 0, -0.0102274, -53.7277, 11.9673, 63.0742 )
 layers = 4
 mesh = SubResource( 23 )
 material = SubResource( 24 )
@@ -809,3 +861,14 @@ reverb_bus_uniformity = 0.46
 [node name="CollisionShape" type="CollisionShape" parent="ReverbArea"]
 transform = Transform( 51.5582, 0, 0, 0, 36.5494, 0, 0, 0, 49.2505, -11.4057, 1.46956, 33.7509 )
 shape = SubResource( 25 )
+
+[node name="SpotLight" type="SpotLight" parent="."]
+transform = Transform( 0.95263, 0.0618874, -0.29777, 0.300373, -0.344918, 0.889274, -0.0476712, -0.93659, -0.347168, -6.82871, 17.7736, -8.12011 )
+light_color = Color( 0.886275, 0.882353, 0.654902, 1 )
+light_energy = 1.279
+light_indirect_energy = 2.113
+light_specular = 2.03
+spot_range = 16.176
+spot_attenuation = 0.615572
+spot_angle = 40.95
+spot_angle_attenuation = 0.34151

@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/Particles_Dust.jpg-43309df02372334b535b5858adfe589f.s3tc.stex"
-path.etc="res://.import/Particles_Dust.jpg-43309df02372334b535b5858adfe589f.etc.stex"
+path.s3tc="res://.import/Bricks.jpg-3ba27d0e9a592545baa971ac76cc2d4e.s3tc.stex"
+path.etc="res://.import/Bricks.jpg-3ba27d0e9a592545baa971ac76cc2d4e.etc.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Models/Particles_Dust.jpg"
-dest_files=[ "res://.import/Particles_Dust.jpg-43309df02372334b535b5858adfe589f.s3tc.stex", "res://.import/Particles_Dust.jpg-43309df02372334b535b5858adfe589f.etc.stex" ]
+source_file="res://Models/Bricks.jpg"
+dest_files=[ "res://.import/Bricks.jpg-3ba27d0e9a592545baa971ac76cc2d4e.s3tc.stex", "res://.import/Bricks.jpg-3ba27d0e9a592545baa971ac76cc2d4e.etc.stex" ]
 
 [params]
 

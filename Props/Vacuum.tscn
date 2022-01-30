@@ -179,3 +179,10 @@ attenuation_filter_cutoff_hz = 5386.0
 stream = ExtResource( 17 )
 volume_db = -6.992
 bus = "UI"
+
+[node name="OmniLight" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.28292, 0 )
+light_color = Color( 0.94902, 0.878431, 0.631373, 1 )
+light_energy = 0.722
+omni_range = 6.56542
+omni_attenuation = 2.07053
