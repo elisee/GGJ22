@@ -13,7 +13,7 @@ height = 0.002
 radius = 0.0885788
 height = 0.002
 
-[node name="Plant" instance=ExtResource( 1 )]
+[node name="Plant" groups=["plant"] instance=ExtResource( 1 )]
 
 [node name="Plant" parent="." index="0"]
 transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0.195805, -0.023496 )
