@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Theme/Theme.tres" type="Theme" id=1]
 [ext_resource path="res://Cinematics/Intro.jpg" type="Texture" id=2]
 [ext_resource path="res://Cinematics/Intro.gd" type="Script" id=3]
+[ext_resource path="res://Sounds/Music/CheeseMouse01.wav" type="AudioStream" id=4]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -31,3 +32,7 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+autoplay = true
