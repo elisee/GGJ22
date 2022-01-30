@@ -176,13 +176,14 @@ func check_interactable(delta):
 
 	var new_interactable: BaseInteractable = null
 	
-	for node in interactables:
-		var interactable := node as BaseInteractable
-		if interactable.area.overlaps_body(self):
-			new_interactable = interactable
-			break
+	if fallingTimer == 0:
+		for node in interactables:
+			var interactable := node as BaseInteractable
+			if interactable.area.overlaps_body(self):
+				new_interactable = interactable
+				break
 
-	var can_interact = new_interactable != null and new_interactable.can_interact() and fallingTimer == 0
+	var can_interact = new_interactable != null and new_interactable.can_interact()
 
 	if new_interactable != self.active_interactable:
 		self.active_interactable = new_interactable
