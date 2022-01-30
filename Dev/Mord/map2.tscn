@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=2]
+[gd_scene load_steps=59 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Props/Couch.tscn" type="PackedScene" id=2]
@@ -31,6 +31,7 @@
 [ext_resource path="res://Sounds/Amb/Beds/amb_bed_livingroom_loop.wav" type="AudioStream" id=29]
 [ext_resource path="res://Sounds/Amb/amb_fridge_hum_loop.wav" type="AudioStream" id=30]
 [ext_resource path="res://Sounds/Amb/amb_emitter_window_closed.wav" type="AudioStream" id=31]
+[ext_resource path="res://Props/CanInteractable.tscn" type="PackedScene" id=32]
 [ext_resource path="res://Props/Garbage.tscn" type="PackedScene" id=36]
 [ext_resource path="res://Props/WaterBottle.tscn" type="PackedScene" id=37]
 [ext_resource path="res://Models/Particles_Dust.jpg" type="Texture" id=38]
@@ -196,8 +197,8 @@ transform = Transform( 0.566679, 0, -0.569267, 0, 1, 0, 0.823938, 0, 0.391524, -
 [node name="Bin" parent="Furnitures/Desk Corner" instance=ExtResource( 16 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.400534, 8.58307e-06, -7.56631 )
 
-[node name="Can" parent="Furnitures/Desk Corner" instance=ExtResource( 18 )]
-transform = Transform( 1.39557, 0, 0, 0, 1.74552, 0, 0, 0, 1.58004, -2.87884, 8.82109, -7.01908 )
+[node name="Can" parent="Furnitures/Desk Corner" instance=ExtResource( 32 )]
+transform = Transform( 1.396, 0, 0, 0, 1.746, 0, 0, 0, 1.58, -2.879, 8.821, -7.019 )
 
 [node name="TV Corner" type="Node" parent="Furnitures"]
 
