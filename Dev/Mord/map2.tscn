@@ -73,7 +73,18 @@ albedo_color = Color( 0, 0, 0, 1 )
 [sub_resource type="SpatialMaterial" id=13]
 albedo_color = Color( 0.745098, 0.109804, 0.109804, 1 )
 
-[sub_resource type="Environment" id=21]
+[sub_resource type="QuadMesh" id=23]
+
+[sub_resource type="SpatialMaterial" id=24]
+emission_enabled = true
+emission = Color( 0.996078, 0.788235, 0.54902, 1 )
+emission_energy = 1.0
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="BoxShape" id=25]
+
+[sub_resource type="Environment" id=26]
 background_energy = 0.0
 ambient_light_color = Color( 0.160784, 0.168627, 0.345098, 1 )
 ambient_light_energy = 0.15
@@ -93,10 +104,11 @@ auto_exposure_enabled = true
 auto_exposure_scale = 1.04
 auto_exposure_min_luma = 0.2
 ssao_enabled = true
-ssao_radius = 2.21
+ssao_intensity = 4.62
 ssao_radius2 = 0.01
 ssao_intensity2 = 2.01
-ssao_edge_sharpness = 0.38
+ssao_quality = 2
+ssao_edge_sharpness = 2.49
 dof_blur_far_enabled = true
 dof_blur_far_distance = 60.4
 dof_blur_far_transition = 57.4
@@ -107,16 +119,17 @@ glow_intensity = 0.46
 glow_strength = 0.74
 glow_bloom = 0.03
 
-[sub_resource type="GIProbeData" id=22]
+[sub_resource type="GIProbeData" id=27]
 bounds = AABB( -45.6668, -16.0468, -48.6629, 91.3336, 32.0936, 97.3258 )
 cell_size = 0.380179
 to_cell_xform = Transform( 2.63034, 0, 0, 0, 2.63034, 0, 0, 0, 2.63034, 120.119, 42.2085, 128 )
-dynamic_data = PoolIntArray( 0, 9, 256, 128, 256, 1, 0, 0, 0, 0, 0, 0, 7, 0, 1, 3599, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 8355711, 0 )
+dynamic_data = PoolIntArray( 0, 9, 256, 128, 256, 1, 0, 0, 0, 1094713344, 0, 0, 7, 0, 1, 3621, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 8355711, 0 )
 dynamic_range = 4
+energy = 0.8
 bias = 1.5
 normal_bias = 0.0
 
-[sub_resource type="SpatialMaterial" id=26]
+[sub_resource type="SpatialMaterial" id=28]
 flags_transparent = true
 flags_unshaded = true
 flags_albedo_tex_force_srgb = true
@@ -127,10 +140,10 @@ params_billboard_mode = 3
 particles_anim_h_frames = 1
 particles_anim_v_frames = 1
 particles_anim_loop = false
-albedo_color = Color( 0.678431, 0.823529, 0.917647, 0.0313726 )
+albedo_color = Color( 0.678431, 0.823529, 0.917647, 0.0196078 )
 albedo_texture = ExtResource( 38 )
 
-[sub_resource type="ParticlesMaterial" id=27]
+[sub_resource type="ParticlesMaterial" id=29]
 lifetime_randomness = 0.33
 emission_shape = 2
 emission_box_extents = Vector3( 40, 40, 40 )
@@ -140,18 +153,7 @@ gravity = Vector3( 0, -0.003, 0 )
 initial_velocity = 0.01
 scale = 20.0
 
-[sub_resource type="QuadMesh" id=28]
-
-[sub_resource type="QuadMesh" id=23]
-
-[sub_resource type="SpatialMaterial" id=24]
-emission_enabled = true
-emission = Color( 0.996078, 0.788235, 0.54902, 1 )
-emission_energy = 1.0
-emission_operator = 0
-emission_on_uv2 = false
-
-[sub_resource type="BoxShape" id=25]
+[sub_resource type="QuadMesh" id=30]
 
 [node name="Spatial" type="Spatial"]
 
@@ -703,15 +705,71 @@ omni_range = 4.11765
 [node name="Man" parent="OmniLight" instance=ExtResource( 26 )]
 transform = Transform( -0.0323702, 0, -0.999476, 0, 1, 0, 0.999476, 0, -0.0323702, 77.6398, -11.9264, 54.1748 )
 
+[node name="CSGMesh" type="CSGMesh" parent="."]
+transform = Transform( 60.7737, 0, 0, 0, 53.8849, 0, 0, 0, 1, 29.2893, 11.9673, -14.4617 )
+layers = 4
+mesh = SubResource( 23 )
+material = SubResource( 24 )
+
+[node name="CSGMesh2" type="CSGMesh" parent="."]
+transform = Transform( -0.621557, 0, 0.999948, 0, 53.8849, 0, -60.7705, 0, -0.0102274, -53.7277, 11.9673, 63.0742 )
+layers = 4
+mesh = SubResource( 23 )
+material = SubResource( 24 )
+
+[node name="SoundPlayerBedAmbience" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 29 )
+volume_db = 2.622
+autoplay = true
+bus = "AmbBeds"
+
+[node name="ReverbArea" type="Area" parent="."]
+reverb_bus_enable = true
+reverb_bus_name = "RevRoom"
+reverb_bus_amount = 1.0
+reverb_bus_uniformity = 0.46
+
+[node name="CollisionShape" type="CollisionShape" parent="ReverbArea"]
+transform = Transform( 51.5582, 0, 0, 0, 36.5494, 0, 0, 0, 49.2505, -11.4057, 1.46956, 33.7509 )
+shape = SubResource( 25 )
+
+[node name="Door" parent="." instance=ExtResource( 41 )]
+transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 4.49236, 2.81334e-05, 73.6642 )
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 21 )
+environment = SubResource( 26 )
+
+[node name="OmniLight2" type="OmniLight" parent="WorldEnvironment"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -38.1717, 11.6629, 72.971 )
+light_energy = 0.571
+shadow_enabled = true
+omni_range = 6.68599
+omni_attenuation = 1.68179
+
+[node name="Man" parent="WorldEnvironment/OmniLight2" instance=ExtResource( 26 )]
+transform = Transform( -0.0323702, 0, -0.999476, 0, 1, 0, 0.999476, 0, -0.0323702, 77.6398, -11.9264, 54.1748 )
+
+[node name="OmniLight3" type="OmniLight" parent="WorldEnvironment"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15.7948, 3.44024, 46.7912 )
+light_energy = 0.293
+shadow_enabled = true
+omni_range = 9.50347
+omni_attenuation = 1.68179
+
+[node name="OmniLight4" type="OmniLight" parent="WorldEnvironment"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -46.1589, 22.2732, 30.6377 )
+light_energy = 0.293
+shadow_enabled = true
+omni_range = 9.50347
+omni_attenuation = 1.68179
 
 [node name="GIProbe" type="GIProbe" parent="WorldEnvironment"]
 transform = Transform( 0.999985, 0.00511194, -0.00174359, -0.00511912, 0.999978, -0.004138, 0.0017224, 0.00414686, 0.99999, -7.73279, 13.2854, 34.2499 )
 subdiv = 2
 extents = Vector3( 45.6668, 16.0468, 48.6629 )
+energy = 0.8
 propagation = 1.0
-data = SubResource( 22 )
+data = SubResource( 27 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="WorldEnvironment"]
 transform = Transform( -0.928258, -0.0350106, 0.370285, 0.142962, 0.885493, 0.442113, -0.343363, 0.463331, -0.816961, 28.503, 13.1199, -4.72262 )
@@ -742,12 +800,14 @@ light_energy = 0.283
 light_indirect_energy = 0.0
 light_specular = 2.226
 shadow_enabled = true
+shadow_bias = 0.324
 omni_range = 22.1986
 omni_attenuation = 2.21914
 omni_shadow_mode = 0
 
 [node name="work temp light" type="OmniLight" parent="WorldEnvironment"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -33.5698, 15.6301, 5.14091 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.147388, 15.6301, 60.7171 )
+visible = false
 light_energy = 16.0
 light_indirect_energy = 0.0
 light_specular = 2.226
@@ -766,6 +826,9 @@ shadow_enabled = true
 omni_range = 23.4494
 omni_attenuation = 2.21914
 omni_shadow_mode = 0
+
+[node name="Door" parent="WorldEnvironment/Light Bed2" instance=ExtResource( 37 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.42318, -12.0971, -31.9134 )
 
 [node name="Light TV" type="OmniLight" parent="WorldEnvironment" groups=["lightTV"]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.4772, 11.1657, 25.7869 )
@@ -798,44 +861,17 @@ spot_range = 61.1029
 spot_angle = 41.8946
 
 [node name="Particles_Dust" type="Particles" parent="WorldEnvironment"]
-transform = Transform( 0.999304, -2.90114e-08, 0, 2.90114e-08, 0.999304, 0, 0, 0, 0.999304, 15.2998, 14.0832, 17.9382 )
-material_override = SubResource( 26 )
+transform = Transform( -0.999304, 1.16373e-07, 0, -1.16373e-07, -0.999304, 0, 0, 0, 0.999304, -9.69085, 21.0386, 32.7703 )
+material_override = SubResource( 28 )
 use_in_baked_light = true
 amount = 250
 lifetime = 30.94
-process_material = SubResource( 27 )
-draw_pass_1 = SubResource( 28 )
+visibility_aabb = AABB( -50.136, -10.4679, -58.6827, 100.272, 35.5853, 117.365 )
+process_material = SubResource( 29 )
+draw_pass_1 = SubResource( 30 )
 
-[node name="CSGMesh" type="CSGMesh" parent="."]
-transform = Transform( 60.7737, 0, 0, 0, 53.8849, 0, 0, 0, 1, 29.2893, 11.9673, -14.4617 )
-layers = 4
-mesh = SubResource( 23 )
-material = SubResource( 24 )
-
-[node name="CSGMesh2" type="CSGMesh" parent="."]
-transform = Transform( -0.621557, 0, 0.999948, 0, 53.8849, 0, -60.7705, 0, -0.0102274, -53.7277, 11.9673, 63.0742 )
-layers = 4
-mesh = SubResource( 23 )
-material = SubResource( 24 )
-
-[node name="SoundPlayerBedAmbience" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 29 )
-volume_db = 2.622
-autoplay = true
-bus = "AmbBeds"
-
-[node name="ReverbArea" type="Area" parent="."]
-reverb_bus_enable = true
-reverb_bus_name = "RevRoom"
-reverb_bus_amount = 1.0
-reverb_bus_uniformity = 0.46
-
-[node name="CollisionShape" type="CollisionShape" parent="ReverbArea"]
-transform = Transform( 51.5582, 0, 0, 0, 36.5494, 0, 0, 0, 49.2505, -11.4057, 1.46956, 33.7509 )
-shape = SubResource( 25 )
-
-[node name="SpotLight" type="SpotLight" parent="."]
-transform = Transform( 0.95263, 0.0618874, -0.29777, 0.300373, -0.344918, 0.889274, -0.0476712, -0.93659, -0.347168, -6.82871, 17.7736, -8.12011 )
+[node name="SpotLight2" type="SpotLight" parent="WorldEnvironment"]
+transform = Transform( 0.95263, 0.0618873, -0.297769, 0.300373, -0.344918, 0.889274, -0.0476712, -0.93659, -0.347169, -6.82871, 17.7736, -8.12011 )
 light_color = Color( 0.886275, 0.882353, 0.654902, 1 )
 light_energy = 1.279
 light_indirect_energy = 2.113
@@ -844,6 +880,3 @@ spot_range = 16.176
 spot_attenuation = 0.615572
 spot_angle = 40.95
 spot_angle_attenuation = 0.34151
-
-[node name="Door" parent="." instance=ExtResource( 41 )]
-transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 4.49236, 2.81334e-05, 73.6642 )

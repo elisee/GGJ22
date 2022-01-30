@@ -97,10 +97,11 @@ auto_exposure_enabled = true
 auto_exposure_scale = 1.04
 auto_exposure_min_luma = 0.2
 ssao_enabled = true
-ssao_radius = 2.21
+ssao_intensity = 4.62
 ssao_radius2 = 0.01
 ssao_intensity2 = 2.01
-ssao_edge_sharpness = 0.38
+ssao_quality = 2
+ssao_edge_sharpness = 2.49
 dof_blur_far_enabled = true
 dof_blur_far_distance = 60.4
 dof_blur_far_transition = 57.4
@@ -115,9 +116,9 @@ glow_bloom = 0.03
 bounds = AABB( -45.6668, -16.0468, -48.6629, 91.3336, 32.0936, 97.3258 )
 cell_size = 0.380179
 to_cell_xform = Transform( 2.63034, 0, 0, 0, 2.63034, 0, 0, 0, 2.63034, 120.119, 42.2085, 128 )
-dynamic_data = PoolIntArray( 0, 9, 256, 128, 256, 1, 0, 0, 0, 1098907648, 1098907648, 0, 362018576, 0, 0, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 8355711, 0 )
-dynamic_range = 3
-energy = 2.14
+dynamic_data = PoolIntArray( 0, 9, 256, 128, 256, 1, 0, 0, 0, 1094713344, 0, 0, 7, 0, 1, 3621, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 8355711, 0 )
+dynamic_range = 4
+energy = 0.8
 bias = 1.5
 normal_bias = 0.0
 
@@ -132,7 +133,7 @@ params_billboard_mode = 3
 particles_anim_h_frames = 1
 particles_anim_v_frames = 1
 particles_anim_loop = false
-albedo_color = Color( 0.678431, 0.823529, 0.917647, 0.0313726 )
+albedo_color = Color( 0.678431, 0.823529, 0.917647, 0.0196078 )
 albedo_texture = ExtResource( 38 )
 
 [sub_resource type="ParticlesMaterial" id=27]
@@ -407,9 +408,6 @@ depth = 0.5
 
 [node name="Kitchen Corner" type="Spatial" parent="Furnitures"]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.1, 0, 51 )
-
-[node name="Counter2" parent="Furnitures/Kitchen Corner" instance=ExtResource( 40 )]
-transform = Transform( 0.938241, 0, -1.8059e-08, 0, 1.32252, 0, -1.8059e-08, 0, 1.35138, 0.794807, 0, -36.6023 )
 
 [node name="WaterBottle" parent="Furnitures/Kitchen Corner" instance=ExtResource( 37 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.8385, 10.0822, -49.3055 )
@@ -713,24 +711,41 @@ transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, -8.877, -0.00407219, -5.538
 [node name="Door" parent="Structures" instance=ExtResource( 41 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.12597, 1.90735e-06, 40.7396 )
 
-[node name="OmniLight" type="OmniLight" parent="."]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -38.1717, 11.6629, 72.971 )
-light_energy = 0.1
-shadow_enabled = true
-omni_range = 4.11765
-
-[node name="Man" parent="OmniLight" instance=ExtResource( 26 )]
-transform = Transform( -0.0323702, 0, -0.999476, 0, 1, 0, 0.999476, 0, -0.0323702, 77.6398, -11.9264, 54.1748 )
+[node name="Man" parent="." instance=ExtResource( 26 )]
+transform = Transform( 0.999476, 0, -0.0323702, 0, 1, 0, 0.0323702, 0, 0.999476, 26.6911, -9.47991, -31.2054 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 21 )
+
+[node name="OmniLight2" type="OmniLight" parent="WorldEnvironment"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -38.1717, 11.6629, 72.971 )
+light_energy = 1.128
+shadow_enabled = true
+omni_range = 4.11765
+omni_attenuation = 1.68179
+
+[node name="Man" parent="WorldEnvironment/OmniLight2" instance=ExtResource( 26 )]
+transform = Transform( -0.0323702, 0, -0.999476, 0, 1, 0, 0.999476, 0, -0.0323702, 77.6398, -11.9264, 54.1748 )
+
+[node name="OmniLight3" type="OmniLight" parent="WorldEnvironment"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15.7948, 3.44024, 46.7912 )
+light_energy = 0.293
+shadow_enabled = true
+omni_range = 9.50347
+omni_attenuation = 1.68179
+
+[node name="OmniLight4" type="OmniLight" parent="WorldEnvironment"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -46.1589, 22.2732, 30.6377 )
+light_energy = 0.293
+shadow_enabled = true
+omni_range = 9.50347
+omni_attenuation = 1.68179
 
 [node name="GIProbe" type="GIProbe" parent="WorldEnvironment"]
 transform = Transform( 0.999985, 0.00511194, -0.00174359, -0.00511912, 0.999978, -0.004138, 0.0017224, 0.00414686, 0.99999, -7.73279, 13.2854, 34.2499 )
 subdiv = 2
 extents = Vector3( 45.6668, 16.0468, 48.6629 )
-dynamic_range = 3
-energy = 2.14
+energy = 0.8
 propagation = 1.0
 data = SubResource( 22 )
 
@@ -763,6 +778,7 @@ light_energy = 0.283
 light_indirect_energy = 0.0
 light_specular = 2.226
 shadow_enabled = true
+shadow_bias = 0.324
 omni_range = 22.1986
 omni_attenuation = 2.21914
 omni_shadow_mode = 0
@@ -828,9 +844,20 @@ material_override = SubResource( 26 )
 use_in_baked_light = true
 amount = 250
 lifetime = 30.94
-visibility_aabb = AABB( -3.6071, -4, -4, 7.21421, 8, 8 )
+visibility_aabb = AABB( -50.136, -10.4679, -58.6827, 100.272, 35.5853, 117.365 )
 process_material = SubResource( 27 )
 draw_pass_1 = SubResource( 28 )
+
+[node name="SpotLight2" type="SpotLight" parent="WorldEnvironment"]
+transform = Transform( 0.95263, 0.0618873, -0.297769, 0.300373, -0.344918, 0.889274, -0.0476712, -0.93659, -0.347169, -6.82871, 17.7736, -8.12011 )
+light_color = Color( 0.886275, 0.882353, 0.654902, 1 )
+light_energy = 1.279
+light_indirect_energy = 2.113
+light_specular = 2.03
+spot_range = 16.176
+spot_attenuation = 0.615572
+spot_angle = 40.95
+spot_angle_attenuation = 0.34151
 
 [node name="CSGMesh" type="CSGMesh" parent="."]
 transform = Transform( 60.7737, 0, 0, 0, 53.8849, 0, 0, 0, 1, 29.2893, 11.9673, -14.4617 )
@@ -860,16 +887,8 @@ reverb_bus_uniformity = 0.46
 transform = Transform( 51.5582, 0, 0, 0, 36.5494, 0, 0, 0, 49.2505, -11.4057, 1.46956, 33.7509 )
 shape = SubResource( 25 )
 
-[node name="SpotLight" type="SpotLight" parent="."]
-transform = Transform( 0.95263, 0.0618874, -0.29777, 0.300373, -0.344918, 0.889274, -0.0476712, -0.93659, -0.347168, -6.82871, 17.7736, -8.12011 )
-light_color = Color( 0.886275, 0.882353, 0.654902, 1 )
-light_energy = 1.279
-light_indirect_energy = 2.113
-light_specular = 2.03
-spot_range = 16.176
-spot_attenuation = 0.615572
-spot_angle = 40.95
-spot_angle_attenuation = 0.34151
-
 [node name="Door" parent="." instance=ExtResource( 41 )]
 transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 4.49236, 2.81334e-05, 73.6642 )
+
+[node name="Counter2" parent="." instance=ExtResource( 40 )]
+transform = Transform( 1.4, 0, -1.06581e-14, 0, 1.32, 0, -4.26326e-14, 0, 1, -34.937, 0, 49.2412 )
