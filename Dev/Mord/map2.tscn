@@ -114,10 +114,10 @@ glow_strength = 0.74
 glow_bloom = 0.03
 
 [sub_resource type="GIProbeData" id=27]
-bounds = AABB( -45.6668, -16.0468, -48.6629, 91.3336, 32.0936, 97.3258 )
-cell_size = 0.380179
-to_cell_xform = Transform( 2.63034, 0, 0, 0, 2.63034, 0, 0, 0, 2.63034, 120.119, 42.2085, 128 )
-dynamic_data = PoolIntArray( 0, 9, 256, 128, 256, 1, 0, 1098932185, 1111664335, -1036604722, 1098932185, -1035819313, -1036604722, -1048551463, 1111664335, 1110878926, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 8355711, 0 )
+bounds = AABB( -80, -30, -80, 160, 60, 160 )
+cell_size = 0.625
+to_cell_xform = Transform( 1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, 128, 48, 128 )
+dynamic_data = PoolIntArray( 0, 9, 256, 128, 256, 1, 0, 0, 0, 1098907648, 0, 0, 0, 0, 0, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 8355711, 0 )
 dynamic_range = 4
 energy = 1.1
 bias = 1.5
@@ -622,9 +622,8 @@ omni_range = 26.2634
 omni_attenuation = 1.68179
 
 [node name="GIProbe" type="GIProbe" parent="WorldEnvironment"]
-transform = Transform( 0.999985, 0.00511194, -0.00174359, -0.00511912, 0.999978, -0.004138, 0.0017224, 0.00414686, 0.99999, -7.73279, 13.2854, 34.2499 )
 subdiv = 2
-extents = Vector3( 45.6668, 16.0468, 48.6629 )
+extents = Vector3( 80, 30, 80 )
 energy = 1.1
 propagation = 1.0
 data = SubResource( 27 )
