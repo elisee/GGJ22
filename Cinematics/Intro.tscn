@@ -13,11 +13,11 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 521, 303 )
+position = Vector2( 513, 303 )
 scale = Vector2( 0.568225, 0.568225 )
 texture = ExtResource( 2 )
 
-[node name="IntroLabel" type="Label" parent="."]
+[node name="Label" type="Label" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5

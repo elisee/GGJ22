@@ -7,3 +7,4 @@ func interact():
 	.interact()
 	
 	$Pivot.rotation_degrees.x = 0
+	$SoundPlayerFramePlace.play()

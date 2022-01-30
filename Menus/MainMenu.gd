@@ -18,6 +18,4 @@ func _on_BackButton_pressed():
 
 func _on_QuitButton_pressed():
 	get_tree().quit()
-
-
-
+	

@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Models/FrameLarge.material" type="Material" id=1]
 [ext_resource path="res://Models/FrameLarge_Image.material" type="Material" id=2]
 [ext_resource path="res://Interactables/FrameLarge.gd" type="Script" id=3]
+[ext_resource path="res://Sounds/SFX/sfx_picture_frame_large_success.wav" type="AudioStream" id=4]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "FrameLarge_Cube001"
@@ -56,3 +57,12 @@ shape = SubResource( 2 )
 [node name="CollisionShape" type="CollisionShape" parent="Area"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.183721 )
 shape = SubResource( 3 )
+
+[node name="SoundPlayerFrameFix" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 4 )
+unit_db = 1.0
+unit_size = 20.0
+max_distance = 50.0
+bus = "SFX"
+attenuation_filter_cutoff_hz = 2000.0
+attenuation_filter_db = -20.8

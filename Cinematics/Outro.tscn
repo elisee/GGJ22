@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Cinematics/Outro.gd" type="Script" id=1]
+[ext_resource path="res://Theme/Theme.tres" type="Theme" id=2]
+[ext_resource path="res://Cinematics/Outro.jpg" type="Texture" id=3]
+[ext_resource path="res://Sounds/Music/CheeseMouseFULL.mp3" type="AudioStream" id=4]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 2 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 514, 303 )
+scale = Vector2( 0.568225, 0.568225 )
+texture = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -131.0
+margin_top = -18.5
+margin_right = 131.0
+margin_bottom = 18.5
+text = "Plz write an interesting story line
+For real though"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MenuButton" type="Button" parent="."]
+margin_left = 891.0
+margin_top = 537.0
+margin_right = 959.0
+margin_bottom = 568.0
+text = "Menu"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+autoplay = true
+
+[connection signal="pressed" from="MenuButton" to="." method="_on_MenuButton_pressed"]
